@@ -5,12 +5,12 @@ description: Perguntas frequentes sobre como usar a API de Atividade de Gerencia
 ms.ContentId: ''
 ms.topic: reference (API)
 ms.date: 09/21/2018
-ms.openlocfilehash: 612aac60ab421d79a1c866a4a79157ee255d167d
-ms.sourcegitcommit: 525c0d0e78cc44ea8cb6a4bdce1858cb4ef91d57
+ms.openlocfilehash: 8118f44b04beedf33e98edd5ebc63c85b8c0fbc5
+ms.sourcegitcommit: a5a60b603acd9a17d7717420e377d5760e08c7da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2018
-ms.locfileid: "25834760"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "27240621"
 ---
 # <a name="office-365-management-activity-api-frequently-asked-questions"></a>Perguntas frequentes sobre a API de Atividade de Gerenciamento do Office 365
 
@@ -46,6 +46,11 @@ Não. As notificações do webhook não são controladas por evento, no sentido 
 
 Às vezes, há situações de interrupção temporária ou outros problemas no serviço do Office 365. Nesses casos, alguns registros de auditoria são descartados, e o serviço tenta preenchê-los. Embora isso ocorra apenas em cerca de 5% a 10% dos registros, esses são os registros que podem gerar atrasos em determinadas situações. Se o atraso for superior a cinco dias, verifique o Painel de Integridade do Serviço no Centro de administração do Office 365. Se necessário, você também pode abrir um tíquete com o [suporte da Microsoft](https://support.office.com/article/contact-support-for-business-products-admin-help-32a17ca7-6fa0-4870-8a8d-e25ba4ccfd4b#ID0EAADAAA=online).
 
-#### <a name="i-am-encountering-a-throttling-error-in-the-management-activity-api-what-should-i-do"></a>Estou encontrando um erro de limitação na API de Atividade de Gerenciamento. O que devo fazer?
+#### <a name="im-encountering-a-throttling-error-in-the-management-activity-api-what-should-i-do"></a>Estou encontrando um erro de limitação na API da Atividade de Gestão. O que devo fazer?
 
 Abra um tíquete com o [Suporte da Microsoft](https://support.office.com/article/contact-support-for-business-products-admin-help-32a17ca7-6fa0-4870-8a8d-e25ba4ccfd4b#ID0EAADAAA=online) e solicite uma nova restrição de limitação, além de incluir uma justificativa comercial para aumentar o limite. Nós avaliaremos a solicitação e, se aceita, aumentaremos a restrição de limitação.
+
+#### <a name="what-happens-if-i-disable-auditing-for-my-office-365-organization-will-i-still-get-events-via-the-management-activty-api"></a>O que acontece se eu desabilitar a auditoria da minha organização no Office 365? Ainda receberei eventos por meio da API da Atividade de Gestão?
+
+Não. A auditoria deve estar habilitada na sua organização para incluir os registros por meio da API de Atividade de Gestão.
+
