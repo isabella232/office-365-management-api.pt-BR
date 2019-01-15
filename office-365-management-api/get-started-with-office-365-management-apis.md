@@ -5,12 +5,13 @@ description: As APIs usam o Azure AD para fornecer serviços de autenticação q
 ms.ContentId: 74137c9a-29e0-b588-6122-26f4d2c5e3fc
 ms.topic: reference (API)
 ms.date: 09/05/2018
-ms.openlocfilehash: 87abfbe89f60710dc6c9981fa57bde4238790b1f
-ms.sourcegitcommit: 525c0d0e78cc44ea8cb6a4bdce1858cb4ef91d57
+localization_priority: Priority
+ms.openlocfilehash: 9732b5a838bdf4c14a6a13af8196704c89dec63d
+ms.sourcegitcommit: 358bfe9553eabbe837fda1d73cd1d1a83bcb427e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2018
-ms.locfileid: "25834762"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "28014298"
 ---
 # <a name="get-started-with-office-365-management-apis"></a>Introdução às APIs de Gerenciamento do Office 365
 
@@ -22,7 +23,7 @@ Há quatro etapas principais:
     
 2. **Obter o consentimento do administrador do locatário do Office 365**. Um administrador do locatário do Office 365 deve conceder explicitamente o consentimento para permitir que seu aplicativo acesse os dados de locatário por meio das APIs de Gerenciamento do Office 365. O processo de consentimento é uma experiência no navegador que exige que o administrador do locatário entre na **IU de consentimento do Azure AD** e analise as permissões de acesso que seu aplicativo está solicitando e conceda ou negue a solicitação. Após o consentimento, a IU redireciona o usuário de volta ao aplicativo com um código de autorização na URL. O aplicativo faz uma chamada de serviço a serviço ao Azure AD para trocar esse código de autorização por um token de acesso, que contém informações sobre o administrador do locatário e seu aplicativo. A ID do locatário deve ser extraída do token de acesso e armazenada para uso futuro.
     
-3. **Solicitar tokens de acesso do Azure AD**.Usando as credenciais do aplicativo, conforme definidas no Azure AD, seu aplicativo solicita tokens de acesso adicionais para um locatário autorizado continuamente, sem a necessidade de mais interação do administrador do locatário. Using your application's credentials as configured in Azure AD, your application requests additional access tokens for a consented tenant on an ongoing basis, without the need for further tenant admin interaction. Esses tokens de acesso são chamados de tokens somente aplicativo porque não incluem informações sobre o administrador do locatário.
+3. **Solicitar tokens de acesso do Azure AD**. Usando as credenciais do aplicativo, conforme definidas no Azure AD, seu aplicativo solicita tokens de acesso adicionais para um locatário autorizado continuamente, sem a necessidade de mais interação do administrador do locatário. Esses tokens de acesso são chamados de tokens somente aplicativo porque não incluem informações sobre o administrador do locatário.
     
 4. **Chamar as APIs de Gerenciamento do Office 365**. Os tokens de acesso somente aplicativo são passados ​​para as APIs de Gerenciamento do Office 365 para autenticar e autorizar seu aplicativo.
     
