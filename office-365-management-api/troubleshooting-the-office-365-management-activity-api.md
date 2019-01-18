@@ -5,12 +5,13 @@ description: Resume as perguntas mais comuns que o Suporte da Microsoft recebe n
 ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: 09/05/2018
-ms.openlocfilehash: 9267bd9e55be7605af72d9c77cf5ed415dcc5c9d
-ms.sourcegitcommit: 525c0d0e78cc44ea8cb6a4bdce1858cb4ef91d57
-ms.translationtype: HT
+localization_priority: Priority
+ms.openlocfilehash: ed84984dc3009d03e0bb7cacba16eafb687c93e0
+ms.sourcegitcommit: 358bfe9553eabbe837fda1d73cd1d1a83bcb427e
+ms.translationtype: Auto
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2018
-ms.locfileid: "25834767"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "28014291"
 ---
 # <a name="troubleshooting-the-office-365-management-activity-api"></a>Solução de problemas da API da Atividade de Gerenciamento do Office 365
 
@@ -222,7 +223,7 @@ Ao tentar recuperar os blobs de conteúdo disponíveis, muitos clientes (princip
 Response Code 403: {'error':{'code':'AF429','message':'Too many requests. Method=GetBlob, PublisherId=00000000-0000-0000-0000-000000000000'}}
 ```
 
-Isso provavelmente é devido à limitação. Observe que o valor do parâmetro Publisherid provavelmente indica que o cliente não especificou o *PublisherIdentifier* na solicitação. Além disso, tenha em mente que o nome do parâmetro correto é *PublisherIdentifier* mesmo que você veja *PublisherId* listado nas respostas de erro 403.
+Isso provavelmente é devido à limitação. Observe que o valor do parâmetro PublisherId provavelmente indica que o cliente não especificou o *PublisherIdentifier* na solicitação. Além disso, tenha em mente que o nome do parâmetro correto é *PublisherIdentifier* mesmo que você veja *PublisherId* listado nas respostas de erro 403.
 
 > [!NOTE] 
 > Na referência de API, o parâmetro *PublisherIdentifier* está listado em cada operação da API, mas ele também deverá será incluído na solicitação GET para a URL contentUri ao recuperar blobs de conteúdo.
@@ -231,7 +232,7 @@ Se você estiver fazendo chamadas simples de API para solucionar problemas (por 
 
 Se você estiver implementando um cliente para o locatário da sua empresa, o *PublisherIdentifier* será o GUID de locatário. Se você estiver criando um aplicativo de ISV ou suplemento para vários clientes, o *PublisherIdentifier* será a GUID de locatário do ISV e não a GUID de locatário da empresa do usuário final.
 
-Se você incluir o *PublisherIdentifier* válido, estará em um pool alocado com 60 mil solicitações por minuto por locatário. Este é um número de solicitações excepcionalmente grande. No entanto, se você não incluir o parâmetro *PublishisherIdentifier*, estará no pool geral alocado com 60 mil solicitações por minuto para todos os locatários. Nesse caso, você provavelmente achará que suas chamadas estão ficando limitadas. Para evitar isso, veja aqui como é possível solicitar um blob de conteúdo usando o *PublisherIdentifier*:
+Se você incluir o *PublisherIdentifier* válido, estará em um pool alocado com 60 mil solicitações por minuto por locatário. Este é um número de solicitações excepcionalmente grande. No entanto, se você não incluir o parâmetro *PublisherIdentifier*, estará no pool geral alocado com 60 mil solicitações por minuto para todos os locatários. Nesse caso, você provavelmente achará que suas chamadas estão ficando limitadas. Para evitar isso, veja aqui como é possível solicitar um blob de conteúdo usando o *PublisherIdentifier*:
 
 ```powershell
 $contentUri = ($response.Content | ConvertFrom-Json).contentUri[0]
@@ -239,7 +240,7 @@ $uri = $contentUri + '?PublisherIdentifier=82b24b6d-0591-4604-827b-705d55d0992f'
 $contents = Invoke-WebRequest -Method GET -Headers $headerParams -Uri $uri
 ```
 
-O exemplo anterior pressupõe que a variável *$response* foi preenchida com a resposta a uma solicitação para o ponto de extremidade /content e que a variável *$hearderParams* inclui um token de acesso válido. O script utiliza o primeiro item na matriz de URIs de conteúdo da resposta e invoca GET para fazer o download desse blog e colocá-lo na variável *$contents*. O código provavelmente percorrerá a coleção contentUri emitindo o GET para cada *contentUri*.
+O exemplo anterior pressupõe que a variável *$response* foi preenchida com a resposta a uma solicitação para o ponto de extremidade /content e que a variável *$headerParams* inclui um token de acesso válido. O script utiliza o primeiro item na matriz de URIs de conteúdo da resposta e invoca GET para fazer o download desse blog e colocá-lo na variável *$contents*. O código provavelmente percorrerá a coleção contentUri emitindo o GET para cada *contentUri*.
 
 ## <a name="frequently-asked-questions-about-the-office-365-management-api"></a>Perguntas frequentes sobre a API de Gerenciamento do Office 365
 

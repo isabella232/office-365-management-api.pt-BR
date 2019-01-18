@@ -5,12 +5,13 @@ description: Perguntas frequentes sobre como usar a API de Atividade de Gerencia
 ms.ContentId: ''
 ms.topic: reference (API)
 ms.date: 09/21/2018
-ms.openlocfilehash: 8118f44b04beedf33e98edd5ebc63c85b8c0fbc5
-ms.sourcegitcommit: a5a60b603acd9a17d7717420e377d5760e08c7da
-ms.translationtype: HT
+localization_priority: Priority
+ms.openlocfilehash: 8e341def7bc3a4f71eee23bc04d01e11d1390e1d
+ms.sourcegitcommit: 358bfe9553eabbe837fda1d73cd1d1a83bcb427e
+ms.translationtype: Auto
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "27240621"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "28014284"
 ---
 # <a name="office-365-management-activity-api-frequently-asked-questions"></a>Perguntas frequentes sobre a API de Atividade de Gerenciamento do Office 365
 
@@ -50,7 +51,7 @@ Não. As notificações do webhook não são controladas por evento, no sentido 
 
 Abra um tíquete com o [Suporte da Microsoft](https://support.office.com/article/contact-support-for-business-products-admin-help-32a17ca7-6fa0-4870-8a8d-e25ba4ccfd4b#ID0EAADAAA=online) e solicite uma nova restrição de limitação, além de incluir uma justificativa comercial para aumentar o limite. Nós avaliaremos a solicitação e, se aceita, aumentaremos a restrição de limitação.
 
-#### <a name="what-happens-if-i-disable-auditing-for-my-office-365-organization-will-i-still-get-events-via-the-management-activty-api"></a>O que acontece se eu desabilitar a auditoria da minha organização no Office 365? Ainda receberei eventos por meio da API da Atividade de Gestão?
+#### <a name="what-happens-if-i-disable-auditing-for-my-office-365-organization-will-i-still-get-events-via-the-management-activity-api"></a>O que acontece se eu desabilitar a auditoria da minha organização no Office 365? Ainda receberei eventos por meio da API da Atividade de Gestão?
 
 Não. A auditoria deve estar habilitada na sua organização para incluir os registros por meio da API de Atividade de Gestão.
 

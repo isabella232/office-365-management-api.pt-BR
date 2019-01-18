@@ -5,12 +5,13 @@ description: 'O esquema da API da Atividade de Gerenciamento do Office 365 é fo
 ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
-ms.openlocfilehash: e9a7c47f10c3926f7fd681db6a11bb74cc034226
-ms.sourcegitcommit: a5a60b603acd9a17d7717420e377d5760e08c7da
-ms.translationtype: HT
+localization_priority: Priority
+ms.openlocfilehash: a8e8fdab103bcee6a5ea8de56dc91c45c1c20b43
+ms.sourcegitcommit: 358bfe9553eabbe837fda1d73cd1d1a83bcb427e
+ms.translationtype: Auto
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "27240649"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "28014333"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
  
@@ -68,10 +69,10 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |UserType|Self.[UserType](#user-type)|Sim|O tipo de usuário que executou a operação. Confira a tabela [UserType](#user-type) para detalhes sobre os tipos de usuários.|
 |UserKey|Edm.String|Sim|Uma ID alternativa para o usuário identificado na propriedade UserId. Por exemplo, essa propriedade é preenchida com a ID exclusiva do passaporte (PUID) para eventos executados por usuários no SharePoint, no OneDrive for Business e no Exchange. Essa propriedade também pode especificar o mesmo valor da propriedade UserID para eventos que ocorrem em outros serviços e eventos executados por contas do sistema.|
 |Workload|Edm.String|Não|O serviço do Office 365 em que a atividade ocorreu na cadeia de caracteres Workload. Os valores possíveis para esta propriedade são:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Exchange</p></li><li><p>SharePoint</p></li><li><p>OneDrive</p></li><li><p>Azure Active Directory</p></li><li><p>SecurityComplianceCenter</p></li><li><p>Sway</p></li><li><p>ThreatIntelligence</p></li></ul>|
-|ResultStatus|Edm.String|Não|Indica se a ação (especificada na propriedade Operation) foi bem-sucedida ou não. Os valores possíveis são **Succeeded**, **PartiallySucceded** ou **Failed**. Para a atividade de administração do Exchange, o valor é **Verdadeiro** ou **Falso**.|
+|ResultStatus|Edm.String|Não|Indica se a ação (especificada na propriedade Operation) foi bem-sucedida ou não. Os valores possíveis são **Succeeded**, **PartiallySucceeded** ou **Failed**. Para a atividade de administração do Exchange, o valor é **Verdadeiro** ou **Falso**.|
 |ObjectId|Edm.string|Não|Para atividades do SharePoint e do OneDrive for Business, o nome do caminho completo do arquivo ou pasta acessado pelo usuário. Para o log de auditoria do administrador do Exchange, o nome do objeto que foi modificado pelo cmdlet.|
 |UserId|Edm.string|Sim|O UPN (User Principal Name) do usuário que executou a ação (especificado na propriedade Operation) que resultou no registro sendo registrado; por exemplo, `my_name@my_domain_name`. Observe que os registros da atividade executada pelas contas do sistema (como SHAREPOINT\system ou NT AUTHORITY\SYSTEM) também são incluídos.|
-|ClientIp|Edm.String|Sim|O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6.|
+|ClientIP|Edm.String|Sim|O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6.|
 |Scope|Self.[AuditLogScope](#auditlogscope)|Não|Esse evento foi criado por um serviço hospedado do O365 ou por um servidor local? Os valores possíveis são **online** e **onprem**. Observe que o SharePoint é a única carga de trabalho enviando eventos do local para o O365 atualmente.|
 
 ### <a name="enum-auditlogrecordtype---type-edmint32"></a>Enumeração: AuditLogRecordType - Tipo: Edm.Int32
@@ -540,7 +541,7 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |SendAsUserSmtp|Edm.String|Não|Endereço SMTP do usuário que está sendo representado.|
 |SendAsUserMailboxGuid|Edm.Guid|Não|O GUID do Exchange da caixa de correio que foi acessada para enviar email.|
 |SendOnBehalfOfUserSmtp|Edm.String|Não|O endereço SMTP do usuário em nome de quem o email é enviado.|
-|SendonBehalfOfUserMailboxGuid|Edm.Guid|Não|O GUID do Exchange da caixa de correio que foi acessada para enviar emails.|
+|SendOnBehalfOfUserMailboxGuid|Edm.Guid|Não|O GUID do Exchange da caixa de correio que foi acessada para enviar emails.|
 
 
 ### <a name="exchangeitem-complex-type"></a>Tipo complexo ExchangeItem
@@ -794,7 +795,7 @@ Os eventos de DLP (Prevenção contra Perda de Dados) sempre terão UserKey = "D
 |:-----|:-----|:-----|:-----|
 |Confidence|Edm.Int|Sim|A confiança do padrão que correspondeu à detecção.|
 |Count|Edm.Int|Sim|O número de instâncias confidenciais detectadas.|
-|SensitiveType|Edm.Guid|Sim|Um GUID que identifica o tipo de dados confidenciais detectados.|
+|SensitiveType|Edm.Guid|Sim|Um guid que identifica o tipo de dados confidenciais detectados.|
 |SensitiveInformationDetections|Self.SensitiveInformationDetections|Não|Uma matriz de objetos que contêm dados de informações confidenciais com os seguintes detalhes – valor correspondente e contexto do valor correspondente.|
 
 ### <a name="sensitiveinformationdetections-complex-type"></a>Tipo complexo SensitiveInformationDetections 
@@ -867,7 +868,7 @@ Os eventos do Yammer listados em [Pesquisar o log de auditoria no Centro de Prot
 |FileId|Edm.Int32|Não|ID do arquivo na operação. |
 |FileName|Edm.String|Não|Nome do arquivo na operação. Será exibido em branco se não for relevante para a operação.|
 |GroupName|Edm.String|Não|Nome do grupo na operação. Será exibido em branco se não for relevante para a operação.|
-|IsSoftDelete|Edm.Boolean|Não|Retorna "true" se a política de retenção de dados da rede estiver definida como exclusão reversível; retorna "false" se a política de retenção de dados da rede estiver definida como exclusão irreversível.|
+|IsSoftDelete|Edm.Boolean|Não|Retorna "true" se a política de retenção de dados da rede estiver definida como exclusão reversível; retorna "false" se a política de retenção de dados da rede estiver definida como Exclusão Irreversível.|
 |MessageId|Edm.Int32|Não|ID da mensagem na operação.|
 |YammerNetworkId|Edm.Int32|Não|ID da rede do usuário que executou a operação.|
 |TargetUserId|Edm.String|Não|Email do usuário de destino na operação. Será exibido em branco se não for relevante para a operação.|
@@ -1130,7 +1131,7 @@ Os eventos do Power BI listados em [Pesquisar o log de auditoria no Centro de Pr
 |:-----|:-----|:-----|:-----|
 | AppName               | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  Não  | O nome do aplicativo em que o evento ocorreu. |
 | DashboardName         | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  Não  | O nome do painel onde o evento ocorreu. |
-| DataClassification    | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  Não  | As [classificação dos dados](/power-bi/service-data-classification), se houver, para o painel onde o evento ocorreu. |
+| DataClassification    | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  Não  | As [classificação dos dados](/power-bi/service-data-classification), se houver, do painel onde o evento ocorreu. |
 | DatasetName           | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  Não  | O nome do conjunto de dados onde o evento ocorreu. |
 | MembershipInformation | Conjunto ([MembershipInformationType](#MembershipInformationType)) Term="Microsoft.Office.Audit.Schema.PIIFlag" booleano = "true" |  Não  | Informações de associação sobre o grupo. |
 | OrgAppPermission      | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  Não  | Lista de permissões de um aplicativo organizacional (toda a organização, usuários específicos ou grupos específicos). |
