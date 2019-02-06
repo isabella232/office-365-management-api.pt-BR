@@ -6,12 +6,12 @@ ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: 01/10/2018
 localization_priority: Priority
-ms.openlocfilehash: f9c4a79a882da31b85847bf60237e813c7cdb71c
-ms.sourcegitcommit: 358bfe9553eabbe837fda1d73cd1d1a83bcb427e
+ms.openlocfilehash: 76907cf9f22078a232cc20e65ba5fdc12c7f5d7e
+ms.sourcegitcommit: 55264094d1ebc2f9968b2d29d5982b1ba4e29118
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "28014319"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "29735226"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referência da API da Atividade de Gerenciamento do Office 365
 
@@ -47,7 +47,7 @@ Após criar uma assinatura, você pode realizar uma sondagem regularmente para d
 
 
 > [!NOTE] 
-> Quando uma assinatura é criada, pode levar até 12 horas para que os primeiros blobs de conteúdo fiquem disponíveis para essa assinatura. Os blobs de conteúdo são criados com a coleta e a agregação de ações e eventos entre vários servidores e data centers. Como resultado desse processo distribuído, as ações e os eventos contidos nos blobs de conteúdo não necessariamente aparecerão na ordem em que ocorreram. Um blob de conteúdo pode ter ações e eventos que ocorreram antes das ações e dos eventos contidos em um blob de conteúdo anterior. Estamos trabalhando para reduzir a latência entre a ocorrência de ações e eventos e sua disponibilidade em um blob de conteúdo, mas não podemos garantir que eles apareçam sequencialmente.
+> Quando uma assinatura é criada, pode levar até 12 horas para que os primeiros blobs de conteúdo fiquem disponíveis para essa assinatura. Os blobs de conteúdo são criados com a coleta e a agregação de ações e eventos entre vários servidores e data centers. Como resultado desse processo distribuído, as ações e os eventos contidos nos blobs de conteúdo não necessariamente aparecerão na ordem em que ocorreram. Um blob de conteúdo pode ter ações e eventos que ocorreram antes das ações e dos eventos contidos em um blob de conteúdo anterior. Estamos trabalhando para reduzir a latência entre a ocorrência de ações e eventos, bem como a respectiva disponibilidade em um blob de conteúdo, mas não podemos garantir que eles apareçam sequencialmente.
 
 
 > [!NOTE] 
