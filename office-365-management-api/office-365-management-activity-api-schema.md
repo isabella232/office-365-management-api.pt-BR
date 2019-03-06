@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 6fa95b7134bd5bb8ac6a8f07c87df747ae086a81
-ms.sourcegitcommit: 55264094d1ebc2f9968b2d29d5982b1ba4e29118
+ms.openlocfilehash: 72392671dccec43b70684bbde6f53ac926b8d06e
+ms.sourcegitcommit: 95a3313d95b79a2164008d32c4a4f03bf873a23c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "29735240"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "30379192"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
  
@@ -108,9 +108,13 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |32|MicrosoftStream|Eventos do Microsoft Stream.|
 |35|Project|Eventos do Microsoft Project.|
 |36|SharepointListOperation|Eventos de lista do SharePoint.|
+|38|DataGovernance|Eventos relacionados às políticas de retenção e rótulos de retenção no Centro de Conformidade e Segurança|
 |40|SecurityComplianceAlerts|Sinais de alerta de conformidade e segurança.|
 |41|ThreatIntelligenceUrl|Eventos de bloqueio de tempo e bloqueio de links seguros da Proteção Avançada contra Ameaças do Office 365.|
+|44|WorkplaceAnalytics|Eventos do Workplace Analytics.|
+|45|PowerAppsApp|Eventos do aplicativo PowerApps.|
 |47|ThreatIntelligenceAtpContent|Eventos de phishing e malware para arquivos no SharePoint, OneDrive for Business e o Microsoft Teams da Proteção Avançada contra Ameaças do Office 365.|
+||||
 
 ### <a name="enum-user-type---type-edmint32"></a>Enumeração: User Type - Tipo: Edm.Int32
 
