@@ -6,12 +6,12 @@ ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: 01/10/2018
 localization_priority: Priority
-ms.openlocfilehash: 76907cf9f22078a232cc20e65ba5fdc12c7f5d7e
-ms.sourcegitcommit: 55264094d1ebc2f9968b2d29d5982b1ba4e29118
+ms.openlocfilehash: e6675628a384ab4b2dac3342875332b50586526f
+ms.sourcegitcommit: 95a3313d95b79a2164008d32c4a4f03bf873a23c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "29735226"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "30379178"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referência da API da Atividade de Gerenciamento do Office 365
 
@@ -22,7 +22,7 @@ Você pode usar as ações e os eventos dos logs de auditoria e atividades do Of
 A API da Atividade de Gerenciamento do Office 365 é um serviço Web REST que você pode usar para desenvolver soluções usando qualquer linguagem e ambiente de hospedagem que dê suporte a certificados HTTPS e X.509. A API depende do Azure AD e do protocolo OAuth2 para autorização e autenticação. Para acessar a API por meio de seu aplicativo, primeiro será preciso registrá-la no Azure AD e configurá-la com permissões apropriadas. Isso habilitará o aplicativo a solicitar os tokens de acesso OAuth2 necessários para chamar a API. Para saber mais, confira [Introdução às APIs de Gerenciamento do Office 365](get-started-with-office-365-management-apis.md).
 
 > [!NOTE] 
-> Para obter informações sobre o esquema dos dados que a API da Atividade de Gerenciamento do Office 365 retorna, incluindo problemas conhecidos e alterações futuras que podem afetar a implementação, confira [Esquema de API da Atividade de Gerenciamento do Office 365](office-365-management-activity-api-schema.md).
+> Para obter informações sobre o esquema dos dados que a API da Atividade de Gerenciamento do Office 365 retorna, confira [Esquema da API da Atividade de Gerenciamento do Office 365](office-365-management-activity-api-schema.md).
 
 
 ## <a name="working-with-the-office-365-management-activity-api"></a>Usar a API da Atividade de Gerenciamento do Office 365
