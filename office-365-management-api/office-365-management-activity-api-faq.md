@@ -4,14 +4,14 @@ title: Perguntas frequentes sobre a API de Atividade de Gerenciamento do Office 
 description: Perguntas frequentes sobre como usar a API de Atividade de Gerenciamento do Office 365
 ms.ContentId: ''
 ms.topic: reference (API)
-ms.date: 09/21/2018
+ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 8e341def7bc3a4f71eee23bc04d01e11d1390e1d
-ms.sourcegitcommit: 358bfe9553eabbe837fda1d73cd1d1a83bcb427e
-ms.translationtype: Auto
+ms.openlocfilehash: 8954be1b9076eb2a6f640ee96cc2b612addcabc0
+ms.sourcegitcommit: c6a3d440a1ecc8f8f0b00b3fdd8e41127514a6f6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "28014284"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "30458511"
 ---
 # <a name="office-365-management-activity-api-frequently-asked-questions"></a>Perguntas frequentes sobre a API de Atividade de Gerenciamento do Office 365
 
@@ -55,3 +55,6 @@ Abra um tíquete com o [Suporte da Microsoft](https://support.office.com/article
 
 Não. A auditoria deve estar habilitada na sua organização para incluir os registros por meio da API de Atividade de Gestão.
 
+#### <a name="why-are-targetupdatedproperties-no-longer-in-extendedproperties-in-the-audit-logs-for-azure-active-directory-activities"></a>Por que as TargetUpdatedProperties não estão mais em ExtendedProperties nos logs de auditoria das atividades do Azure Active Directory?
+
+As TargetUpdatedProperties aparecem em ExtendedProperties. No entanto, eles foram removidos das ExtendedProperties e aparecerão no ModifiedProperties.
