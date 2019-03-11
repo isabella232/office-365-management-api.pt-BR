@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: de6a841339690c483ed58e38e0b691b00fadab4d
-ms.sourcegitcommit: b030dc1b7ca46280191dd2f54c8179795657d792
+ms.openlocfilehash: 41018718dd5890c5c628672828a2dd365a6bebe3
+ms.sourcegitcommit: c6a3d440a1ecc8f8f0b00b3fdd8e41127514a6f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "30409075"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "30458525"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
  
@@ -54,6 +54,8 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |[Esquema de Configurações do Microsoft Teams](#microsoft-teams-settings-schema)|Estende o esquema do Microsoft Teams com as propriedades específicas dos eventos de alteração de configurações do Microsoft Teams.|
 |[Esquema de Proteção Avançada contra Ameaças e Inteligência contra Ameaças do Office 365](#office-365-advanced-threat-protection-and-threat-intelligence-schema)|Estende o esquema Comum com as propriedades específicas dos dados da Proteção Avançada contra Ameaças do Office 365.|
 |[Esquema do Power BI](#power-bi-schema)|Estende o esquema Comum com as propriedades específicas de todos os eventos do Power BI.|
+|[Workplace Analytics](#workplace-analytics-schema)|Estende o esquema Comum com as propriedades específicas de todos os eventos do Microsoft Workplace Analytics.|
+|||
 
 ## <a name="common-schema"></a>Esquema Comum
 
@@ -963,8 +965,6 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 
 ## <a name="data-center-security-base-schema"></a>Esquema Base de Segurança do Data Center
 
-
-
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 |DataCenterSecurityEventType|Self.[DataCenterSecurityEventType](#datacentersecurityeventtype)|Sim|O tipo de evento cmdlet na caixa de bloqueio.|
@@ -1199,3 +1199,14 @@ Os eventos do Power BI listados em [Pesquisar o log de auditoria no Centro de Pr
 | RecipientEmail    | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  Não  | O endereço de email do destinatário de um convite de compartilhamento. |
 | RecipientName    | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  Não  | O nome do destinatário de um convite de compartilhamento. |
 | ResharePermission | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  Não  | A permissão sendo concedida ao destinatário. |
+
+## <a name="workplace-analytics-schema"></a>Esquema do Workplace Analytics
+
+Os eventos do WorkPlace Analytics listados em [Pesquisar o log de auditoria no Centro de Conformidade e Segurança do Office 365](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#microsoft-workplace-analytics-activities) usarão este esquema.
+
+| **Parâmetros**     | **Tipo**            | **Obrigatório?** | **Descrição**|
+|:------------------ | :------------------ | :--------------|:--------------|
+| WpaUserRole        | Edm.String | Não     | A função do Workplace Analytics do usuário que executou a ação.                                                                                            |
+| ModifiedProperties | Coleção (Common.ModifiedProperty) | Não | Essa propriedade inclui o nome da propriedade que foi modificada, o novo valor da propriedade modificada e o valor anterior da propriedade modificada.|
+| OperationDetails   | Coleção (Common.NameValuePair)    | Não | Uma lista de propriedades estendidas para a configuração que foi alterada. Cada propriedade terá um **Nome** e **Valor**.|
+||||
