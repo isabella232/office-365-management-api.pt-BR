@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 567e17ca3dc701be6cb499f3bf36bcaba8912146
-ms.sourcegitcommit: 2a256e01834388711ba8c438a891c228877588a4
+ms.openlocfilehash: c42f22fa1c4d07c25ed15bad7225f35c298075ff
+ms.sourcegitcommit: efa2f49c46a4dc2a296d0ecc510a8153f51c535b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "34106163"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "34741217"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
  
@@ -1124,8 +1124,6 @@ Os eventos da Proteção Avançada contra Ameaças e Investigação e Resposta c
 
 |**Valor**|**Nome do membro**|**Descrição**|
 |:-----|:-----|:-----|
-|0|Nenhum|Nenhum clique detectado.|
-|1|Permitido|O usuário pode navegar para a URL, pois ela foi considerada segura pelo serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
 |2|Blockpage|O usuário é impedido de navegar para a URL pelo serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
 |3|PendingDetonationPage|O usuário recebe a página de detonação pendente do serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
 |4|BlockPageOverride|O usuário é impedido de navegar para a URL pelo serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links), no entanto, ele substitui o bloqueio para navegar até a URL.|
