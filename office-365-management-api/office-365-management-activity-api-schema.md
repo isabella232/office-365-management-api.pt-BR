@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 012d2951c12b5da0b5767ff3edd2dd7fb64fd695
-ms.sourcegitcommit: 1345cb6bd688ee7ca4320b073eacdf614dae9b08
+ms.openlocfilehash: 49ffb697575a63bce7a7eee8e539a30c733772a5
+ms.sourcegitcommit: c4674653f99c77b64115f8547f9e410dea3408f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "35601527"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "35613582"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
  
@@ -50,8 +50,6 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |[Esquema Base de Segurança do Data Center](#data-center-security-base-schema)|Estende o esquema Comum com as propriedades específicas de todos os dados de auditoria de segurança do data center.|
 |[Esquema Cmdlet de Segurança do Data Center](#data-center-security-cmdlet-schema)|Estende o esquema Base de Segurança do Data Center com as propriedades específicas de todos os dados de auditoria do cmdlet de segurança do datacenter.|
 |[Esquema do Microsoft Teams](#microsoft-teams-schema)|Estende o esquema Comum com as propriedades específicas de todos os eventos do Microsoft Teams.|
-|[Esquema de complementos do Microsoft Teams](#microsoft-teams-add-ons-schema)|Estende o esquema do Microsoft Teams com as propriedades específicas dos complementos do Microsoft Teams.|
-|[Esquema de Configurações do Microsoft Teams](#microsoft-teams-settings-schema)|Estende o esquema do Microsoft Teams com as propriedades específicas dos eventos de alteração de configurações do Microsoft Teams.|
 |[Esquema de Proteção Avançada contra Ameaças e Investigação e Resposta contra Ameaças do Office 365](#office-365-advanced-threat-protection-and-threat-investigation-and-response-schema)|Estende o esquema Comum com as propriedades específicas dos dados da Proteção Avançada contra Ameaças e Investigação e Resposta contra Ameaças do Office 365.|
 |[Esquema do Power BI](#power-bi-schema)|Estende o esquema Comum com as propriedades específicas de todos os eventos do Power BI.|
 |[Workplace Analytics](#workplace-analytics-schema)|Estende o esquema Comum com as propriedades específicas de todos os eventos do Microsoft Workplace Analytics.|
@@ -76,6 +74,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |UserId|Edm.string|Sim|O UPN (User Principal Name) do usuário que executou a ação (especificado na propriedade Operation) que resultou no registro sendo registrado; por exemplo, `my_name@my_domain_name`. Observe que os registros da atividade executada pelas contas do sistema (como SHAREPOINT\system ou NT AUTHORITY\SYSTEM) também são incluídos.|
 |ClientIP|Edm.String|Sim|O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6.|
 |Scope|Self.[AuditLogScope](#auditlogscope)|Não|Esse evento foi criado por um serviço hospedado do O365 ou por um servidor local? Os valores possíveis são **online** e **onprem**. Observe que o SharePoint é a única carga de trabalho enviando eventos do local para o O365 atualmente.|
+|||||
 
 ### <a name="enum-auditlogrecordtype---type-edmint32"></a>Enumeração: AuditLogRecordType - Tipo: Edm.Int32
 
@@ -132,6 +131,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |4|System|Uma conta do sistema.|
 |5|Application|Um aplicativo.|
 |6|ServicePrincipal|Uma entidade de serviço.|
+||||
 
 > [!NOTE] 
 > Somente as operações do Exchange incluem um tipo de usuário. As operações do SharePoint não especificam um tipo de usuário. 
@@ -144,6 +144,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |:-----|:-----|:-----|
 |0|Online|Este evento foi criado por um serviço hospedado no O365.|
 |1|Onprem|Este evento foi criado por um servidor local.|
+||||
 
 
 ## <a name="sharepoint-base-schema"></a>Esquema base do SharePoint
@@ -157,7 +158,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |UserAgent|Edm.String|Não|Informações sobre o cliente ou navegador do usuário. Esta informação é fornecida pelo cliente ou navegador.|
 |MachineDomainInfo|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|Não|Informações sobre as operações de sincronização do dispositivo. Essas informações são relatadas somente se estiverem presentes na solicitação.|
 |MachineId|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|Não|Informações sobre as operações de sincronização do dispositivo. Essas informações são relatadas somente se estiverem presentes na solicitação.|
-
+|||||
 
 ### <a name="enum-itemtype---type-edmint32"></a>Enumeração: ItemType - Tipo: Edm.Int32
 
@@ -173,6 +174,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |8|Tenant|O item é um locatário.|
 |9|DocumentLibrary|O item é uma biblioteca de documentos.|
 |11|Page|O item é uma página.|
+||||
 
 ### <a name="enum-eventsource---type-edmint32"></a>Enumeração: EventSource - Tipo: Edm.Int32
 
@@ -182,6 +184,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |:-----|:-----|:-----|
 |0|SharePoint|A origem do evento é o SharePoint.|
 |1|ObjectModel|A origem do evento é o ObjectModel.|
+||||
 
 
 ### <a name="enum-sharepointauditoperation---type-edmint32"></a>Enumeração: SharePointAuditOperation - Tipo: Edm.Int32
@@ -338,6 +341,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |UserAddedToGroup*|O administrador ou proprietário do site adiciona uma pessoa a um grupo em um site do SharePoint ou OneDrive for Business. Adicionar uma pessoa a um grupo concede ao usuário as permissões que foram atribuídas ao grupo. |
 |UserRemovedFromGroup*|O administrador ou proprietário do site remove uma pessoa de um grupo em um site do SharePoint ou OneDrive for Business. Depois que a pessoa é removida, ela não recebe mais as permissões que foram atribuídas ao grupo. |
 |WorkflowModified|O usuário cria, modifica ou exclui fases ou estágios do tipo de projeto ou fluxo de trabalho corporativo no Project Web App.|
+|||||
 
 
 > [!NOTE] 
@@ -362,7 +366,7 @@ Os eventos do SharePoint relacionados a arquivos listados na seção "Atividades
 |DestinationFileExtension|Edm.String|Não|A extensão de um arquivo que foi copiado ou movido. Essa propriedade é exibida apenas para eventos FileCopied e FileMoved.|
 |UserSharedWith|Edm.String|Não|O usuário com o qual um recurso foi compartilhado.|
 |SharingType|Edm.String|Não|O tipo de permissões de compartilhamento que foram designadas ao usuário com o qual o recurso foi compartilhado. Este usuário é identificado pelo parâmetro _UserSharedWith_.|
-
+|||||
 
 
 ## <a name="sharepoint-sharing-schema"></a>Esquema de compartilhamento do SharePoint
@@ -376,6 +380,7 @@ Os eventos do SharePoint relacionados a arquivos listados na seção "Atividades
 |TargetUserOrGroupName |Edm.String|Não|Armazena o UPN ou o nome do usuário ou grupo de destino com o qual um recurso foi compartilhado.|
 |TargetUserOrGroupType|Edm.String|Não|Identifica se o usuário ou grupo de destino é um Membro, Convidado, Grupo ou Parceiro. |
 |EventData|Código XML|Não|Transmite informações de acompanhamento sobre a ação de compartilhamento que ocorreu, como adicionar um usuário a um grupo ou conceder permissões de edição.|
+|||||
 
 
 ## <a name="sharepoint-schema"></a>Esquema do SharePoint
@@ -383,13 +388,12 @@ Os eventos do SharePoint relacionados a arquivos listados na seção "Atividades
 Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de Proteção do Office 365](https://support.office.com/pt-BR/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&amp;rs=en-US&amp;ad=US) (excluindo os eventos de arquivo e pasta) usam este esquema.
 
 
-
 |**Parâmetro**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 |CustomEvent|Edm.String|Não|Cadeia de caracteres opcional para eventos personalizados.|
 |EventData|Edm.String|Não|Carga opcional para eventos personalizados.|
 |ModifiedProperties|Collection(ModifiedProperty)|Não|A propriedade está incluída para eventos de administrador, como adicionar um usuário como membro de um site ou grupo de administradores de um conjunto de sites. A propriedade inclui o nome da propriedade que foi modificada (por exemplo, o grupo Administrador do Site), o novo valor da propriedade modificada (como o usuário que foi adicionado como administrador do site) e o valor anterior do objeto modificado.|
-
+|||||
 
 ## <a name="project-schema"></a>Esquema do Project
 
@@ -398,11 +402,11 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |Entity|Edm.String|Sim| [ProjectEntity](#project-entity) da auditoria.|
 |Action|Edm.String|Sim|[ProjectAction](#project-action) tomada.|
 |OnBehalfOfResId|Edm.Guid|Não|A ID do recurso em nome da qual a ação foi tomada.|
-
-<a name="project-action"></a>
+|||||
 
 ### <a name="enum-project-action---type-edmint32"></a>Enumeração: Project Action - Tipo: Edm.Int32
 
+#### <a name="project-action"></a>Ação do projeto
 
 |**Nome do membro**|**Descrição**|
 |:-----|:-----|
@@ -426,9 +430,11 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |Saved|O usuário salvou uma entidade.|
 |Sent|O usuário enviou uma entidade.|
 |Submitted|O usuário enviou uma entidade para revisão ou fluxo de trabalho.|
+|||||
 
-<a name="project-entity"></a>
 ### <a name="enum-project-entity---type-edmint32"></a>Enumeração: Project Entity - Tipo: Edm.Int32
+
+#### <a name="project-entity"></a>Entidade do projeto.
 
 |**Nome do membro**|**Descrição**|
 |:-----|:-----|
@@ -464,9 +470,9 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |View|Representa uma definição de exibição.|
 |WorkflowPhase|Representa uma fase em um fluxo de trabalho.|
 |WorkflowStage|Representa um estágio em um fluxo de trabalho.|
+|||||
 
 ## <a name="exchange-admin-schema"></a>Esquema de administração do Exchange
-
 
 
 |**Parâmetros**|**Tipo**|**Obrigatório**|**Descrição**|
@@ -477,10 +483,9 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |ExternalAccess|Edm.Boolean|Sim|Especifica se o cmdlet foi executado por um usuário em sua organização, pela equipe de datacenters da Microsoft ou por uma conta de serviço do datacenter ou por um administrador delegado. O valor **Falso** indica que o cmdlet foi executado por alguém em sua organização. O valor **Verdadeiro** indica que o cmdlet foi executado pela equipe do datacenter, por uma conta de serviço do datacenter ou por um administrador delegado.|
 |OriginatingServer|Edm.String|Não|O nome do servidor do qual o cmdlet foi executado.|
 |OrganizationName|Edm.String|Não|O nome do locatário.|
-
+|||||
 
 ## <a name="exchange-mailbox-schema"></a>Esquema de caixa de correio do Exchange
-
 
 
 |**Parâmetros**|**Tipo**|**Obrigatório**|**Descrição**|
@@ -501,7 +506,7 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |ClientMachineName|Edm.String|Não|O nome da computador que hospeda o cliente do Outlook.|
 |ClientProcessName|Edm.String|Não|O cliente de email que foi usado para acessar a caixa de correio. |
 |ClientVersion|Edm.String|Não|A versão do cliente de email.|
-
+|||||
 
 ### <a name="enum-logontype---type-edmint32"></a>Enumeração: LogonType - Tipo: Edm.Int32
 
@@ -517,10 +522,9 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |4|SystemService|Uma conta de serviço no datacenter da Microsoft.|
 |5|BestAccess|Reservado para uso interno.|
 |6|DelegatedAdmin|Um administrador delegado.|
-
+|||||
 
 ### <a name="exchangemailboxauditgrouprecord-schema"></a>Esquema ExchangeMailboxAuditGroupRecord
-
 
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
@@ -534,11 +538,10 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |DestFolder|Self.[ExchangeFolder](#exchangefolder-complex-type)|Não|A pasta de destino, para operações como Mover.|
 |Folders|Collection(Self.[ExchangeFolder](#exchangefolder-complex-type))|Não|Informações sobre as pastas de origem envolvidas em uma operação; por exemplo, se as pastas forem selecionadas e excluídas.|
 |AffectedItems|Collection(Self.[ExchangeItem](#exchangeitem-complex-type))|Não|Informações sobre cada item no grupo.|
-
+|||||
 
 
 ### <a name="exchangemailboxauditrecord-schema"></a>Esquema ExchangeMailboxAuditRecord
-
 
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
@@ -549,7 +552,7 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |SendAsUserMailboxGuid|Edm.Guid|Não|O GUID do Exchange da caixa de correio que foi acessada para enviar email.|
 |SendOnBehalfOfUserSmtp|Edm.String|Não|O endereço SMTP do usuário em nome de quem o email é enviado.|
 |SendOnBehalfOfUserMailboxGuid|Edm.Guid|Não|O GUID do Exchange da caixa de correio que foi acessada para enviar emails.|
-
+|||||
 
 ### <a name="exchangeitem-complex-type"></a>Tipo complexo ExchangeItem
 
@@ -560,20 +563,19 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |Subject|Edm.String|Não|A linha de assunto da mensagem que foi acessada.|
 |ParentFolder|Edm.ExchangeFolder|Não|O nome da pasta onde o item está localizado.|
 |Attachments|Edm.String|Não|Uma lista dos nomes e tamanho de arquivo de todos os itens anexados à mensagem.|
+|||||
 
 ### <a name="exchangefolder-complex-type"></a>Tipo complexo ExchangeFolder
-
 
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 |Id|Edm.String|Sim|A ID do repositório do objeto da pasta.|
 |Path|Edm.String|Não|O nome da pasta da caixa de correio em que a mensagem que foi acessada está localizada.|
-
+|||||
 
 
 ## <a name="azure-active-directory-base-schema"></a>Esquema Base do Azure Active Directory
-
 
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
@@ -581,6 +583,7 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |AzureActiveDirectoryEventType|Self.[AzureActiveDirectoryEventType](#azureactivedirectoryeventtype)|Sim|O tipo de evento do Azure AD. |
 |ExtendedProperties|Collection(Common.NameValuePair)|Não|As propriedades estendidas do evento do Azure AD.|
 |ModifiedProperties|Collection(Common.ModifiedProperty)|Não|Esta propriedade está incluída para eventos de administrador. A propriedade inclui o nome da propriedade que foi modificada, o novo valor da propriedade modificada e o valor anterior da propriedade modificada.|
+|||||
 
 ### <a name="enum-azureactivedirectoryeventtype---type--edmint32"></a>Enumeração: AzureActiveDirectoryEventType - Tipo: Edm.Int32
 
@@ -590,9 +593,9 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |:-----|:-----|
 |AccountLogon|O evento de logon da conta.|
 |AzureApplicationAuditEvent|O evento de segurança do aplicativo do Azure.|
+|||||
 
 ## <a name="azure-active-directory-account-logon-schema"></a>Esquema de Logon da Conta do Azure Active Directory
-
 
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
@@ -601,11 +604,10 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |Client|Edm.String|Não|Detalhes sobre o dispositivo cliente, o SO do dispositivo e o navegador do dispositivo que foi usado para o evento de logon da conta.|
 |LoginStatus|Edm.Int32|Sim|Esta propriedade é diretamente do OrgIdLogon.LoginStatus. O mapeamento de várias falhas interessantes de logon pode ser feito por meio do alerta de algoritmos.|
 |UserDomain|Edm.String|Sim|Informações de Identidade do Locatário (TII, Tenant Identity Information).|
-
+|||||
 
 
 ### <a name="enum-credentialtype---type-edmint32"></a>Enumeração: CredentialType - Tipo: Edm.Int32
-
 
 
 |**Valor**|**Nome do membro**|**Descrição**|
@@ -620,9 +622,9 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |14|PasswordIndexCredentialType|A credencial do usuário é PasswordIndexCredentialType.|
 |16|Device|A credencial do usuário é um dispositivo.|
 |17|ForeignRealmIndex|A credencial do usuário é ForeignRealmIndex.|
+|||||
 
 ### <a name="enum-logintype---type-edmint32"></a>Enumeração: LoginType - Tipo: Edm.Int32
-
 
 
 |**Valor**|**Nome do membro**|**Descrição**|
@@ -631,10 +633,9 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |1|InitialAuth|Login com autenticação inicial.|
 |2|CookieCopy|Login com cookies.|
 |3|SilentReAuth|Logon com reautenticação silenciosa.|
-
+|||||
 
 ### <a name="enum-authenticationmethod---type-edmint32"></a>Enumeração: AuthenticationMethod - Tipo: Edm.Int32
-
 
 
 |**Valor**|**Nome do membro**|**Descrição**|
@@ -659,11 +660,10 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |17|SAML20PostSimpleSign|O método de autenticação é um SAML20PostSimpleSign.|
 |18|SAML20Post|O método de autenticação é um SAML20Post.|
 |19|OneTimeCode|O método de autenticação é um código único.|
-
+|||||
 
 
 ## <a name="azure-active-directory-schema"></a>Esquema do Azure Active Directory
-
 
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
@@ -676,17 +676,16 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |SupportTicketId|Edm.String|Não|O ID do ticket de suporte ao cliente para a ação em situações de "agir em nome de".|
 |Target|Collection(Self.[IdentityTypeValuePair](#complex-type-identitytypevaluepair))|Não|O usuário em que a ação (identificada pela propriedade Operation) foi executada.|
 |TargetContextId|Edm.String|Não|O GUID da organização à qual o usuário de destino pertence.|
-
-
+|||||
 
 ### <a name="complex-type-identitytypevaluepair"></a>Tipo complexo IdentityTypeValuePair
-
 
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 |ID|Edm.String|Sim|O valor da identidade de acordo com o tipo.|
 |Type|Self.IdentityType|Sim|O tipo da identidade.|
+|||||
 
 ### <a name="enum-identitytype---type-edmint32"></a>Enumeração: IdentityType - Tipo: Edm.Int32
 
@@ -700,6 +699,7 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |PUID|O ator da ação de auditoria ou a ID exclusiva do passaporte de destino (PUID).|
 |SPN|A identidade de uma entidade de segurança de serviço, se a ação for executada pelo serviço do Office 365.|
 |UPN|O nome da entidade de segurança do usuário.|
+|||||
 
 
 ## <a name="azure-active-directory-secure-token-service-sts-logon-schema"></a>Esquema de logon do Serviço de Token Seguro (STS) do Active Directory do Azure
@@ -709,6 +709,7 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de 
 |ApplicationId|Edm.String|Não|O GUID que representa o aplicativo que está solicitando o logon. O nome de exibição pode ser pesquisado por meio da API de gráfico do Azure Active Directory.|
 |Client|Edm.String|Não|Informações do dispositivo cliente, fornecidas pelo navegador que executa o logon.|
 |LogonError|Edm.String|Não|Para logons com falha, contém o motivo pelo qual o logon falhou.|
+|||||
 
 ## <a name="dlp-schema"></a>Esquema DLP
 
@@ -729,6 +730,7 @@ Os eventos de DLP (Prevenção contra Perda de Dados) sempre terão UserKey = "D
 |ExceptionInfo|Edm.String|Não|Identifica os motivos pelos quais uma política não se aplica mais e/ou qualquer informação sobre falso positivos e/ou substituição observada pelo usuário final.|
 |PolicyDetails|Collection(Self.[PolicyDetails](#policydetails-complex-type))|Sim|Informações sobre uma ou mais políticas que dispararam o evento de DLP.|
 |SensitiveInfoDetectionIsIncluded|Boolean|Sim|Indica se o evento contém o valor do tipo de dados confidenciais e o contexto adjacente do conteúdo de origem. O acesso a dados confidenciais exige a permissão "Ler eventos de política DLP, incluindo detalhes confidenciais" no Azure Active Directory.|
+|||||
 
 ### <a name="sharepointmetadata-complex-type"></a>Tipo complexo SharePointMetadata
 
@@ -745,6 +747,7 @@ Os eventos de DLP (Prevenção contra Perda de Dados) sempre terão UserKey = "D
 |DocumentSharer|Edm.String|Sim|O usuário que modificou pela última vez o compartilhamento do documento.|
 |UniqueId|Edm.String|Sim|Uma GUID que identifica o arquivo.|
 |LastModifiedTime|Edm.DateTime|Sim|Carimbo de data/hora em UTC de quando o documento foi modificado pela última vez.|
+|||||
 
 
 ### <a name="exchangemetadata-complex-type"></a>Tipo complexo ExchangeMetadata
@@ -759,7 +762,7 @@ Os eventos de DLP (Prevenção contra Perda de Dados) sempre terão UserKey = "D
 |Subject|Edm.String|Sim|Assunto da mensagem de email.|
 |Sent|Edm.DateTime|Sim|O horário em UTC de quando o email foi enviado.|
 |RecipientCount|Edm.Int32|Sim|O número total de todos os destinatários nas linhas TO, CC e BCC da mensagem.|
-
+|||||
 
 ### <a name="policydetails-complex-type"></a>Tipo complexo PolicyDetails
 
@@ -768,6 +771,7 @@ Os eventos de DLP (Prevenção contra Perda de Dados) sempre terão UserKey = "D
 |PolicyId|Edm.Guid|Sim|O GUID da política DLP para este evento.|
 |PolicyName|Edm.String|Sim|O nome amigável da política DLP para este evento.|
 |Rules|Collection(Self.[Rules](#rules-complex-type))|Sim|As informações sobre as regras da política que foram atendidas para este evento.|
+|||||
 
 ### <a name="rules-complex-type"></a>Tipo complexo Rules
 
@@ -780,6 +784,7 @@ Os eventos de DLP (Prevenção contra Perda de Dados) sempre terão UserKey = "D
 |Severity|Edm.String|Não|A gravidade (Baixa, Média e Alta) da conformidade com a regra.|
 |RuleMode|Edm.String|Sim|Indique se a regra DLP foi definida como Enforce, Audit with Notify ou somente Audit.|
 |ConditionsMatched|Self.[ConditionsMatched](#conditionsmatched-complex-type)|Não|Os detalhes sobre quais condições da regra foram atendidas para este evento.|
+|||||
 
 ### <a name="conditionsmatched-complex-type"></a>Tipo complexo ConditionsMatched
 
@@ -788,6 +793,7 @@ Os eventos de DLP (Prevenção contra Perda de Dados) sempre terão UserKey = "D
 |SensitiveInformation|Collection(Self.[SensitiveInformation](#sensitiveinformation-complex-type))|Não|As informações sobre o tipo de informações confidenciais detectadas.|
 |DocumentProperties|Collection(NameValuePair)|Não|As informações sobre as propriedades do documento que dispararam uma correspondência de regra.|
 |OtherConditions|Collection(NameValuePair)|Não|Uma lista de pares de valores chave que descrevem quaisquer outras condições que foram correspondidas.|
+|||||
 
 ### <a name="sensitiveinformation-complex-type"></a>Tipo complexo SensitiveInformation
 
@@ -797,6 +803,7 @@ Os eventos de DLP (Prevenção contra Perda de Dados) sempre terão UserKey = "D
 |Count|Edm.Int|Sim|O número de instâncias confidenciais detectadas.|
 |SensitiveType|Edm.Guid|Sim|Um guid que identifica o tipo de dados confidenciais detectados.|
 |SensitiveInformationDetections|Self.SensitiveInformationDetections|Não|Uma matriz de objetos que contêm dados de informações confidenciais com os seguintes detalhes – valor correspondente e contexto do valor correspondente.|
+|||||
 
 ### <a name="sensitiveinformationdetections-complex-type"></a>Tipo complexo SensitiveInformationDetections 
 Os dados confidenciais de DLP só estão disponíveis na API de feed de atividades para usuários que receberam permissões para "Ler dados confidenciais de DLP". 
@@ -805,6 +812,7 @@ Os dados confidenciais de DLP só estão disponíveis na API de feed de atividad
 |:-----|:-----|:-----|:-----|
 |Detections|Collection(Self.Detections)|Sim|Uma matriz de informações confidenciais que foram detectadas. As informações contêm pares de valores chave com Valor = valor correspondente (por exemplo, o valor de cartão de crédito de seguro social dos EUA) e o Contexto = um trecho do conteúdo de origem que contém o valor correspondente. |
 |ResultsTruncated|Edm.Boolean|Sim|Indica se os logs foram truncados devido ao grande número de resultados. |
+|||||
 
 ### <a name="exceptioninfo-complex-type"></a>Tipo complexo ExceptionInfo
 
@@ -814,6 +822,7 @@ Os dados confidenciais de DLP só estão disponíveis na API de feed de atividad
 |FalsePositive|Edm.Boolean|Não|Indica se o usuário designou esse evento como falso positivo.|
 |Justification|Edm.String|Não|Se o usuário tiver optado por substituir a política, qualquer justificativa especificada pelo usuário será capturada aqui.|
 |Rules|Collection(Edm.Guid)|Não|Uma coleção de guids para cada regra designada como falso positivo ou substituta, ou para a qual uma ação foi desfeita.|
+|||||
 
 ## <a name="security-and-compliance-center-schema"></a>Esquema do Centro de Conformidade e Segurança
 
@@ -827,6 +836,7 @@ Os dados confidenciais de DLP só estão disponíveis na API de feed de atividad
 |ClientApplication|Edm.String|Não|Se o cmdlet tiver sido executado por um aplicativo, ao contrário do powershell remoto, esse campo conterá o nome desse aplicativo.|
 |Parâmetros|Edm.String|Não|O nome e o valor dos parâmetros que foram usados ​​com o cmdlet que não incluem Informações de Identificação Pessoal.|
 |NonPiiParameters|Edm.String|Não|O nome e o valor dos parâmetros que foram usados ​​com o cmdlet que incluem Informações de Identificação Pessoal. (Preterido: esse campo será retirado no futuro e seu conteúdo mesclado com o campo de parâmetros.)|
+|||||
 
 ## <a name="security-and-compliance-alerts-schema"></a>Esquema de Alertas de Conformidade e Segurança
 
@@ -855,6 +865,7 @@ O UserId e o UserKey desses eventos são sempre SecurityComplianceAlerts. Existe
 |Data|Edm.String|Não|O BLOB de dados de detalhes do alerta ou da entidade de alerta.|
 |AlertEntityId|Edm.String|Não|O identificador da entidade de alerta. Esse parâmetro só é aplicável em eventos AlertEntityGenerated.|
 |EntityType|Edm.String|Não|Tipo de entidade ou entidade de alerta. Os tipos de entidades incluem: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>User</p></li><li><p>Recipients</p></li><li><p>Sender</p></li><li><p>MalwareFamily</p></li></ul>Esse parâmetro só é aplicável em eventos AlertEntityGenerated.|
+|||||
 
 ## <a name="yammer-schema"></a>Esquema do Yammer
 
@@ -874,6 +885,7 @@ Os eventos do Yammer listados em [Pesquisar o log de auditoria no Centro de Prot
 |TargetUserId|Edm.String|Não|Email do usuário de destino na operação. Será exibido em branco se não for relevante para a operação.|
 |TargetYammerUserId|Edm.Int64|Não|ID do usuário de destino na operação.|
 |VersionId|Edm.Int64|Não|ID da versão do arquivo na operação.|
+|||||
 
 ## <a name="sway-schema"></a>Esquema do Sway
 
@@ -888,6 +900,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |SwayLookupId|Edm.String|Não|A ID do Sway. |
 |SiteUrl|Edm.String|Não|A URL para o Sway.|
 |OperationResult|Self.[OperationResult](#operationresult)|Não|Sucesso ou falha.|
+|||||
 
 
 ### <a name="enum-objecttype---type-edmint32"></a>Enumeração: ObjectType - Tipo: Edm.Int32
@@ -899,6 +912,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |0|Sway|O evento foi disparado de um Sway.|
 |1|SwayEmbedded|O evento foi disparado de um Sway, que é inserido em um host.|
 |2|SwayAdminPortal|O evento foi disparado a partir das configurações do serviço Sway no portal de administração do Office 365.|
+|||||
 
 
 ### <a name="enum-operationresult---type-edmint32"></a>Enumeração: OperationResult - Tipo: Edm.Int32
@@ -909,6 +923,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |:-----|:-----|:-----|
 |0|Succeeded|O evento foi bem-sucedido.|
 |1|Failed|O evento falhou.|
+|||||
 
 
 ### <a name="enum-endpoint---type-edmint32"></a>Enumeração: Endpoint - Tipo: Edm.Int32
@@ -921,7 +936,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |1|SwayIOS|O evento foi acionado usando o cliente iOS do Sway.|
 |2|SwayWindows|O evento foi acionado usando o cliente Windows do Sway.|
 |3|SwayAndroid|O evento foi acionado usando o cliente Android do Sway.|
-
+|||||
 
 
 ### <a name="enum-devicetype---type-edmint32"></a>Enumeração: DeviceType - Tipo: Edm.Int32
@@ -933,6 +948,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |0|Desktop|O evento foi acionado usando o desktop.|
 |1|Mobile|O evento foi acionado usando um dispositivo móvel.|
 |2|Tablet|O evento foi acionado usando um dispositivo tablet.|
+|||||
 
 
 
@@ -956,12 +972,14 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |13|ServiceOff|O usuário desabilita o Sway para toda a organização através do Centro de administração do Office 365 (desativado por padrão).|
 |14|ExternalSharingOn|O usuário habilita o compartilhamento externo para toda a organização através do Centro de administração do Office 365.|
 |15|ExternalSharingOff|O usuário desabilita o compartilhamento externo para toda a organização através do Centro de administração do Office 365.|
+|||||
 
 ## <a name="data-center-security-base-schema"></a>Esquema Base de Segurança do Data Center
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 |DataCenterSecurityEventType|Self.[DataCenterSecurityEventType](#datacentersecurityeventtype)|Sim|O tipo de evento cmdlet na caixa de bloqueio.|
+|||||
 
 ### <a name="enum-datacentersecurityeventtype---type-edmint32"></a>Enumeração: DataCenterSecurityEventType: - Tipo: Edm.Int32
 
@@ -971,12 +989,10 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |**Nome do membro**|**Descrição**|
 |:-----|:-----|
 |DataCenterSecurityCmdletAuditEvent|Esse é o valor de enumeração para o evento de tipo de auditoria de cmdlet.|
-
+|||
 
 
 ## <a name="data-center-security-cmdlet-schema"></a>Esquema Cmdlet de Segurança do Data Center
-
-
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
@@ -989,6 +1005,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |ElevationRole|Edm.String|Não|A função da elevação.|
 |ElevationDuration|Edm.Int32|Sim|A duração para a qual a elevação estava ativa.|
 |GenericInfo|Edm.String|Não|Usada para comentários e outras informações genéricas.|
+|||||
 
 
 ## <a name="microsoft-teams-schema"></a>Esquema do Microsoft Teams
@@ -996,12 +1013,22 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 |MessageId|Edm.String|Não|Um identificador para uma mensagem de bate-papo ou canal.|
-|MeetupId|Edm.String|Não|Identificador para uma reunião agendada ou ad hoc.|
 |Members|Collection(Self.[MicrosoftTeamsMember](#microsoftteamsmember-complex-type))|Não|Uma lista de usuários dentro de uma equipe.|
 |TeamName|Edm.String|Não|O nome da equipe que está sendo auditada.|
 |TeamGuid|Edm.Guid|Não|Um identificador exclusivo para a equipe que está sendo auditada.|
+|ChannelType|Edm.String|Não|O tipo de canal que está sendo auditado (padrão/particular).|
 |ChannelName|Edm.String|Não|O nome do canal que está sendo auditado.|
 |ChannelGuid|Edm.Guid|Não|Um identificador exclusivo para o canal que está sendo auditado.|
+|ExtraProperties|Coleção (Self.[ KeyValuePair](#keyvaluepair-complex-type))|Não|Uma lista de propriedades adicionais.|
+|AddOnType|Self.[AddOnType](#addontype)|Não|O tipo de complemento que gerou esse evento.|
+|AddonName|Edm.String|Não|O nome do complemento que gerou esse evento.|
+|AddOnGuid|Edm.Guid|Não|O identificador exclusivo do complemento que gerou esse evento.|
+|TabType|Edm.String|Não|Só apresenta para eventos de tabulação. O tipo de guia que gerou esse evento.|
+|Nome|Edm.String|Não|Só apresenta para eventos de configurações. Nome da configuração que foi alterada.|
+|OldValue|Edm.String|Não|Só apresenta para eventos de configurações. Valor antigo da configuração.|
+|NewValue|Edm.String|Não|Só apresenta para eventos de configurações. Novo valor da configuração.|
+||||
+
 
 ### <a name="microsoftteamsmember-complex-type"></a>Tipo complexo MicrosoftTeamsMember
 
@@ -1010,6 +1037,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |UPN|Edm.String|Não|O nome da entidade de segurança do usuário.|
 |Role|Self.[MemberRoleType](#memberroletype)|Não|A função de usuário dentro da equipe.|
 |DisplayName|Edm.String|Não|O nome de exibição do usuário.|
+|||||
 
 ### <a name="enum-memberroletype---type-edmint32"></a>Enumeração: MemberRoleType - Tipo: Edm.Int32
 
@@ -1020,16 +1048,16 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |0|Member|Um usuário que é um membro da equipe.|
 |1|Owner|Um usuário que é o proprietário da equipe.|
 |2|Guest|Um usuário que não é um membro da equipe.|
+||||
 
-
-## <a name="microsoft-teams-add-ons-schema"></a>Esquema de Complementos do Microsoft Teams
+### <a name="keyvaluepair-complex-type"></a>KeyValuePair tipo complexo
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
-|AddOnType|Self.[AddOnType](#addontype)|Não|O tipo de complemento que gerou esse evento.|
-|AddonName|Edm.String|Não|O nome do complemento que gerou esse evento.|
-|AddOnGuid|Edm.Guid|Não|O identificador exclusivo do complemento que gerou esse evento.|
-|TabType|Edm.String|Não|O tipo de guia que gerou esse evento.|
+|Chave|Edm.String|Não|A chave do par de valor-chave.|
+|Valor|Edm.String|Não|O valor do par de valor-chave.|
+|||||
+
 
 ### <a name="enum-addontype---type-edmint32"></a>Enumeração: AddOnType - Tipo: Edm.Int32
 
@@ -1040,14 +1068,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |1|Bot|Um bot do Microsoft Teams.|
 |2|Connector|Um conector do Microsoft Teams.|
 |3|Tab|Uma guia do Microsoft Teams.|
-
-
-## <a name="microsoft-teams-settings-schema"></a>Esquema de Configurações do Microsoft Teams
-
-|**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
-|:-----|:-----|:-----|:-----|
-|ModifiedProperty|Common.ModifiedProperty|Não|A propriedade que foi modificada. Ela conterá **Name**, **OldValue** e **NewValue** da propriedade.|
-|ExtendedProperties|Collection(Common.NameValuePair)|Não|Uma lista de propriedades estendidas para a configuração que está sendo alterada. Cada propriedade terá um **Nome** e **Valor**.|
+||||
 
 ## <a name="office-365-advanced-threat-protection-and-threat-investigation-and-response-schema"></a>Esquema de Proteção Avançada contra Ameaças e Investigação e Resposta contra Ameaças do Office 365
 
@@ -1079,6 +1100,7 @@ Os eventos da Proteção Avançada contra Ameaças e Investigação e Resposta c
 |Verdict|Edm.String|Sim|A conclusão da mensagem.|
 |MessageTime|Edm.Date|Sim|Data e hora em UTC (Tempo Universal Coordenado), na qual a mensagem de email foi recebida ou enviada.|
 |EventDeepLink|Edm.String|Sim|Link profundo para o evento de email no Explorador ou para relatórios em tempo real no Centro de Conformidade e Segurança do Office 365.|
+|||||
 
 ### <a name="attachmentdata-complex-type"></a>Tipo complexo AttachmentData
 
@@ -1091,6 +1113,7 @@ Os eventos da Proteção Avançada contra Ameaças e Investigação e Resposta c
 |FileVerdict|Self.[FileVerdict](#fileverdict)|Sim|O veredicto de malware do arquivo.|
 |MalwareFamily|Edm.String|Não|A família de malware do arquivo.|
 |SHA256|Edm.String|Sim|O hash SHA256 do arquivo.|
+|||||
 
 ### <a name="enum-fileverdict---type-edmint32"></a>Enumeração: FileVerdict - Tipo: Edm.Int32
 
@@ -1103,6 +1126,7 @@ Os eventos da Proteção Avançada contra Ameaças e Investigação e Resposta c
 |-1|Error|Erro de varredura/análise.|
 |-2|Timeout|Tempo limite de varredura/análise.|
 |-3|Pending|Varredura/análise não concluída.|
+|||||
 
 ### <a name="url-time-of-click-events"></a>Eventos de momento do clique da URL
 
@@ -1115,6 +1139,7 @@ Os eventos da Proteção Avançada contra Ameaças e Investigação e Resposta c
 |TimeOfClick|Edm.Date|Sim|A data e hora no Tempo Universal Coordenado (UTC) de quando o usuário clicou na URL.|
 |URL|Edm.String|Sim|URL clicada pelo usuário.|
 |UserIp|Edm.String|Sim|O endereço IP do usuário que clicou na URL. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6.|
+|||||
 
 ### <a name="enum-urlclickaction---type-edmint32"></a>Enumeração: URLClickAction – Tipo: Edm.Int32
 
@@ -1126,6 +1151,7 @@ Os eventos da Proteção Avançada contra Ameaças e Investigação e Resposta c
 |3|PendingDetonationPage|O usuário recebe a página de detonação pendente do serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
 |4|BlockPageOverride|O usuário é impedido de navegar para a URL pelo serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links), no entanto, ele substitui o bloqueio para navegar até a URL.|
 |5|PendingDetonationPageOverride|O usuário recebe a página de detonação do serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links), no entanto, ele a substitui para navegar até a URL.|
+|||||
 
 
 ### <a name="file-events"></a>Eventos de arquivo
@@ -1138,6 +1164,7 @@ Os eventos da Proteção Avançada contra Ameaças e Investigação e Resposta c
 |LastModifiedDate|Edm.Date|Sim|Data e hora em UTC (Tempo Universal Coordenado), na qual o arquivo foi criado ou modificado pela última vez.|
 |LastModifiedBy|Edm.String|Sim|O identificador (por exemplo, um endereço de email) do usuário que criou ou modificou pela última vez o arquivo.|
 |EventDeepLink|Edm.String|Sim|Link profundo para o evento de arquivo no Explorador ou para relatórios em tempo real no Centro de Conformidade e Segurança.|
+|||||
 
 ### <a name="filedata-complex-type"></a>Tipo complexo FileData
 
@@ -1152,6 +1179,7 @@ Os eventos da Proteção Avançada contra Ameaças e Investigação e Resposta c
 |MalwareFamily|Edm.String|Não|A família de malware do arquivo.|
 |SHA256|Edm.String|Sim|O hash SHA256 do arquivo.|
 |FileSize|Edm.String|Sim|Tamanho do arquivo em bytes.|
+|||||
 
 ### <a name="enum-sourceworkload---type-edmint32"></a>Enumeração: SourceWorkload – Tipo: Edm.Int32
 
@@ -1162,6 +1190,7 @@ Os eventos da Proteção Avançada contra Ameaças e Investigação e Resposta c
 |0|SharePoint Online|
 |1|OneDrive for Business|
 |2|Microsoft Teams|
+|||||
 
 ## <a name="power-bi-schema"></a>Esquema do Power BI
 
@@ -1179,6 +1208,7 @@ Os eventos do Power BI listados em [Pesquisar o log de auditoria no Centro de Pr
 | SharingInformation    | Conjunto ([SharingInformationType](#sharinginformationtype-complex-type)) Term="Microsoft.Office.Audit.Schema.PIIFlag" booleano = "true"    |  Não  | Informações sobre a pessoa para quem é enviado um convite de compartilhamento. |
 | SwitchState           | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  Não  | Informações sobre o estado das várias opções de nível do locatário. |
 | WorkSpaceName         | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  Não  | O nome do espaço de trabalho em que o evento ocorreu. |
+|||||
 
 ### <a name="membershipinformationtype-complex-type"></a>Tipo de complexo MembershipInformationType
 
@@ -1186,6 +1216,7 @@ Os eventos do Power BI listados em [Pesquisar o log de auditoria no Centro de Pr
 |:-----|:-----|:-----|:-----|
 | MemberEmail | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  Não  | O endereço de email do grupo. |
 | Status      | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  Não  | Não está preenchido no momento. |
+|||||
 
 ### <a name="sharinginformationtype-complex-type"></a>SharingInformationType tipo complexo
 
@@ -1194,6 +1225,7 @@ Os eventos do Power BI listados em [Pesquisar o log de auditoria no Centro de Pr
 | RecipientEmail    | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  Não  | O endereço de email do destinatário de um convite de compartilhamento. |
 | RecipientName    | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  Não  | O nome do destinatário de um convite de compartilhamento. |
 | ResharePermission | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  Não  | A permissão sendo concedida ao destinatário. |
+|||||
 
 ## <a name="workplace-analytics-schema"></a>Esquema do Workplace Analytics
 
