@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: c42f22fa1c4d07c25ed15bad7225f35c298075ff
-ms.sourcegitcommit: efa2f49c46a4dc2a296d0ecc510a8153f51c535b
+ms.openlocfilehash: 012d2951c12b5da0b5767ff3edd2dd7fb64fd695
+ms.sourcegitcommit: 1345cb6bd688ee7ca4320b073eacdf614dae9b08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "34741217"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "35601527"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
  
@@ -103,8 +103,6 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |23|SkypeForBusinessCmdlets|Eventos do Skype for Business.|
 |24|Descoberta|Eventos para atividades de Descoberta Eletrônica realizados executando pesquisas de conteúdo e gerenciando casos de Descoberta Eletrônica no Centro de Conformidade e Segurança.|
 |25|MicrosoftTeams|Eventos do Microsoft Teams.|
-|26|MicrosoftTeamsAddOns|Eventos dos complementos do Microsoft Teams.|
-|27|MicrosoftTeamsSettingsOperation|Alterações nas configurações do Microsoft Teams.|
 |28|ThreatIntelligence|Eventos de phishing e malware da Proteção do Exchange Online e da Proteção Avançada contra Ameaças do Office 365.|
 |30|MicrosoftFlow|Eventos do Microsoft Flow.|
 |31|AeD|Eventos de Descoberta Eletrônica Avançada.|
