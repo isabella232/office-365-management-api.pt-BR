@@ -6,12 +6,12 @@ ms.ContentId: d0b9341a-b205-5442-1c20-8fb56407351d
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 1790baa6c941900a18488f338b02fc83a9b29a8b
-ms.sourcegitcommit: efd3dcdb3d190ca7b0f22a671867f0aede5d46c2
+ms.openlocfilehash: 6b42efe72931875592c87e78aa9c9cdce11a339b
+ms.sourcegitcommit: f823233a1ab116bc83d7ca8cd8ad7c7ea59439fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "35226962"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "35688169"
 ---
 # <a name="office-365-service-communications-api-reference-preview"></a>Referência da API de comunicações de serviço do Office 365 (visualização)
 
@@ -77,6 +77,7 @@ Estes são os cabeçalhos de respostas retornados para todas as operações da A
 |**Server**|O servidor usado para gerar a resposta (para fins de depuração).|
 |**X-ASPNET-Version**|A versão do ASP.Net usada pelo servidor que gerou a resposta (para fins de depuração).|
 |**X-Powered-By**|As tecnologias usadas no servidor que gerou a resposta (para fins de depuração).|
+|||
 
 <br/>
 
@@ -92,6 +93,7 @@ Retorna a lista de serviços assinados.
 |**Caminho**| `/Services`||
 |**Query-option**|$select|Escolha um subconjunto de propriedades.|
 |**Resposta**|Lista de entidades "Service"|A entidade "Service" contém "Id" (cadeia de caracteres), "DisplayName" (cadeia de caracteres) e "FeatureNames" (lista de cadeias de caracteres).|
+||||
 
 #### <a name="sample-request"></a>Solicitação de amostra
 
@@ -135,7 +137,6 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
         }
     ]
 }
-
 ```
 
 
@@ -144,7 +145,7 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 Retorna o status do serviço das últimas 24 horas.
 
 > [!NOTE] 
-> A resposta do serviço conterá o status e quaisquer incidentes ocorridos dentro das últimas 24 horas. O valor StatusDate ou StatusTime retornado estará exatamente 24 horas no passado. 
+> A resposta do serviço conterá o status e quaisquer incidentes ocorridos dentro das últimas 24 horas. O valor StatusDate ou StatusTime retornado estará exatamente 24 horas no passado, a menos que haja um status mais recente disponível. Se um serviço recebeu uma atualização de status nas últimas 24 horas, o horário da última atualização será retornado.
 
 ||Serviço|Descrição|
 |:-----|:-----|:-----|
@@ -152,6 +153,7 @@ Retorna o status do serviço das últimas 24 horas.
 |**Filtro**|Carga de trabalho|Filtrar por carga de trabalho (cadeia de caracteres, padrão: todos).|
 |**Query-option**|$select|Escolha um subconjunto de propriedades.|
 |**Resposta**|Lista de entidades "WorkloadStatus".|A entidade "WorkloadStatus" contém "Id" (cadeia de caracteres), "Workload" (cadeia de caracteres), "StatusTime"(DateTimeOffset), "WorkloadDisplayName" (cadeia de caracteres), "Status" (cadeia de caracteres), "IncidentIds" (lista de cadeias de caracteres) e FeatureGroupStatusCollection (lista de "FeatureStatus").<br/><br/>A entidade "FeatureStatus" contém "Feature" (cadeia de caracteres), "FeatureGroupDisplayName" (cadeia de cadeia de caracteres) e "FeatureStatus" (cadeia de caracteres).|
+||||
 
 #### <a name="sample-request"></a>Solicitação de amostra
 
@@ -262,9 +264,23 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
         }
     ]
 }
-
 ```
+#### <a name="status-definitions"></a>Definições de status
 
+|**Status**|**Definição**|
+|:-----|:-----|
+|**Investigando** | Estamos cientes de um possível problema e reunindo mais informações sobre o que está acontecendo e o escopo de impacto. |
+|**ServiceDegradation** | Confirmamos que existe um problema que pode afetar o uso de um serviço ou recurso. Talvez você veja esse status se um serviço apresentar um desempenho mais lento do que o normal, se houver interrupções intermitentes ou se um recurso não estiver funcionando, por exemplo. |
+|**ServiceInterruption** | Você verá esse status se determinarmos que um problema afeta a capacidade dos usuários de acessar o serviço. Neste caso, a questão é significativa e pode ser reproduzida de forma consistente. |
+|**RestoringService** | A causa do problema foi identificada, sabemos quais ações corretivas devem ser tomadas e estamos no processo de retomar o estado de integridade do serviço. |
+|**ExtendedRecovery** | Esse status indica que uma ação corretiva está em andamento para restaurar o serviço para a maioria dos usuários, mas levará algum tempo para alcançar todos os sistemas afetados. Você também poderá ver esse status se tivermos feito uma correção temporária para reduzir o impacto enquanto aguardamos para aplicar uma correção permanente. |
+|**InvestigationSuspended** | Se a nossa investigação detalhada de um problema potencial resultar em uma solicitação de informações adicionais de clientes para nos permitir investigar mais, você verá esse status. Se precisarmos de você para prosseguir, informaremos quais dados ou logs precisamos. |
+|**ServiceRestored** | Confirmamos que a ação corretiva solucionou o problema subjacente, e o serviço foi restaurado para um estado íntegro. Para descobrir o que deu errado, confira os detalhes do problema. |
+|**PostIncidentReportPublished** | Publicamos um relatório pós-incidente para um problema específico que inclui as informações da causa raiz e as próximas etapas para garantir que um problema semelhante não ocorra. |
+|||
+
+> [!NOTE] 
+> Para saber mais sobre a integridade do serviço do Office 365, visite[como verificar a integridade do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health).
 
 ## <a name="get-historical-status"></a>Obter Status Histórico
 
@@ -277,6 +293,7 @@ Retorna o status histórico do serviço, por dia, durante um determinado interva
 ||StatusTime|Filtrar por dias maiores que StatusTime (DateTimeOffset, padrão: ge CurrentTime, 7 dias).|
 |**Query-option**|$select|Escolha um subconjunto de propriedades.|
 |**Resposta**|Lista de entidades "WorkloadStatus".|A entidade "WorkloadStatus" contém "Id" (cadeia de caracteres), "Workload" (cadeia de caracteres), "StatusTime"(DateTimeOffset), "WorkloadDisplayName" (cadeia de caracteres), "Status" (cadeia de caracteres), "IncidentIds" (lista de cadeias de caracteres) e FeatureGroupStatusCollection (lista de "FeatureStatus").<br/><br/>A entidade "FeatureStatus" contém "Feature" (cadeia de caracteres), "FeatureGroupDisplayName" (cadeia de cadeia de caracteres) e "FeatureStatus" (cadeia de caracteres).|
+||||
 
 #### <a name="sample-request"></a>Solicitação de amostra
 
@@ -364,8 +381,6 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
         }
     ]
 }
-
-
 ```
 
 
@@ -385,6 +400,7 @@ Retorna as mensagens sobre o serviço de um determinado intervalo de tempo. Use 
 ||$top|Escolha o número máximo de resultados (padrão e máx. $top=100).|
 ||$skip|Ignorar o número de resultados (padrão: $skip=0).|
 |**Resposta**|Lista de entidades de "Mensagem".|A entidade "Message" contém "Id" (cadeia de caracteres), "StartTime" (DateTimeOffset), "EndTime" (DateTimeOffset), "Status" (cadeia de caracteres), "Messages" (lista da entidade "MessagHistory"), "LastUpdatedTime" (DateTimeOffset), "Workload" (cadeia de caracteres), "WorkloadDisplayName" (cadeia de caracteres), "Feature" (cadeia de caracteres), "FeatureDisplayName" (cadeia de caracteres), "MessageType" (Enum, padrão: todos).<br/><br/>A entidade "MessageHistory" contém "PublishedTime" (DateTimeOffset), "MessageText" (cadeia de caracteres).|
+||||
 
 #### <a name="sample-request"></a>Solicitação de amostra
 
@@ -451,7 +467,6 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
         }
     ]
 }
-
 ```
 
 
@@ -468,6 +483,5 @@ Quando o serviço encontra um erro, ele relata o código de resposta do erro ao 
         "message": "Retry the request." 
     } 
 }
-
 ```
 
