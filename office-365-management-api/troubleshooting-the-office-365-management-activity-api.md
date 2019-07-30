@@ -6,12 +6,12 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: 09/05/2018
 localization_priority: Priority
-ms.openlocfilehash: ed84984dc3009d03e0bb7cacba16eafb687c93e0
-ms.sourcegitcommit: 5b1eaeb7f262b7b9f7ab30ccb9f10878814153ac
+ms.openlocfilehash: 35d90859056225a5ebcf547d88c05640699c5295
+ms.sourcegitcommit: 784b581a699c6d0ab7939ea621d5ecbea71925ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "32223949"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "35924816"
 ---
 # <a name="troubleshooting-the-office-365-management-activity-api"></a>Solução de problemas da API da Atividade de Gerenciamento do Office 365
 
@@ -25,6 +25,10 @@ A API da Atividade de Gerenciamento não deve ser confundida com a API de Comuni
 Apesar de ter uma interface REST simples com relativamente poucas operações, há muita confusão sobre como usar a API de Atividade de Gerenciamento e os detalhes de como os dados são recuperados exatamente.  Qualquer pessoa que comece a usar a API de Atividade de Gerenciamento deve entender que não há um conceito de consulta por informações específicas do evento, como a data em que ocorreu o evento, de qual coleção de sites um evento pode ter sido acionado ou o tipo de evento.  Em vez disso, você cria assinaturas para cargas de trabalho específicas (por exemplo, SharePoint ou Azure AD) e cada assinatura é por locatário.
 
 Este artigo resume as perguntas mais comuns que o Suporte da Microsoft recebe no suporte a essa API.  Mostraremos uma seleção de scripts simples do PowerShell que podem ajudá-lo a responder às perguntas mais comuns feitas por clientes ou ajudá-lo a começar a implementar uma solução personalizada demonstrando as operações principais.  Nem todas as operações são explicadas neste artigo, mas estão listadas na [referência da API da Atividade de Gerenciamento do Office 365](office-365-management-activity-api-reference.md).
+
+## <a name="enabling-unified-audit-logging-in-office-365"></a>Habilitar o log de auditoria unificada no Office 365
+
+Se você acabou de configurar um aplicativo que está tentando usar a API de Atividade de Gerenciamento e não estiver funcionando, certifique-se de que ativou o registro em log de auditoria unificada para a sua organização do Office 365. Para fazer isso, ative o log de auditoria do Office 365. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria do Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
 
 ## <a name="questions-about-third-party-tools-and-clients"></a>Perguntas sobre clientes e ferramentas de terceiros
 

@@ -6,12 +6,12 @@ ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: 01/10/2018
 localization_priority: Priority
-ms.openlocfilehash: 727d4e0d58e11887c15188b62d7642be90c1ebc3
-ms.sourcegitcommit: efd3dcdb3d190ca7b0f22a671867f0aede5d46c2
+ms.openlocfilehash: d6cdef5f0445ef0fa551be3080d4ce28595a1e9f
+ms.sourcegitcommit: 784b581a699c6d0ab7939ea621d5ecbea71925ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "35226976"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "35924823"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referência da API da Atividade de Gerenciamento do Office 365
 
@@ -21,8 +21,10 @@ Você pode usar as ações e os eventos dos logs de auditoria e atividades do Of
 
 A API da Atividade de Gerenciamento do Office 365 é um serviço Web REST que você pode usar para desenvolver soluções usando qualquer linguagem e ambiente de hospedagem que dê suporte a certificados HTTPS e X.509. A API depende do Azure AD e do protocolo OAuth2 para autorização e autenticação. Para acessar a API por meio de seu aplicativo, primeiro será preciso registrá-la no Azure AD e configurá-la com permissões apropriadas. Isso habilitará o aplicativo a solicitar os tokens de acesso OAuth2 necessários para chamar a API. Para saber mais, confira [Introdução às APIs de Gerenciamento do Office 365](get-started-with-office-365-management-apis.md).
 
-> [!NOTE] 
-> Para obter informações sobre o esquema dos dados que a API da Atividade de Gerenciamento do Office 365 retorna, confira [Esquema da API da Atividade de Gerenciamento do Office 365](office-365-management-activity-api-schema.md).
+Para obter informações sobre os dados que a API da Atividade de Gerenciamento do Office 365 retorna, confira [Esquema da API da Atividade de Gerenciamento do Office 365](office-365-management-activity-api-schema.md).
+
+> [!IMPORTANT]
+> Para poder acessar dados por meio da API de Atividade de Gerenciamento do Office 365, habilite o log de auditoria unificado para a sua organização do Office 365. Para fazer isso, ative o log de auditoria do Office 365. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria do Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
 
 
 ## <a name="working-with-the-office-365-management-activity-api"></a>Usar a API da Atividade de Gerenciamento do Office 365
