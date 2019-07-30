@@ -6,12 +6,12 @@ ms.ContentId: ''
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 2abcdd71c75cab011fa8e711832b06d398e3a6ab
-ms.sourcegitcommit: 289cf45903a045630f4b3efba6f03494bf08ab4a
+ms.openlocfilehash: 9083127d1fd3ecf82e5fe778ba1727d22d91017c
+ms.sourcegitcommit: 784b581a699c6d0ab7939ea621d5ecbea71925ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "35772111"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "35924774"
 ---
 # <a name="office-365-management-activity-api-frequently-asked-questions"></a>Perguntas frequentes sobre a API de Atividade de Gerenciamento do Office 365
 
@@ -38,7 +38,11 @@ Esse costumava ser o caso, mas desde janeiro de 2019, a auditoria de caixa de co
 #### <a name="are-there-any-differences-in-the-records-that-are-fetched-by-the-management-activity-api-versus-the-records-that-are-returned-by-using-the-audit-log-search-tool-in-the-office-365-security--compliance-center"></a>Há alguma diferença entre os registros buscados pela API de Atividade de Gerenciamento e os registros retornados usando a ferramenta de pesquisa de log de auditoria no Centro de Conformidade e Segurança do Office 365?
 
 Os dados retornados pelos dois métodos são os mesmos. Não ocorre a filtragem. A única diferença é que, com a API, você obtém dados dos últimos sete dias de cada vez. Ao pesquisar o log de auditoria no Centro de Conformidade e Segurança (ou usando o cmdlet [Search-UnifiedAuditLog](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/search-unifiedauditlog) correspondente no Exchange Online), é possível obter dados dos últimos 90 dias. 
- 
+
+#### <a name="what-happens-if-i-disable-auditing-for-my-office-365-organization-will-i-still-get-events-via-the-management-activity-api"></a>O que acontece se eu desabilitar a auditoria da minha organização no Office 365? Ainda receberei eventos por meio da API da Atividade de Gestão?
+
+Não. A auditoria unificada do Office 365 deve estar habilitada na sua organização para incluir os registros por meio da API de Atividade de Gestão. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria do Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
+
 #### <a name="arent-webhook-notifications-more-immediate-after-all-arent-they-event-driven"></a>As notificações do webhook não são mais imediatas? Afinal, elas não são controlados por evento?
 
 Não. As notificações do webhook não são controladas por evento, no sentido de que o evento dispara a notificação. O blob de conteúdo ainda deve ser criado, e é a criação desse conteúdo que aciona a entrega da notificação. Recentemente, o tempo de espera de entrega de notificações ao usar um webhook tem sido maior se comparado à consulta da API diretamente com a operação */content*. Portanto, a API de Atividade de Gerenciamento não deve ser considerada como um sistema de alerta de segurança em tempo real. A Microsoft tem outros produtos para isso. No que diz respeito à segurança, as notificações de eventos da API de Atividade de Gerenciamento podem ser usadas de maneira mais apropriada para determinar padrões de uso por longos períodos.
@@ -50,10 +54,6 @@ Não. As notificações do webhook não são controladas por evento, no sentido 
 #### <a name="im-encountering-a-throttling-error-in-the-management-activity-api-what-should-i-do"></a>Estou encontrando um erro de limitação na API da Atividade de Gestão. O que devo fazer?
 
 Abra um tíquete com o [Suporte da Microsoft](https://support.office.com/article/contact-support-for-business-products-admin-help-32a17ca7-6fa0-4870-8a8d-e25ba4ccfd4b#ID0EAADAAA=online) e solicite uma nova restrição de limitação, além de incluir uma justificativa comercial para aumentar o limite. Nós avaliaremos a solicitação e, se aceita, aumentaremos a restrição de limitação.
-
-#### <a name="what-happens-if-i-disable-auditing-for-my-office-365-organization-will-i-still-get-events-via-the-management-activity-api"></a>O que acontece se eu desabilitar a auditoria da minha organização no Office 365? Ainda receberei eventos por meio da API da Atividade de Gestão?
-
-Não. A auditoria deve estar habilitada na sua organização para incluir os registros por meio da API de Atividade de Gestão.
 
 #### <a name="why-are-targetupdatedproperties-no-longer-in-extendedproperties-in-the-audit-logs-for-azure-active-directory-activities"></a>Por que as TargetUpdatedProperties não estão mais em ExtendedProperties nos logs de auditoria das atividades do Azure Active Directory?
 

@@ -6,12 +6,12 @@ ms.ContentId: d0b9341a-b205-5442-1c20-8fb56407351d
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 6b42efe72931875592c87e78aa9c9cdce11a339b
-ms.sourcegitcommit: f823233a1ab116bc83d7ca8cd8ad7c7ea59439fc
+ms.openlocfilehash: 986298b87e2583788dca9b11f288743ce5f96b60
+ms.sourcegitcommit: 784b581a699c6d0ab7939ea621d5ecbea71925ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "35688169"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "35924809"
 ---
 # <a name="office-365-service-communications-api-reference-preview"></a>Referência da API de comunicações de serviço do Office 365 (visualização)
 
@@ -46,7 +46,7 @@ Todas as solicitações de API exigem um cabeçalho HTTP de Autorização com um
 Authorization: Bearer {OAuth2 token}
 ```
 
-**Cabeçalhos da Solicitação**
+### <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Estes são os cabeçalhos de solicitação suportados para todas as operações da API de Comunicações do Serviço do Office 365.
 
@@ -58,7 +58,7 @@ Estes são os cabeçalhos de solicitação suportados para todas as operações 
 
 <br/>
 
-**Cabeçalhos de respostas**
+### <a name="response-headers"></a>Cabeçalhos de resposta
 
 Estes são os cabeçalhos de respostas retornados para todas as operações da API de Comunicações do Serviço do Office 365:
 
@@ -95,7 +95,7 @@ Retorna a lista de serviços assinados.
 |**Resposta**|Lista de entidades "Service"|A entidade "Service" contém "Id" (cadeia de caracteres), "DisplayName" (cadeia de caracteres) e "FeatureNames" (lista de cadeias de caracteres).|
 ||||
 
-#### <a name="sample-request"></a>Solicitação de amostra
+### <a name="sample-request"></a>Solicitação de amostra
 
 ```json
 GET https://manage.office.com/api/v1.0/contoso.com/ServiceComms/Services 
@@ -103,7 +103,7 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 
 ```
 
-#### <a name="sample-response"></a>Resposta de amostra
+### <a name="sample-response"></a>Resposta de amostra
 
 ```json
 {
@@ -145,7 +145,9 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 Retorna o status do serviço das últimas 24 horas.
 
 > [!NOTE] 
-> A resposta do serviço conterá o status e quaisquer incidentes ocorridos dentro das últimas 24 horas. O valor StatusDate ou StatusTime retornado estará exatamente 24 horas no passado, a menos que haja um status mais recente disponível. Se um serviço recebeu uma atualização de status nas últimas 24 horas, o horário da última atualização será retornado.
+> A resposta do serviço conterá o status e quaisquer incidentes ocorridos dentro das últimas 24 horas. O valor StatusDate ou StatusTime retornado estará exatamente 24 horas no passado. Para obter a última atualização para um determinado incidente, use a funcionalidade de Obter Mensagens e leia o valor de LastUpdatedTime no registro de resposta que corresponde à ID do incidente. <br/>
+
+<br/>
 
 ||Serviço|Descrição|
 |:-----|:-----|:-----|
@@ -155,14 +157,14 @@ Retorna o status do serviço das últimas 24 horas.
 |**Resposta**|Lista de entidades "WorkloadStatus".|A entidade "WorkloadStatus" contém "Id" (cadeia de caracteres), "Workload" (cadeia de caracteres), "StatusTime"(DateTimeOffset), "WorkloadDisplayName" (cadeia de caracteres), "Status" (cadeia de caracteres), "IncidentIds" (lista de cadeias de caracteres) e FeatureGroupStatusCollection (lista de "FeatureStatus").<br/><br/>A entidade "FeatureStatus" contém "Feature" (cadeia de caracteres), "FeatureGroupDisplayName" (cadeia de cadeia de caracteres) e "FeatureStatus" (cadeia de caracteres).|
 ||||
 
-#### <a name="sample-request"></a>Solicitação de amostra
+### <a name="sample-request"></a>Solicitação de amostra
 
 ```json
 GET https://manage.office.com/api/v1.0/contoso.com/ServiceComms/CurrentStatus
 Authorization: Bearer {AAD_Bearer_JWT_Token}
 ```
 
-#### <a name="sample-response"></a>Resposta de amostra
+### <a name="sample-response"></a>Resposta de amostra
 
 ```json
 {
@@ -265,22 +267,23 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
     ]
 }
 ```
-#### <a name="status-definitions"></a>Definições de status
 
-|**Status**|**Definição**|
-|:-----|:-----|
-|**Investigando** | Estamos cientes de um possível problema e reunindo mais informações sobre o que está acontecendo e o escopo de impacto. |
-|**ServiceDegradation** | Confirmamos que existe um problema que pode afetar o uso de um serviço ou recurso. Talvez você veja esse status se um serviço apresentar um desempenho mais lento do que o normal, se houver interrupções intermitentes ou se um recurso não estiver funcionando, por exemplo. |
-|**ServiceInterruption** | Você verá esse status se determinarmos que um problema afeta a capacidade dos usuários de acessar o serviço. Neste caso, a questão é significativa e pode ser reproduzida de forma consistente. |
-|**RestoringService** | A causa do problema foi identificada, sabemos quais ações corretivas devem ser tomadas e estamos no processo de retomar o estado de integridade do serviço. |
-|**ExtendedRecovery** | Esse status indica que uma ação corretiva está em andamento para restaurar o serviço para a maioria dos usuários, mas levará algum tempo para alcançar todos os sistemas afetados. Você também poderá ver esse status se tivermos feito uma correção temporária para reduzir o impacto enquanto aguardamos para aplicar uma correção permanente. |
-|**InvestigationSuspended** | Se a nossa investigação detalhada de um problema potencial resultar em uma solicitação de informações adicionais de clientes para nos permitir investigar mais, você verá esse status. Se precisarmos de você para prosseguir, informaremos quais dados ou logs precisamos. |
-|**ServiceRestored** | Confirmamos que a ação corretiva solucionou o problema subjacente, e o serviço foi restaurado para um estado íntegro. Para descobrir o que deu errado, confira os detalhes do problema. |
-|**PostIncidentReportPublished** | Publicamos um relatório pós-incidente para um problema específico que inclui as informações da causa raiz e as próximas etapas para garantir que um problema semelhante não ocorra. |
-|||
+### <a name="status-definitions"></a>Definições de status
 
-> [!NOTE] 
-> Para saber mais sobre a integridade do serviço do Office 365, visite[como verificar a integridade do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health).
+As definições de status incluem os seguintes valores: 
+
+- Investigando
+- ServiceDegradation
+- ServiceInterruption 
+- RestoringService
+- ExtendedRecovery
+- ServiceRestored
+- PostIncidentReportPublished 
+- VerifyingService
+- ServiceOperational
+
+Para obter uma lista atualizada e uma descrição dessas definições de status, confira [Como verificar a integridade do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health#status-definitions).
+
 
 ## <a name="get-historical-status"></a>Obter Status Histórico
 
@@ -295,14 +298,14 @@ Retorna o status histórico do serviço, por dia, durante um determinado interva
 |**Resposta**|Lista de entidades "WorkloadStatus".|A entidade "WorkloadStatus" contém "Id" (cadeia de caracteres), "Workload" (cadeia de caracteres), "StatusTime"(DateTimeOffset), "WorkloadDisplayName" (cadeia de caracteres), "Status" (cadeia de caracteres), "IncidentIds" (lista de cadeias de caracteres) e FeatureGroupStatusCollection (lista de "FeatureStatus").<br/><br/>A entidade "FeatureStatus" contém "Feature" (cadeia de caracteres), "FeatureGroupDisplayName" (cadeia de cadeia de caracteres) e "FeatureStatus" (cadeia de caracteres).|
 ||||
 
-#### <a name="sample-request"></a>Solicitação de amostra
+### <a name="sample-request"></a>Solicitação de amostra
 
 ```json
 GET https://manage.office.com/api/v1.0/contoso.com/ServiceComms/HistoricalStatus
 Authorization: Bearer {AAD_Bearer_JWT_Token}
 ```
 
-#### <a name="sample-response"></a>Resposta de amostra
+### <a name="sample-response"></a>Resposta de amostra
 
 ```json
 {
@@ -383,7 +386,6 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 }
 ```
 
-
 ## <a name="get-messages"></a>Obter Mensagens
 
 Retorna as mensagens sobre o serviço de um determinado intervalo de tempo. Use o tipo de filtro para filtrar as mensagens por "Centro de Mensagens", "Manutenção Planejada" ou "Incidente de Serviço".
@@ -402,14 +404,14 @@ Retorna as mensagens sobre o serviço de um determinado intervalo de tempo. Use 
 |**Resposta**|Lista de entidades de "Mensagem".|A entidade "Message" contém "Id" (cadeia de caracteres), "StartTime" (DateTimeOffset), "EndTime" (DateTimeOffset), "Status" (cadeia de caracteres), "Messages" (lista da entidade "MessagHistory"), "LastUpdatedTime" (DateTimeOffset), "Workload" (cadeia de caracteres), "WorkloadDisplayName" (cadeia de caracteres), "Feature" (cadeia de caracteres), "FeatureDisplayName" (cadeia de caracteres), "MessageType" (Enum, padrão: todos).<br/><br/>A entidade "MessageHistory" contém "PublishedTime" (DateTimeOffset), "MessageText" (cadeia de caracteres).|
 ||||
 
-#### <a name="sample-request"></a>Solicitação de amostra
+### <a name="sample-request"></a>Solicitação de amostra
 
 ```json
 GET https://manage.office.com/api/v1.0/contoso.com/ServiceComms/Messages
 Authorization: Bearer {AAD_Bearer_JWT_Token}
 ```
 
-#### <a name="sample-response"></a>Resposta de amostra
+### <a name="sample-response"></a>Resposta de amostra
 
 ```json
 {
@@ -476,7 +478,6 @@ Quando o serviço encontra um erro, ele relata o código de resposta do erro ao 
 
 
 ```json
-
 { 
     "error":{ 
         "code":"AF5000.  An internal server error occurred.",
