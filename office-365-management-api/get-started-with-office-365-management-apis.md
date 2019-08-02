@@ -4,14 +4,14 @@ title: Introdução às APIs de Gerenciamento do Office 365
 description: As APIs usam o Azure AD para fornecer serviços de autenticação que você pode usar para conceder direitos de acesso a esses serviços para o seu aplicativo.
 ms.ContentId: 74137c9a-29e0-b588-6122-26f4d2c5e3fc
 ms.topic: reference (API)
-ms.date: 09/05/2018
+ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 9732b5a838bdf4c14a6a13af8196704c89dec63d
-ms.sourcegitcommit: 5b1eaeb7f262b7b9f7ab30ccb9f10878814153ac
+ms.openlocfilehash: 08f510302c1d19cf3e3e2385f1baab6133153f07
+ms.sourcegitcommit: 37737b849f1b2d0484e626002978b1d4ece2c742
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "32224008"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "35936233"
 ---
 # <a name="get-started-with-office-365-management-apis"></a>Introdução às APIs de Gerenciamento do Office 365
 
@@ -32,6 +32,8 @@ O diagrama a seguir mostra a sequência de solicitações de consentimento e tok
 
 ![Fluxo de autorizações de introdução às APIs de Gerenciamento](images/authorization-flow.png)
 
+> [!IMPORTANT]
+> Para poder acessar dados por meio da API de Atividade de Gerenciamento do Office 365, habilite o log de auditoria unificado para a sua organização do Office 365. Para fazer isso, ative o log de auditoria do Office 365. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria do Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). <br/><br/>A habilitação do log de auditoria unificado não é necessária se você usa apenas a API de Comunicações de Serviço do Office 365.
 
 ## <a name="register-your-application-in-azure-ad"></a>Registrar seu aplicativo no Azure AD
 
@@ -113,7 +115,7 @@ Chaves, também conhecidas como segredos do cliente, são usadas ao trocar um c�
 
 Um aplicativo que está sendo executado em segundo plano, como um daemon ou serviço, pode usar credenciais de cliente para solicitar tokens de acesso somente aplicativo sem solicitar repetidamente o consentimento do administrador do locatário após o consentimento inicial. 
 
-Confira mais informações em [Chamadas de serviço a serviço usando credenciais do cliente](https://msdn.microsoft.com/pt-BR/library/azure/dn645543.aspx).
+Confira mais informações em [Chamadas de serviço a serviço usando credenciais do cliente](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx).
 
 Você deve configurar um certificado X.509 com seu aplicativo para ser usado como credencial de cliente ao solicitar tokens de acesso somente aplicativo do Azure AD. Há duas etapas para o processo:
 
@@ -249,7 +251,7 @@ Há dois métodos para solicitar tokens de acesso do Azure AD:
 
 - O [Fluxo de Concessão do Código de Autorização](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx) envolve um administrador do locatário que dá o consentimento explícito, que retorna um código de autorização para o aplicativo. Seu aplicativo então troca o código de autorização por um token de acesso. Este método é necessário para obter o consentimento inicial de que seu aplicativo precisa para acessar os dados do locatário usando a API, e esse primeiro token de acesso é necessário para obter e armazenar o ID do locatário.
     
-- O [Fluxo de Concessão de Credenciais do Cliente](https://msdn.microsoft.com/pt-BR/library/azure/dn645543.aspx) permite que seu aplicativo solicite tokens de acesso subsequentes à medida que os antigos expirem, sem exigir que o administrador do locatário faça login e dê explicitamente o consentimento. Esse método deve ser usado para aplicativos que são executados continuamente em segundo plano chamando as APIs depois que o consentimento inicial do administrador do locatário é dado.
+- O [Fluxo de Concessão de Credenciais do Cliente](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx) permite que seu aplicativo solicite tokens de acesso subsequentes à medida que os antigos expirem, sem exigir que o administrador do locatário faça login e dê explicitamente o consentimento. Esse método deve ser usado para aplicativos que são executados continuamente em segundo plano chamando as APIs depois que o consentimento inicial do administrador do locatário é dado.
     
 
 ### <a name="request-an-access-token-using-the-authorization-code"></a>Solicitar um token de acesso usando o código de autorização
