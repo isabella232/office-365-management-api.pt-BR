@@ -4,14 +4,14 @@ title: Solução de problemas da API da Atividade de Gerenciamento do Office 365
 description: Resume as perguntas mais comuns que o Suporte da Microsoft recebe no suporte a essa API.
 ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
-ms.date: 09/05/2018
+ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 35d90859056225a5ebcf547d88c05640699c5295
-ms.sourcegitcommit: 784b581a699c6d0ab7939ea621d5ecbea71925ea
+ms.openlocfilehash: f02088f557a10414539952c78542e09b2dc2d90b
+ms.sourcegitcommit: 37737b849f1b2d0484e626002978b1d4ece2c742
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "35924816"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "35936226"
 ---
 # <a name="troubleshooting-the-office-365-management-activity-api"></a>Solução de problemas da API da Atividade de Gerenciamento do Office 365
 
@@ -26,15 +26,17 @@ Apesar de ter uma interface REST simples com relativamente poucas operações, h
 
 Este artigo resume as perguntas mais comuns que o Suporte da Microsoft recebe no suporte a essa API.  Mostraremos uma seleção de scripts simples do PowerShell que podem ajudá-lo a responder às perguntas mais comuns feitas por clientes ou ajudá-lo a começar a implementar uma solução personalizada demonstrando as operações principais.  Nem todas as operações são explicadas neste artigo, mas estão listadas na [referência da API da Atividade de Gerenciamento do Office 365](office-365-management-activity-api-reference.md).
 
-## <a name="enabling-unified-audit-logging-in-office-365"></a>Habilitar o log de auditoria unificada no Office 365
-
-Se você acabou de configurar um aplicativo que está tentando usar a API de Atividade de Gerenciamento e não estiver funcionando, certifique-se de que ativou o registro em log de auditoria unificada para a sua organização do Office 365. Para fazer isso, ative o log de auditoria do Office 365. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria do Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
-
 ## <a name="questions-about-third-party-tools-and-clients"></a>Perguntas sobre clientes e ferramentas de terceiros
 
 A categoria mais comum de perguntas que estamos recebendo no suporte no momento é de clientes que usam produtos de terceiros para baixar e agregar dados de auditoria. Dependendo do produto de terceiros, os clientes podem encontrar dificuldades com a configuração ou observar uma interrupção ou inconsistência nos dados expostos nesses produtos. Devemos mencionar que a primeira ação que esses clientes devem realizar é entrar em contato com o departamento de suporte do fornecedor. Em todas as solicitações de serviço que chegaram ao suporte, os engenheiros reportaram apenas um único caso em que um problema de serviço específico do locatário era a causa.
 
 No entanto, esses clientes ainda podem ter algumas perguntas não respondidas. Os fornecedores podem insistir que é um problema de serviço ou eles precisam apenas realizar algumas verificações iniciais antes de entrar em contato com o fornecedor. 
+
+## <a name="enabling-unified-audit-logging-in-office-365"></a>Habilitar o log de auditoria unificada no Office 365
+
+Se você acabou de configurar um aplicativo que está tentando usar a API de Atividade de Gerenciamento e não estiver funcionando, certifique-se de que ativou o registro em log de auditoria unificada para a sua organização do Office 365. Para fazer isso, ative o log de auditoria do Office 365. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria do Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
+
+Se a auditoria unificada não estiver habilitada, uma mensagem de erro aparecerá contendo a cadeia de caracteres a seguir: `Microsoft.Office.Compliance.Audit.DataServiceException: Tenant <tenantID> does not exist.`
 
 ## <a name="connecting-to-the-api"></a>Como conectar-se com a API
 
@@ -43,6 +45,7 @@ A maioria dos aplicativos conecta-se à API usando um fluxo OAuth2 simples de Cr
 ### <a name="azure-application-permissions"></a>Permissões de aplicativo do Azure
 
 As três permissões usadas no momento para a API da Atividade de Gerenciamento do Office 365 são:
+
 1. Ler dados de atividade para sua organização
 2. Ler as informações de integridade do serviço para sua organização
 3. Ler os eventos de política de Prevenção de Perda de Dados (DLP), incluindo informações confidenciais detectadas 
