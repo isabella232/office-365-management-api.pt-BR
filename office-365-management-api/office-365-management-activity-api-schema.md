@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 49ffb697575a63bce7a7eee8e539a30c733772a5
-ms.sourcegitcommit: c4674653f99c77b64115f8547f9e410dea3408f9
+ms.openlocfilehash: 175d18dad57bff0939250cd4ae27c02129d7c0ed
+ms.sourcegitcommit: b9439635542de9db8f9fb8e056b8359d4653aa21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "35613582"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "36643040"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
  
@@ -1094,7 +1094,10 @@ Os eventos da Proteção Avançada contra Ameaças e Investigação e Resposta c
 |NetworkMessageId|Edm.String|Sim|A ID da mensagem de rede do Exchange Online.|
 |P1Sender|Edm.String|Sim|O caminho de retorno do remetente da mensagem de email.|
 |P2Sender|Edm.String|Sim|O remetente da mensagem de email.|
-|Recipients|Collection(Edm.String)|Sim|Uma matriz de destinatários da mensagem de email.|
+|Política|Self.[Policy](#policy-type-and-action-type)|Sim|O tipo de política de filtragem (por exemplo, **Anti-spam** ou **Anti-phishing**) e o tipo de ação relacionada (por exemplo, **Spam de Alta Confiança**, **Spam** ou **Phishing**) relevante para a mensagem de email.|
+|Política|Self.[PolicyAction](#policy-action)|Sim|A ação configurada na política de filtragem (por exemplo, **Mover para a pasta Lixo Eletrônico** ou **Quarentena**) relevante para a mensagem de email.|
+|P2Sender|Edm.String|Sim|O **Remetente:** da mensagem de email.|
+|Destinatários|Collection(Edm.String)|Sim|Uma matriz de destinatários da mensagem de email.|
 |SenderIp|Edm.String|Sim|O endereço IP que enviou o email do Office 365. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6.|
 |Subject|Edm.String|Sim|A linha de assunto da mensagem.|
 |Verdict|Edm.String|Sim|A conclusão da mensagem.|
@@ -1127,6 +1130,37 @@ Os eventos da Proteção Avançada contra Ameaças e Investigação e Resposta c
 |-2|Timeout|Tempo limite de varredura/análise.|
 |-3|Pending|Varredura/análise não concluída.|
 |||||
+
+### <a name="enum-policy---type-edmint32"></a>Enumeração: Policy - Tipo: Edm.Int32
+
+#### <a name="policy-type-and-action-type"></a>Tipo de política e tipo de ação
+
+|**Valor**|**Nome do membro**|**Descrição**|
+|:-----|:-----|:-----|
+|1|Anti-spam, HSPM|Ação de HSPM (Spam de Alta Confiança) na política anti-spam.|
+|2|Anti-spam, SPM|Ação de Spam (SPM) na política anti-spam.|
+|3|Anti-spam, em massa|Ação em massa na política anti-spam.|
+|4|Anti-spam, PHSH|Ação de PHSH (phishing) na política anti-spam.|
+|5|Anti-phishing, DIMP|Ação de Representação de Domínio (DIMP) na política anti-phishing.|
+|6|Anti-phishing, UIMP|Ação de Representação de Usuários (UIMP) na política anti-phishing.|
+|7|Anti-phishing, SPOOF|Ação falsa na política anti-phishing.|
+
+
+### <a name="enum-policyaction---type-edmint32"></a>Enumeração: PolicyAction - Tipo: Edm.Int32
+
+#### <a name="policy-action"></a>Ação de política
+
+|**Valor**|**Nome do membro**|**Descrição**|
+|:-----|:-----|:-----|
+|0|MoveToJMF|A ação de política é mover para a pasta Lixo Eletrônico.|
+|1|AddXHeader|A ação de política é adicionar o cabeçalho X à mensagem de email.|
+|2|ModifySubject|A ação de política é modificar o assunto na mensagem de email com as informações especificadas pela política de filtragem.|
+|3|Redirecionamento|A ação de política é redirecionar a mensagem de email para o endereço de email especificado pela política de filtragem.|
+|4|Excluir|A ação de política é excluir (descartar) a mensagem de email.|
+|5|Quarentena|A ação de política é colocar a mensagem de email em quarentena.|
+|6|NoAction| A política está configurada para não executar nenhuma ação na mensagem de email.|
+|7|BccMessage|A ação de política é Cco a mensagem de email para o endereço de email especificado pela política de filtragem.|
+
 
 ### <a name="url-time-of-click-events"></a>Eventos de momento do clique da URL
 
