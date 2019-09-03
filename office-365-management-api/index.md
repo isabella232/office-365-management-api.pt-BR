@@ -29,5 +29,4 @@ As APIs de Gerenciamento do Office 365 oferecem uma plataforma de extensibilidad
 
 ## <a name="see-also"></a>Confira também
 
-- 
-  [APIs REST do Office 365](https://docs.microsoft.com/pt-BR/previous-versions/office/office-365-api/how-to/platform-development-overview)
+- [APIs REST do Office 365](https://docs.microsoft.com/pt-BR/previous-versions/office/office-365-api/how-to/platform-development-overview)
