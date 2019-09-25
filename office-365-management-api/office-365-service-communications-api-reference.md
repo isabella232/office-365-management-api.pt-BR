@@ -1,34 +1,31 @@
 ---
-ms.TocTitle: Office 365 Service Communications API reference (Preview)
-title: Referência da API de comunicações de serviço do Office 365 (visualização)
+ms.TocTitle: Office 365 Service Communications API reference
+title: Referência da API de Comunicações de Serviço do Office 365
 description: 'Use esta API para acessar os seguintes dados: Obter Serviços, Obter Status Atual, Obter Status Histórico e Obter Mensagens.'
 ms.ContentId: d0b9341a-b205-5442-1c20-8fb56407351d
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 986298b87e2583788dca9b11f288743ce5f96b60
-ms.sourcegitcommit: 784b581a699c6d0ab7939ea621d5ecbea71925ea
+ms.openlocfilehash: 427c741f623f46962c3cd6818adbb64bfc0f1e7a
+ms.sourcegitcommit: 0e6d71ad2375e5d1fc72d6893724511c08840c27
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "35924809"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "37131421"
 ---
-# <a name="office-365-service-communications-api-reference-preview"></a>Referência da API de comunicações de serviço do Office 365 (visualização)
-
-> [!NOTE] 
-> Esta documentação aborda os recursos que estão atualmente na versão prévia.
+# <a name="office-365-service-communications-api-reference"></a>Referência da API de Comunicações de Serviço do Office 365
 
 Você pode usar o API de Comunicações do Serviço do Office 365 V2 para acessar os seguintes dados:
 
 - **Obter Serviços**: obtenha a lista de serviços assinados.
     
-- **Obter Status Atual**: obtenha uma visualização em tempo real dos eventos de manutenção e dos incidentes de serviço em andamento e atuais
+- **Obter Status Atual**: obtenha uma visualização em tempo real dos eventos de manutenção e dos incidentes de serviço.
     
-- **Obter Status Histórico**: obtenha uma visualização do histórico de integridade do serviço, incluindo incidentes de serviço e eventos de manutenção.
+- **Obter Status Histórico**: obtenha uma visualização do histórico de incidentes de serviço.
     
-- **Obter Mensagens**: comunicações do Centro de Mensagens, Manutenção Planejada e Localizar Incidente.
+- **Obter Mensagens**: comunicações do Localizar Incidente e Centro de Mensagens.
     
-Atualmente, a API de Comunicações do Serviço do Office 365 contém os dados dos seguintes serviços: Dynamics CRM, Dynamics Marketing, Exchange Online, Proteção do Exchange Online, Identity Service, Gerenciamento de Dispositivo Móvel, Centro de Administração do Parceiro do Office 365, OneDrive for Business, Parature, OneDrive for Business, Power BI para Office 365, Serviço de Gerenciamento de Direitos, SharePoint Online, Administrador do SHD, Skype for Business, Envolvimento Social e Yammer Enterprise.
+Atualmente, a API de Comunicações do Serviço do Office 365 contém dados para os serviços de nuvem do Office 365, Yammer, Dynamics CRM e Microsoft Intune.
 
 ## <a name="the-fundamentals"></a>Os conceitos básicos
 
