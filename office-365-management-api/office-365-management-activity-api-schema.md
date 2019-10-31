@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 85e9a62a029a905204d0091d3f0d58824d3c1d9a
-ms.sourcegitcommit: 0db48c00c956935a4a52aa2c2686f160a3efc8f3
+ms.openlocfilehash: ee002772f5d35fefb758d32b6cb015993add0319
+ms.sourcegitcommit: d0bf43ff238f4647dd049672f68b4e1171083203
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "37636281"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "37774887"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
  
@@ -1146,6 +1146,13 @@ Os eventos da [Proteção Avançada contra Ameaças](https://docs.microsoft.com/
 |5|Anti-phishing, DIMP|Ação de Representação de Domínio (DIMP) na política anti-phishing.|
 |6|Anti-phishing, UIMP|Ação de Representação de Usuários (UIMP) na política anti-phishing.|
 |7|Anti-phishing, SPOOF|Ação falsa na política anti-phishing.|
+|8|Anti-phishing, GIMP|Ação de inteligência da caixa de correio na política anti-phishing.|
+|9|Antimalware, AMP| Ação de política de malware na política antimalware.|
+|10|Anexo seguro, SAP| Ação de diretiva na diretiva de anexos seguros da Office 365 ATP.|
+|11|Regra de transporte do Exchange, ETR| Ação de diretiva na Regra de Transporte do Exchange.|
+|12|Antimalware, ZAPM| Ação de política de malware na política antimalware aplicada ao ZAP (zero-hour purge).|
+|13|Anti-phishing, ZAPP| Ação de política de phishing na política anti-phishing aplicada ao ZAP.|
+|14|Anti-phishing, ZAPS| Ação de política de spam na política antispam aplicada ao ZAP.|
 
 
 ### <a name="enum-policyaction---type-edmint32"></a>Enumeração: PolicyAction - Tipo: Edm.Int32
