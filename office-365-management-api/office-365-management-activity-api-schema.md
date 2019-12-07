@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 1762bed1a970215b3fc8c45f3ef807caaf93ace8
-ms.sourcegitcommit: e45b168705f36e12ceae02c77244d17d5ce01310
+ms.openlocfilehash: f05cf59e720c56b1b43db153519ea0fbee548895
+ms.sourcegitcommit: f959ebd84b3df57171f8d8ca2485adc1b69b4008
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "39665461"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "39872222"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
  
@@ -108,16 +108,21 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |30|MicrosoftFlow|Eventos do Microsoft Flow.|
 |31|AeD|Eventos de Descoberta Eletrônica Avançada.|
 |32|MicrosoftStream|Eventos do Microsoft Stream.|
+|33|ComplianceDLPSharePointClassification|Eventos relacionados à classificação DLP no SharePoint.|
 |35|Project|Eventos do Microsoft Project.|
-|36|SharepointListOperation|Eventos de lista do SharePoint.|
+|36|SharePointListOperation|Eventos da Lista do SharePoint.|
 |38|DataGovernance|Eventos relacionados às políticas de retenção e rótulos de retenção no Centro de Conformidade e Segurança|
 |40|SecurityComplianceAlerts|Sinais de alerta de conformidade e segurança.|
 |41|ThreatIntelligenceUrl|Eventos de bloqueio de tempo e bloqueio de links seguros da Proteção Avançada contra Ameaças do Office 365.|
+|42|SecurityComplianceInsights|Eventos relacionados à informações e relatórios no centro de segurança e conformidade do Office 365.|
 |44|WorkplaceAnalytics|Eventos do Workplace Analytics.|
 |45|PowerAppsApp|Eventos do aplicativo PowerApps.|
 |47|ThreatIntelligenceAtpContent|Eventos de phishing e malware para arquivos no SharePoint, OneDrive for Business e o Microsoft Teams da Proteção Avançada contra Ameaças do Office 365.|
-|54|SharePointListItemOperation|Eventos de lista do SharePoint.|
+|49|TeamsHealthcare|Eventos relacionados ao [Aplicativo dos pacientes](https://docs.microsoft.com/MicrosoftTeams/expand-teams-across-your-org/healthcare/patients-audit) no Microsoft Teams para Assistência Médica.|
+|52|DataInsightsRestApiAudit|Informações sobre os dados de eventos da API REST.|
+|54|SharePointListItemOperation|Eventos de item de lista do SharePoint.|
 |55|SharePointContentTypeOperation|Eventos do tipo de conteúdo de lista do SharePoint.|
+|56|SharePointFieldOperation|Eventos de campo de lista do SharePoint.|
 |64|AirInvestigation|Eventos de resposta automática de incidente (AIR).|
 |66|MicrosoftForms|Eventos do Microsoft Forms.|
 ||||
@@ -135,10 +140,9 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |4|System|Uma conta do sistema.|
 |5|Application|Um aplicativo.|
 |6|ServicePrincipal|Uma entidade de serviço.|
+|7|CustomPolicy|Uma política personalizada.|
+|8|SystemPolicy|Uma política do sistema.|
 ||||
-
-> [!NOTE] 
-> Somente as operações do Exchange incluem um tipo de usuário. As operações do SharePoint não especificam um tipo de usuário. 
 
 ### <a name="enum-auditlogscope---type-edmint32"></a>Enumeração: AuditLogScope - Tipo: Edm.Int32
 
