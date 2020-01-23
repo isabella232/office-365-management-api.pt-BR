@@ -6,18 +6,18 @@ ms.ContentId: ''
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 9083127d1fd3ecf82e5fe778ba1727d22d91017c
-ms.sourcegitcommit: 784b581a699c6d0ab7939ea621d5ecbea71925ea
+ms.openlocfilehash: 19603e9f22d65c51ee01c9b410c61cb46ca97434
+ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "35924774"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "41263230"
 ---
 # <a name="office-365-management-activity-api-frequently-asked-questions"></a>Perguntas frequentes sobre a API de Atividade de Gerenciamento do Office 365
 
 #### <a name="what-events-are-audited-for-a-specific-office-365-service"></a>Que eventos são auditados para um serviço específico do Office 365?
 
-A documentação do esquema de API de Atividade de Gerenciamento do Office 365 possui uma lista abrangente de eventos. Para ver mais detalhes, confira o [esquema de API de Atividade de Gerenciamento do Office 365](office-365-management-activity-api-schema.md). Confira também a seção "atividades auditadas" em [Pesquisar o log de auditoria no Centro de Conformidade e Segurança](https://docs.microsoft.com/en-us/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#audited-activities) para obter uma lista de eventos para a maioria dos serviços do Office 365 que são auditados.
+A documentação do esquema de API de Atividade de Gerenciamento do Office 365 possui uma lista abrangente de eventos. Para ver mais detalhes, confira o [esquema de API de Atividade de Gerenciamento do Office 365](office-365-management-activity-api-schema.md). Confira também a seção "atividades auditadas" em [Pesquisar o log de auditoria no Centro de Conformidade e Segurança](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#audited-activities) para obter uma lista de eventos para a maioria dos serviços do Office 365 que são auditados.
 
 #### <a name="how-do-i-onboard-to-the-management-activity-api"></a>Como faço para integrar a API de Atividade de Gerenciamento?
 

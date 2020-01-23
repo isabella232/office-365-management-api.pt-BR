@@ -6,12 +6,12 @@ ms.ContentId: a11a6d30-f6b7-3629-28b6-cbab527d8a5e
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: c809fd5d86dcd04c075eae27790991340c3460eb
-ms.sourcegitcommit: 37737b849f1b2d0484e626002978b1d4ece2c742
+ms.openlocfilehash: c070ecdbea68702124b14442bc563f0e363d34e7
+ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "35936212"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "41263223"
 ---
 # <a name="welcome-to-office-365-management-apis"></a>Bem-vindo às APIs de Gerenciamento do Office 365
 
@@ -29,4 +29,4 @@ As APIs de Gerenciamento do Office 365 oferecem uma plataforma de extensibilidad
 
 ## <a name="see-also"></a>Confira também
 
-- [APIs REST do Office 365](https://docs.microsoft.com/pt-BR/previous-versions/office/office-365-api/how-to/platform-development-overview)
+- [APIs REST do Office 365](https://docs.microsoft.com/previous-versions/office/office-365-api/how-to/platform-development-overview)
