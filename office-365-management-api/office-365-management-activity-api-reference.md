@@ -6,18 +6,18 @@ ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: b4aea4da9a63e298fa154a7d0cbb0da976c7fe88
-ms.sourcegitcommit: 37737b849f1b2d0484e626002978b1d4ece2c742
+ms.openlocfilehash: cd08108108db55008d21301bdcce783f79f424b0
+ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "35936213"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "41263265"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referência da API da Atividade de Gerenciamento do Office 365
 
 Use a API da Atividade de Gerenciamento do Office 365 para recuperar informações sobre ações e eventos de usuário, administração, sistema e políticas dos logs de atividades do Office 365 e do Azure AD. 
 
-Você pode usar as ações e os eventos dos logs de auditoria e atividades do Office 365 e do Microsoft Azure Active Directory para criar soluções que forneçam monitoramento, análise e visualização de dados. Essas soluções oferecem às organizações mais visibilidade das ações realizadas em relação a seu conteúdo. Essas ações e eventos também estão disponíveis nos Relatórios de Atividades do Office 365. Para saber mais, confira [Pesquisar o log de auditoria no Centro de Conformidade e Segurança do Office 365](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c).
+Você pode usar as ações e os eventos dos logs de auditoria e atividades do Office 365 e do Microsoft Azure Active Directory para criar soluções que forneçam monitoramento, análise e visualização de dados. Essas soluções oferecem às organizações mais visibilidade das ações realizadas em relação a seu conteúdo. Essas ações e eventos também estão disponíveis nos Relatórios de Atividades do Office 365. Para saber mais, confira [Pesquisar o log de auditoria no Centro de Conformidade e Segurança do Office 365](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c).
 
 A API da Atividade de Gerenciamento do Office 365 é um serviço Web REST que você pode usar para desenvolver soluções usando qualquer linguagem e ambiente de hospedagem que dê suporte a certificados HTTPS e X.509. A API depende do Azure AD e do protocolo OAuth2 para autorização e autenticação. Para acessar a API por meio de seu aplicativo, primeiro será preciso registrá-la no Azure AD e configurá-la com permissões apropriadas. Isso habilitará o aplicativo a solicitar os tokens de acesso OAuth2 necessários para chamar a API. Para saber mais, confira [Introdução às APIs de Gerenciamento do Office 365](get-started-with-office-365-management-apis.md).
 
@@ -53,7 +53,7 @@ Após criar uma assinatura, você pode realizar uma sondagem regularmente para d
 
 
 > [!NOTE] 
-> Os dados confidenciais de DLP só estão disponíveis na API de feed de atividades para usuários que receberam permissões para "Ler dados confidenciais de DLP". Para saber mais sobre DLP (Prevenção contra Perda de Dados), confira [Visão geral de Políticas de Prevenção contra Perda de Dados](https://support.office.com/en-us/article/Overview-of-data-loss-prevention-policies-1966b2a7-d1e2-4d92-ab61-42efbb137f5e)
+> Os dados confidenciais de DLP só estão disponíveis na API de feed de atividades para usuários que receberam permissões para "Ler dados confidenciais de DLP". Para saber mais sobre DLP (Prevenção contra Perda de Dados), confira [Visão geral de Políticas de Prevenção contra Perda de Dados](https://support.office.com/article/Overview-of-data-loss-prevention-policies-1966b2a7-d1e2-4d92-ab61-42efbb137f5e)
 
 ## <a name="activity-api-operations"></a>Operações de API de atividade
 

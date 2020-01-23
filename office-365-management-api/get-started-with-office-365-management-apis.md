@@ -6,12 +6,12 @@ ms.ContentId: 74137c9a-29e0-b588-6122-26f4d2c5e3fc
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 08f510302c1d19cf3e3e2385f1baab6133153f07
-ms.sourcegitcommit: 37737b849f1b2d0484e626002978b1d4ece2c742
+ms.openlocfilehash: f444aa9411e0520be42ce68b2f618efe5228ac75
+ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "35936233"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "41263237"
 ---
 # <a name="get-started-with-office-365-management-apis"></a>Introdução às APIs de Gerenciamento do Office 365
 
@@ -42,7 +42,7 @@ As APIs de Gerenciamento do Office 365 usam o Azure AD para fornecer autenticaç
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Para registrar seu aplicativo no Azure AD, você precisa de uma assinatura do Office 365 e de uma assinatura do Azure que tenha sido associada à assinatura do Office 365. Você pode usar assinaturas de avaliação do Office 365 e do Azure para começar. Confira mais detalhes em [Bem-vindo ao Programa para Desenvolvedores do Office 365](https://docs.microsoft.com/pt-BR/office/developer-program/office-365-developer-program).
+Para registrar seu aplicativo no Azure AD, você precisa de uma assinatura do Office 365 e de uma assinatura do Azure que tenha sido associada à assinatura do Office 365. Você pode usar assinaturas de avaliação do Office 365 e do Azure para começar. Confira mais detalhes em [Bem-vindo ao Programa para Desenvolvedores do Office 365](https://docs.microsoft.com/office/developer-program/office-365-developer-program).
 
 
 ### <a name="use-the-azure-management-portal-to-register-your-application-in-azure-ad"></a>Use o Portal de Gerenciamento do Azure para registrar seu aplicativo no Azure AD
@@ -80,7 +80,7 @@ Depois de ter um locatário da Microsoft com as assinaturas adequadas, você pod
 
 Agora que seu aplicativo está registrado, há várias propriedades importantes que você deve especificar para determinar como ele funciona no Azure AD e como os administradores de locatário darão o consentimento para permitir que o aplicativo acesse seus dados usando as APIs de Gerenciamento do Office 365.
 
-Confira mais informações sobre a configuração do aplicativo do Azure AD em geral em [Propriedades do Objeto do Aplicativo](https://docs.microsoft.com/pt-BR/azure/active-directory/develop/active-directory-application-objects).
+Confira mais informações sobre a configuração do aplicativo do Azure AD em geral em [Propriedades do Objeto do Aplicativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects).
 
 
 1. **ID DO CLIENTE**. Esse valor é gerado automaticamente pelo Azure AD. Seu aplicativo usará esse valor ao solicitar o consentimento dos administradores do locatário e ao solicitar tokens somente aplicativo do Azure AD.
@@ -115,7 +115,7 @@ Chaves, também conhecidas como segredos do cliente, são usadas ao trocar um c�
 
 Um aplicativo que está sendo executado em segundo plano, como um daemon ou serviço, pode usar credenciais de cliente para solicitar tokens de acesso somente aplicativo sem solicitar repetidamente o consentimento do administrador do locatário após o consentimento inicial. 
 
-Confira mais informações em [Chamadas de serviço a serviço usando credenciais do cliente](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx).
+Confira mais informações em [Chamadas de serviço a serviço usando credenciais do cliente](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
 Você deve configurar um certificado X.509 com seu aplicativo para ser usado como credencial de cliente ao solicitar tokens de acesso somente aplicativo do Azure AD. Há duas etapas para o processo:
 
@@ -249,9 +249,9 @@ Seu aplicativo usa esse código de autorização para obter um token de acesso d
 
 Há dois métodos para solicitar tokens de acesso do Azure AD:
 
-- O [Fluxo de Concessão do Código de Autorização](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx) envolve um administrador do locatário que dá o consentimento explícito, que retorna um código de autorização para o aplicativo. Seu aplicativo então troca o código de autorização por um token de acesso. Este método é necessário para obter o consentimento inicial de que seu aplicativo precisa para acessar os dados do locatário usando a API, e esse primeiro token de acesso é necessário para obter e armazenar o ID do locatário.
+- O [Fluxo de Concessão do Código de Autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx) envolve um administrador do locatário que dá o consentimento explícito, que retorna um código de autorização para o aplicativo. Seu aplicativo então troca o código de autorização por um token de acesso. Este método é necessário para obter o consentimento inicial de que seu aplicativo precisa para acessar os dados do locatário usando a API, e esse primeiro token de acesso é necessário para obter e armazenar o ID do locatário.
     
-- O [Fluxo de Concessão de Credenciais do Cliente](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx) permite que seu aplicativo solicite tokens de acesso subsequentes à medida que os antigos expirem, sem exigir que o administrador do locatário faça login e dê explicitamente o consentimento. Esse método deve ser usado para aplicativos que são executados continuamente em segundo plano chamando as APIs depois que o consentimento inicial do administrador do locatário é dado.
+- O [Fluxo de Concessão de Credenciais do Cliente](https://msdn.microsoft.com/library/azure/dn645543.aspx) permite que seu aplicativo solicite tokens de acesso subsequentes à medida que os antigos expirem, sem exigir que o administrador do locatário faça login e dê explicitamente o consentimento. Esse método deve ser usado para aplicativos que são executados continuamente em segundo plano chamando as APIs depois que o consentimento inicial do administrador do locatário é dado.
     
 
 ### <a name="request-an-access-token-using-the-authorization-code"></a>Solicitar um token de acesso usando o código de autorização
@@ -335,7 +335,7 @@ O token de acesso retornado é um token JWT que inclui informações sobre o adm
 
 Depois que a ID do locatário é conhecida, seu aplicativo pode fazer chamadas de serviço a serviço ao Azure AD para solicitar tokens de acesso adicionais à medida que eles expiram. Esses tokens incluem informações apenas sobre o aplicativo solicitante e não sobre o administrador que originalmente deu o consentimento. Chamadas de serviço a serviço requerem que seu aplicativo use um certificado X.509 para criar uma declaração de cliente na forma de um token de portador JWT assinado em SHA256 codificado em base64.
 
-Quando desenvolve seu aplicativo no .NET, você pode usar a [Biblioteca de Autenticação do Azure AD (ADAL)](https://docs.microsoft.com/pt-BR/azure/active-directory/develop/active-directory-authentication-libraries) para criar declarações de clientes. Outras plataformas de desenvolvimento devem ter bibliotecas semelhantes.
+Quando desenvolve seu aplicativo no .NET, você pode usar a [Biblioteca de Autenticação do Azure AD (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) para criar declarações de clientes. Outras plataformas de desenvolvimento devem ter bibliotecas semelhantes.
 
 Um token JWT não codificado consiste em um cabeçalho e o conteúdo com as seguintes propriedades.
 

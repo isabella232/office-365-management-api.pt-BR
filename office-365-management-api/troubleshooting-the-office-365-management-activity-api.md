@@ -6,12 +6,12 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: f02088f557a10414539952c78542e09b2dc2d90b
-ms.sourcegitcommit: 37737b849f1b2d0484e626002978b1d4ece2c742
+ms.openlocfilehash: b751c89194407e57c8654a9317b8070ab2918b03
+ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "35936226"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "41263286"
 ---
 # <a name="troubleshooting-the-office-365-management-activity-api"></a>Solução de problemas da API da Atividade de Gerenciamento do Office 365
 
@@ -40,7 +40,7 @@ Se a auditoria unificada não estiver habilitada, uma mensagem de erro aparecer�
 
 ## <a name="connecting-to-the-api"></a>Como conectar-se com a API
 
-A maioria dos aplicativos conecta-se à API usando um fluxo OAuth2 simples de Credenciais de Cliente. Portanto, a primeira etapa é criar um aplicativo do Azure AD que tenha as permissões necessárias para acessar os dados da API da Atividade de Gerenciamento. Está fora do escopo deste artigo explicar as etapas para criar um registro de aplicativo do Azure AD. Para saber mais, confira [Registrar seu aplicativo com o locatário do Azure Active Directory](https://docs.microsoft.com/pt-BR/azure/active-directory/develop/active-directory-integrating-applications).
+A maioria dos aplicativos conecta-se à API usando um fluxo OAuth2 simples de Credenciais de Cliente. Portanto, a primeira etapa é criar um aplicativo do Azure AD que tenha as permissões necessárias para acessar os dados da API da Atividade de Gerenciamento. Está fora do escopo deste artigo explicar as etapas para criar um registro de aplicativo do Azure AD. Para saber mais, confira [Registrar seu aplicativo com o locatário do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 
 ### <a name="azure-application-permissions"></a>Permissões de aplicativo do Azure
 
