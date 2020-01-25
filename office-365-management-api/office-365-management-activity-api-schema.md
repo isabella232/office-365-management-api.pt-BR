@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: f05cf59e720c56b1b43db153519ea0fbee548895
-ms.sourcegitcommit: f959ebd84b3df57171f8d8ca2485adc1b69b4008
+ms.openlocfilehash: 7a12fc60894742ebdcc41457930225a4dd9bfc02
+ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "39872222"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "41263272"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
  
@@ -105,7 +105,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |24|Descoberta|Eventos para atividades de Descoberta Eletrônica realizados executando pesquisas de conteúdo e gerenciando casos de Descoberta Eletrônica no Centro de Conformidade e Segurança.|
 |25|MicrosoftTeams|Eventos do Microsoft Teams.|
 |28|ThreatIntelligence|Eventos de phishing e malware da Proteção do Exchange Online e da Proteção Avançada contra Ameaças do Office 365.|
-|30|MicrosoftFlow|Eventos do Microsoft Flow.|
+|30|MicrosoftFlow|Eventos do Microsoft Power Automate (anteriormente chamado de Microsoft Flow).|
 |31|AeD|Eventos de Descoberta Eletrônica Avançada.|
 |32|MicrosoftStream|Eventos do Microsoft Stream.|
 |33|ComplianceDLPSharePointClassification|Eventos relacionados à classificação DLP no SharePoint.|
@@ -116,7 +116,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |41|ThreatIntelligenceUrl|Eventos de bloqueio de tempo e bloqueio de links seguros da Proteção Avançada contra Ameaças do Office 365.|
 |42|SecurityComplianceInsights|Eventos relacionados à informações e relatórios no centro de segurança e conformidade do Office 365.|
 |44|WorkplaceAnalytics|Eventos do Workplace Analytics.|
-|45|PowerAppsApp|Eventos do aplicativo PowerApps.|
+|45|PowerAppsApp|Eventos dos Aplicativos de Energia.|
 |47|ThreatIntelligenceAtpContent|Eventos de phishing e malware para arquivos no SharePoint, OneDrive for Business e o Microsoft Teams da Proteção Avançada contra Ameaças do Office 365.|
 |49|TeamsHealthcare|Eventos relacionados ao [Aplicativo dos pacientes](https://docs.microsoft.com/MicrosoftTeams/expand-teams-across-your-org/healthcare/patients-audit) no Microsoft Teams para Assistência Médica.|
 |52|DataInsightsRestApiAudit|Informações sobre os dados de eventos da API REST.|
@@ -359,7 +359,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 
 ## <a name="sharepoint-file-operations"></a>Operações de arquivos do SharePoint
 
-Os eventos do SharePoint relacionados a arquivos listados na seção "Atividades de arquivos e pastas" em [Pesquisar o log de auditoria do Centro de Proteção do Office 365](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&amp;rs=en-US&amp;ad=US) usam este esquema.
+Os eventos do SharePoint relacionados a arquivos listados na seção "Atividades de arquivos e pastas" em [Pesquisar o log de auditoria do centro de conformidade e segurança](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance) usam este esquema.
 
 
 
@@ -379,7 +379,8 @@ Os eventos do SharePoint relacionados a arquivos listados na seção "Atividades
 
 ## <a name="sharepoint-sharing-schema"></a>Esquema de compartilhamento do SharePoint
 
- Os eventos do SharePoint relacionados ao compartilhamento de arquivos. Eles são diferentes dos eventos relacionados a arquivos e pastas em que um usuário está realizando uma ação que afeta outro usuário. Para obter informações sobre o esquema de compartilhamento do SharePoint, confira [Usar a auditoria de compartilhamento no log de auditoria do Office 365g](https://support.office.com/en-us/article/Use-sharing-auditing-in-the-Office-365-audit-log-50bbf89f-7870-4c2a-ae14-42635e0cfc01?ui=en-US&amp;rs=en-US&amp;ad=US).
+ Os eventos do SharePoint relacionados ao compartilhamento de arquivos. Eles são diferentes dos eventos relacionados a arquivos e pastas em que um usuário está realizando uma ação que afeta outro usuário. Para obter informações sobre o esquema de compartilhamento do SharePoint, confira [Usar a auditoria de compartilhamento no log de auditoria do Office 365g](https://docs.microsoft.com/microsoft-365/compliance/use-sharing-auditing
+).
 
 
 
@@ -393,7 +394,7 @@ Os eventos do SharePoint relacionados a arquivos listados na seção "Atividades
 
 ## <a name="sharepoint-schema"></a>Esquema do SharePoint
 
-Os eventos do SharePoint listados em [Pesquisar o log de auditoria do Centro de Proteção do Office 365](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&amp;rs=en-US&amp;ad=US) (excluindo os eventos de arquivo e pasta) usam este esquema.
+Os eventos do SharePoint listados em [Pesquisar o log de auditoria do centro de conformidade e segurança](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance) (excluindo os eventos de arquivo e pasta) usam este esquema.
 
 
 |**Parâmetro**|**Tipo**|**Obrigatório?**|**Descrição**|
@@ -897,7 +898,7 @@ Os eventos do Yammer listados em [Pesquisar no log de auditoria no Centro de Con
 
 ## <a name="sway-schema"></a>Esquema do Sway
 
-Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Proteção do Office 365](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&amp;rs=en-US&amp;ad=US) (excluindo os eventos de arquivo e pasta) usarão este esquema.
+Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Proteção do Office 365](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&amp;rs=en-US&amp;ad=US) (excluindo os eventos de arquivo e pasta) usarão este esquema.
 
 |**Parâmetro**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
@@ -1082,7 +1083,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 
 Os eventos da [Proteção Avançada contra Ameaças](https://docs.microsoft.com/office365/securitycompliance/office-365-atp) (ATP) e Investigação e Resposta contra Ameaças do Office 365 estão disponíveis para clientes do Office 365 que têm uma assinatura do plano Proteção Avançada contra Ameaças Plano 1 do Office 365, Proteção Avançada contra Ameaças Plano 2 do Office 365 ou uma assinatura do E5. Cada evento no feed de ATP do Office 365 corresponde aos seguintes itens que foram designados para conter uma ameaça:
 
-- Detecção em mensagens de email enviadas ou recebidas por um usuário na organização no momento da entrega e na [Limpeza automática zero hora](https://support.office.com/pt-BR/article/Zero-hour-auto-purge-protection-against-spam-and-malware-96deb75f-64e8-4c10-b570-84c99c674e15). 
+- Detecção em mensagens de email enviadas ou recebidas por um usuário na organização no momento da entrega e na [Limpeza automática zero hora](https://support.office.com/article/Zero-hour-auto-purge-protection-against-spam-and-malware-96deb75f-64e8-4c10-b570-84c99c674e15). 
 
 - Detecção de URLs mal-intencionadas clicadas por um usuário na organização no momento do clique com base na proteção [Links seguros de ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).  
 
@@ -1098,7 +1099,7 @@ Os eventos da [Proteção Avançada contra Ameaças](https://docs.microsoft.com/
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 |AttachmentData|Collection(Self.[AttachmentData](#attachmentdata))|Não|Os dados sobre anexos na mensagem de email que acionaram o evento.|
-|Tipo de detecção|Edm.String|Sim|O tipo de detecção (por exemplo, **Embutido** – detectada na hora da entrega; **Atrasado** – detectada após a entrega; **ZAP** – mensagens removidas pela [Limpeza Automática Zero Hora](https://support.office.com/pt-BR/article/Zero-hour-auto-purge-protection-against-spam-and-malware-96deb75f-64e8-4c10-b570-84c99c674e15)). Os eventos com o tipo de detecção ZAP normalmente são precedidos por uma mensagem com um tipo de detecção **Atrasado**.|
+|Tipo de detecção|Edm.String|Sim|O tipo de detecção (por exemplo, **Embutido** – detectada na hora da entrega; **Atrasado** – detectada após a entrega; **ZAP** – mensagens removidas pela [Limpeza Automática Zero Hora](https://support.office.com/article/Zero-hour-auto-purge-protection-against-spam-and-malware-96deb75f-64e8-4c10-b570-84c99c674e15)). Os eventos com o tipo de detecção ZAP normalmente são precedidos por uma mensagem com um tipo de detecção **Atrasado**.|
 |DetectionMethod|Edm.String|Sim|A tecnologia ou método usado pelo Office 365 ATP para a detecção.|
 |InternetMessageId|Edm.String|Sim|A ID da mensagem da Internet.|
 |NetworkMessageId|Edm.String|Sim|A ID da mensagem de rede do Exchange Online.|
