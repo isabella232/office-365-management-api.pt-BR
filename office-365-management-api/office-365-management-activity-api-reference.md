@@ -6,12 +6,12 @@ ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: cd08108108db55008d21301bdcce783f79f424b0
-ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
+ms.openlocfilehash: 858829d304c85e3c6658b3f6a1215d923871283a
+ms.sourcegitcommit: 967a95b214c620ca58875af6b5a96e28482c85aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "41263265"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "41857283"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referência da API da Atividade de Gerenciamento do Office 365
 
@@ -576,14 +576,14 @@ HTTP/1.1 200 OK
 
 ## <a name="api-throttling"></a>Limitação de API
 
-Cada codificação de fornecedor em relação à API tem uma cota dedicada de solicitação de limitação de 60K por minuto. Para obter a cota dedicada, especifique o parâmetro PublisherIdentifier em todas as solicitações. Solicitações com o mesmo PublisherIdentifier compartilharão a mesma cota. Todas as solicitações sem PublisherIdentifier especificado compartilharão a mesma cota que GUID 00000000-0000-0000-0000-000000000000.
+As organizações que acessam logs de auditoria por meio da API da Atividade de Gestão do Office 365 foram restritas pelos limites no nível do editor. Isso significa que, para um Publisher obter dados em nome de vários clientes, o limite foi compartilhado por todos esses clientes.
 
-Se o Office 365 precisar reverter o escalonamento para você em determinados problemas, verifique se a assinatura do locatário cujo GUID é usado como o PublisherIdentifier está atualizada com as informações de contato corretas. Não há requisitos de assinatura para esse locatário.
+Estamos migrando do limite no nível do editor para um limite no nível do locatário. O resultado é que todas as organizações terão sua própria cota de largura de banda totalmente alocada para acessar os dados de auditoria. Todas as organizações alocam inicialmente uma linha de base de 2.000 solicitações por minuto. Esse não é um limite estático e predefinido, mas está modelado em uma combinação de fatores, incluindo o número de assentos da organização e que as organizações do Office 365 e do Microsoft 365 E5 terão aproximadamente o dobro de largura de banda quanto organizações que não são do E5. Também haverá limite máximo quanto à largura de banda para proteger a integridade do serviço.
 
-Para clientes que estão desenvolvendo suas próprias soluções usando essa API, é recomendável usar seu próprio GUID de locatário para evitar a concorrência causada por uma cota compartilhada limitada.
+Para saber mais, confira a seção "acesso de largura de banda alta à API da Atividade de Gestão do Office 365" em [Auditoria avançada no Microsoft 365](https://docs.microsoft.com/microsoft-365/compliance/advanced-audit#high-bandwidth-access-to-the-office-365-management-activity-api).
 
 > [!NOTE] 
-> Embora cada fornecedor possa enviar até 60K solicitações por minuto, a Microsoft não pode garantir uma taxa de resposta. A taxa de resposta depende de vários fatores, como o desempenho do sistema do cliente, a capacidade e a velocidade da rede.  Um fornecedor pode enviar até 60 mil solicitações por minuto, mas não deve esperar receber respostas a todas as 60 mil solicitações nesse mesmo minuto. Se um fornecedor quiser avaliar o desempenho de um aplicativo cliente, deverá fazer isso em cada ambiente diferente em que planeja executar o aplicativo cliente, pois os resultados variarão entre os ambientes.
+> Embora cada locatário possa enviar inicialmente até 2 mil solicitações por minuto, a Microsoft não pode garantir uma taxa de resposta. A taxa de resposta depende de vários fatores, como o desempenho do sistema do cliente, a capacidade e a velocidade da rede. 
 
 ## <a name="errors"></a>Erros
 
