@@ -6,21 +6,21 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 38905a88f8be1924d0df02f10362caa624b34bd8
-ms.sourcegitcommit: 8aa0be26e0e69dd7908b3bcece3a71eafb973705
+ms.openlocfilehash: 2ce104849e7aeafcb12bf25720548a84a5ea73f4
+ms.sourcegitcommit: 2c592abf7005b4c73311ea9a4d1804994084bca4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "42586300"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "42941471"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
- 
+
 O esquema da API da Atividade de Gerenciamento do Office 365 é fornecido como um serviço de dados em duas camadas:
 
 - **Esquema comum**. A interface para acessar os principais conceitos de auditoria do Office 365, como Tipo de Registro, Hora de Criação, Tipo de Usuário e Ação, além de fornecer dimensões principais (como ID de Usuário), detalhes de local (como endereço IP do Cliente) e propriedades específicas do produto (como Identificação do Objeto). Ele estabelece exibições uniformes e consistentes para os usuários extraírem todos os dados de auditoria do Office 365 em algumas exibições de nível superior com os parâmetros apropriados e fornece um esquema fixo para todas as fontes de dados, o que reduz significativamente o custo do aprendizado. O esquema Comum é originado de dados de produto que pertencem a cada equipe de produto, como o Exchange, o SharePoint, o Azure Active Directory, o Yammer e o OneDrive for Business. O campo Identificação do Objeto pode ser estendido por equipes de produto para adicionar propriedades específicas do produto.
-    
+
 - **Esquema específico do produto**. Desenvolvido com base no esquema Comum para fornecer um conjunto de atributos específicos do produto; por exemplo, esquema do Sway, esquema do SharePoint, esquema do OneDrive for Business e esquema de administração do Exchange.
-    
+
 **Qual camada você deve usar para o seu cenário?**
 Em geral, se os dados estiverem disponíveis em uma camada superior, não retorne a uma camada inferior. Em outras palavras, se os requisitos de dados puderem ser ajustados a um esquema específico do produto, não é preciso retornar ao esquema Comum. 
 
@@ -51,9 +51,10 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |[Esquema Cmdlet de Segurança do Data Center](#data-center-security-cmdlet-schema)|Estende o esquema Base de Segurança do Data Center com as propriedades específicas de todos os dados de auditoria do cmdlet de segurança do datacenter.|
 |[Esquema do Microsoft Teams](#microsoft-teams-schema)|Estende o esquema Comum com as propriedades específicas de todos os eventos do Microsoft Teams.|
 |[Esquema de Proteção Avançada contra Ameaças e Investigação e Resposta contra Ameaças do Office 365](#office-365-advanced-threat-protection-and-threat-investigation-and-response-schema)|Estende o esquema Comum com as propriedades específicas dos dados da Proteção Avançada contra Ameaças e Investigação e Resposta contra Ameaças do Office 365.|
-|[Eventos de investigação e resposta automatizadas](#automated-investigation-and-response-events-in-office-365)|Estende o esquema Comum com as propriedades específicas para os eventos de investigação e resposta (AIR) automatizados do Office 365.|
+|[Esquema de eventos de investigação e resposta automatizadas](#automated-investigation-and-response-events-in-office-365)|Estende o esquema Comum com as propriedades específicas para os eventos de investigação e resposta (AIR) automatizados do Office 365.|
 |[Esquema do Power BI](#power-bi-schema)|Estende o esquema Comum com as propriedades específicas de todos os eventos do Power BI.|
-|[Workplace Analytics](#workplace-analytics-schema)|Estende o esquema Comum com as propriedades específicas de todos os eventos do Microsoft Workplace Analytics.|
+|[Esquema do Workplace Analytics](#workplace-analytics-schema)|Estende o esquema Comum com as propriedades específicas de todos os eventos do Microsoft Workplace Analytics.|
+|[Esquema de quarentena](#quarantine-schema)|Estende o esquema Comum com as propriedades específicas de todos os eventos de quarentena.|
 |[Esquema do Microsoft Forms](#microsoft-forms-schema)|Estende o esquema Comum com as propriedades específicas a todos os eventos do Microsoft Forms.|
 |||
 
@@ -972,7 +973,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |1|Create|O usuário cria um Sway.|
 |2|Delete|O usuário exclui um Sway.|
 |3|View|O usuário exibe um Sway.|
-|4|Edit|O usuário edita um Sway.|
+|4|Editar|O usuário edita um Sway.|
 |5|Duplicate|O usuário duplica um Sway.|
 |7|Compartilhar|O usuário inicia o compartilhamento de um Sway. Esse evento captura a ação do usuário de clicar em um destino de compartilhamento específico no menu de compartilhamento do Sway. O evento não indica se o usuário realmente segue e conclui a ação de compartilhamento.|
 |8|ChangeShareLevel|O usuário altera o nível da compartilhamento de um Sway. Esse evento captura o usuário alterando o escopo de compartilhamento associado a um Sway. Por exemplo, público em comparação a interno da organização.|
@@ -1421,6 +1422,38 @@ Os eventos do WorkPlace Analytics listados em [Pesquisar o log de auditoria no C
 | OperationDetails   | Coleção (Common.NameValuePair)    | Não | Uma lista de propriedades estendidas para a configuração que foi alterada. Cada propriedade terá um **Nome** e **Valor**.|
 ||||
 
+## <a name="quarantine-schema"></a>Esquema de quarentena
+
+Os eventos de quarentena listados em [Pesquisar o log de auditoria no Centro de Conformidade e Segurança do Office 365](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#quarantine-activities) usarão este esquema. Para saber mais sobre a quarentena, confira [Mensagens de email em quarentena no Office 365](https://docs.microsoft.com/microsoft-365/security/office-365-security/quarantine-email-messages).
+
+|**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
+|:-----|:-----|:-----|:-----|
+|RequestType|Self.[RequestType](#enum-requesttype---type-edmint32)|Não|O tipo de solicitação de quarentena executada por um usuário.|
+|RequestSource|Self.[RequestSource](#enum-requestsource---type-edmint32)|Não|A origem de uma solicitação de quarentena pode vir do Centro de Conformidade e Segurança (SCC), de um cmdlet ou de um URLlink.|
+|NetworkMessageId|Edm.String|Não|A ID da mensagem de rede da mensagem de email em quarentena.|
+|ReleaseTo|Edm.String|Não|O destinatário da mensagem de email.|
+|||||
+
+### <a name="enum-requesttype---type-edmint32"></a>Enum: RequestType - Type: Edm.Int32
+
+|**Valor**|**Nome do membro**|**Descrição**|
+|:-----|:-----|:-----|
+|0|Visualização|Esta é uma solicitação de um usuário para visualizar uma mensagem de email considerada prejudicial.|
+|1|Excluir|Esta é uma solicitação de um usuário para excluir uma mensagem de email considerada prejudicial.|
+|2|Liberar|Esta é uma solicitação de um usuário para liberar uma mensagem de email considerada prejudicial.|
+|3|Exportar|Esta é uma solicitação de um usuário para exportar uma mensagem de email considerada prejudicial.|
+|4|ViewHeader|Esta é uma solicitação de um usuário para exibir o cabeçalho de uma mensagem de email considerada prejudicial.|
+||||
+
+### <a name="enum-requestsource---type-edmint32"></a>Enum: RequestSource - Type: Edm.Int32
+
+|**Valor**|**Nome do membro**|**Descrição**|
+|:-----|:-----|:-----|
+|0|SCC|O Centro de Conformidade e Segurança (SCC) é a fonte da qual pode originar a solicitação de um usuário para visualizar, excluir, liberar, exportar ou exibir o cabeçalho de uma mensagem de email potencialmente prejudicial. |
+|1|Cmdlet|Um cmdlet é a fonte da qual pode originar a solicitação de um usuário para visualizar, excluir, liberar, exportar ou exibir o cabeçalho de uma mensagem de email potencialmente prejudicial.|
+|2|URLlink|Essa é a fonte da qual pode originar a solicitação de um usuário para visualizar, excluir, liberar, exportar ou exibir o cabeçalho de uma mensagem de email potencialmente prejudicial.|
+||||
+
 ## <a name="microsoft-forms-schema"></a>Esquema do Microsoft Forms
 
 Os eventos do Micorosft Forms listados em [Pesquisar o log de auditoria no Centro de Conformidade e Segurança do Office 365](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#microsoft-forms-activities) usarão este esquema.
@@ -1457,3 +1490,4 @@ Os eventos do Micorosft Forms listados em [Pesquisar o log de auditoria no Centr
 |1|Quiz|Quizzes criados com a Nova Opção de Quiz.  Um quiz é um tipo especial de formulário que inclui recursos adicionais como valores de ponto, classificações automáticas e manuais e comentários.|
 |2|Pesquisa|Pesquisas criadas com a opção Nova Pesquisa.  Uma pesquisa é um tipo especial de formulário que inclui recursos adicionais como a integração e o suporte a CMS para regras de Fluxo.|
 ||||
+
