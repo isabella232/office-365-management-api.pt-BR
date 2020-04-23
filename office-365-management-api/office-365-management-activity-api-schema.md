@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 2ce104849e7aeafcb12bf25720548a84a5ea73f4
-ms.sourcegitcommit: 2c592abf7005b4c73311ea9a4d1804994084bca4
+ms.openlocfilehash: 9349640ed08182883e115e548ffe2480e141aa89
+ms.sourcegitcommit: a9a865f5500183dad00598bf372fc991a95f8d61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "42941471"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "43721285"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
@@ -120,7 +120,9 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |44|WorkplaceAnalytics|Eventos do Workplace Analytics.|
 |45|PowerAppsApp|Eventos dos Aplicativos de Energia.|
 |47|ThreatIntelligenceAtpContent|Eventos de phishing e malware para arquivos no SharePoint, OneDrive for Business e o Microsoft Teams da Proteção Avançada contra Ameaças do Office 365.|
+|48|LabelContentExplorer|Eventos relacionados ao [explorador de conteúdo de classificação de dados](https://docs.microsoft.com/microsoft-365/compliance/data-classification-content-explorer).|
 |49|TeamsHealthcare|Eventos relacionados ao [Aplicativo dos pacientes](https://docs.microsoft.com/MicrosoftTeams/expand-teams-across-your-org/healthcare/patients-audit) no Microsoft Teams para Assistência Médica.|
+|51|HygieneEvent|Eventos relacionados ao [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security).|
 |52|DataInsightsRestApiAudit|Informações sobre os dados de eventos da API REST.|
 |54|SharePointListItemOperation|Eventos de item de lista do SharePoint.|
 |55|SharePointContentTypeOperation|Eventos do tipo de conteúdo de lista do SharePoint.|
@@ -156,7 +158,6 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |0|Online|Este evento foi criado por um serviço hospedado no O365.|
 |1|Onprem|Este evento foi criado por um servidor local.|
 ||||
-
 
 ## <a name="sharepoint-base-schema"></a>Esquema base do SharePoint
 
@@ -971,7 +972,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |**Valor**|**Nome do membro**|**Descrição**|
 |:-----|:-----|:-----|
 |1|Create|O usuário cria um Sway.|
-|2|Delete|O usuário exclui um Sway.|
+|2|Excluir|O usuário exclui um Sway.|
 |3|View|O usuário exibe um Sway.|
 |4|Editar|O usuário edita um Sway.|
 |5|Duplicate|O usuário duplica um Sway.|
@@ -1158,14 +1159,16 @@ Os eventos da [Proteção Avançada contra Ameaças](https://docs.microsoft.com/
 |5|Anti-phishing, DIMP|Ação de Representação de Domínio (DIMP) na política anti-phishing.|
 |6|Anti-phishing, UIMP|Ação de Representação de Usuários (UIMP) na política anti-phishing.|
 |7|Anti-phishing, SPOOF|Ação falsa na política anti-phishing.|
-|8|Anti-phishing, GIMP|Ação de inteligência da caixa de correio na política anti-phishing.|
+|8|Anti-phishing, GIMP|Ação de inteligência da caixa de correio na política Antiphishing.|
 |9|Antimalware, AMP| Ação de política de malware na política antimalware.|
 |10|Anexo seguro, SAP| Ação de diretiva na diretiva de anexos seguros da Office 365 ATP.|
 |11|Regra de transporte do Exchange, ETR| Ação de diretiva na Regra de Transporte do Exchange.|
 |12|Antimalware, ZAPM| Ação de política de malware na política antimalware aplicada ao ZAP (zero-hour purge).|
 |13|Anti-phishing, ZAPP| Ação de política de phishing na política anti-phishing aplicada ao ZAP.|
 |14|Anti-phishing, ZAPS| Ação de política de spam na política antispam aplicada ao ZAP.|
-
+|15|Antispam, email de phishing de alta confiança (HPHISH)|Ação de política de phishing de alta confiabilidade na política antispam.|
+|17|Antispam, política de spam de saída (OSPM)|Ação de política na política de filtro de spam de saída em Antispam.|
+||||
 
 ### <a name="enum-policyaction---type-edmint32"></a>Enumeração: PolicyAction - Tipo: Edm.Int32
 
