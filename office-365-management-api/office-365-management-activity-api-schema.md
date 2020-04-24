@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 9349640ed08182883e115e548ffe2480e141aa89
-ms.sourcegitcommit: a9a865f5500183dad00598bf372fc991a95f8d61
+ms.openlocfilehash: 7a636bcdf86dd4513d7ea7809066b5becb68de83
+ms.sourcegitcommit: 9d32000d9b9af3f008d93745379697bc74e4703c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "43721285"
+ms.locfileid: "43785562"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
@@ -122,7 +122,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |47|ThreatIntelligenceAtpContent|Eventos de phishing e malware para arquivos no SharePoint, OneDrive for Business e o Microsoft Teams da Proteção Avançada contra Ameaças do Office 365.|
 |48|LabelContentExplorer|Eventos relacionados ao [explorador de conteúdo de classificação de dados](https://docs.microsoft.com/microsoft-365/compliance/data-classification-content-explorer).|
 |49|TeamsHealthcare|Eventos relacionados ao [Aplicativo dos pacientes](https://docs.microsoft.com/MicrosoftTeams/expand-teams-across-your-org/healthcare/patients-audit) no Microsoft Teams para Assistência Médica.|
-|51|HygieneEvent|Eventos relacionados ao [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security).|
+|51|HygieneEvent|Eventos relacionados à higienização de email e anti-spam.|
 |52|DataInsightsRestApiAudit|Informações sobre os dados de eventos da API REST.|
 |54|SharePointListItemOperation|Eventos de item de lista do SharePoint.|
 |55|SharePointContentTypeOperation|Eventos do tipo de conteúdo de lista do SharePoint.|
