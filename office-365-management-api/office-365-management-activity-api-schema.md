@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 7a636bcdf86dd4513d7ea7809066b5becb68de83
-ms.sourcegitcommit: 9d32000d9b9af3f008d93745379697bc74e4703c
+ms.openlocfilehash: 8f44ae4d9f4b1eff3ab6de195392458aab6ee2ce
+ms.sourcegitcommit: ebf6973abd2f4c9b88e4297cd08d06dd2a62976f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "43785562"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "43939106"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
@@ -56,6 +56,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |[Esquema do Workplace Analytics](#workplace-analytics-schema)|Estende o esquema Comum com as propriedades específicas de todos os eventos do Microsoft Workplace Analytics.|
 |[Esquema de quarentena](#quarantine-schema)|Estende o esquema Comum com as propriedades específicas de todos os eventos de quarentena.|
 |[Esquema do Microsoft Forms](#microsoft-forms-schema)|Estende o esquema Comum com as propriedades específicas a todos os eventos do Microsoft Forms.|
+|[Esquema de rótulos MIP](#mip-label-schema)|Estende o esquema comum com as propriedades específicas a rótulos de sensibilidade aplicados manualmente ou automaticamente às mensagens de email.|
 |||
 
 ## <a name="common-schema"></a>Esquema Comum
@@ -117,6 +118,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |40|SecurityComplianceAlerts|Sinais de alerta de conformidade e segurança.|
 |41|ThreatIntelligenceUrl|Eventos de bloqueio de tempo e bloqueio de links seguros da Proteção Avançada contra Ameaças do Office 365.|
 |42|SecurityComplianceInsights|Eventos relacionados à informações e relatórios no centro de segurança e conformidade do Office 365.|
+|43|MIPLabel|Eventos relacionados à detecção no pipeline de transporte de mensagens de email que foram marcadas (manual ou automaticamente) com rótulos de confidencialidade. |
 |44|WorkplaceAnalytics|Eventos do Workplace Analytics.|
 |45|PowerAppsApp|Eventos dos Aplicativos de Energia.|
 |47|ThreatIntelligenceAtpContent|Eventos de phishing e malware para arquivos no SharePoint, OneDrive for Business e o Microsoft Teams da Proteção Avançada contra Ameaças do Office 365.|
@@ -1494,3 +1496,24 @@ Os eventos do Micorosft Forms listados em [Pesquisar o log de auditoria no Centr
 |2|Pesquisa|Pesquisas criadas com a opção Nova Pesquisa.  Uma pesquisa é um tipo especial de formulário que inclui recursos adicionais como a integração e o suporte a CMS para regras de Fluxo.|
 ||||
 
+## <a name="mip-label-schema"></a>Esquema de rótulos MIP
+
+Os eventos no esquema de rótulo do Microsoft Information Protection (MIP) são disparados quando o Microsoft 365 detecta uma mensagem de email processada por agentes no pipeline de Transporte que tem um rótulo de confidencialidade aplicado a ele. O rótulo de confidencialidade pode ter sido aplicado manual ou automaticamente e pode ter sido aplicado dentro ou fora do pipeline de Transporte. Os rótulos de confidencialidade podem ser aplicados automaticamente às mensagens de email por meio da aplicação automática de políticas de rótulo.
+
+O propósito desse esquema de auditoria é representar a soma de toda a atividade de email que envolve rótulos de confidencialidade. Em outras palavras, deve haver uma atividade de auditoria redirecionada para cada mensagem de email que será enviada para ou a partir de usuários na organização que tenha um rótulo de confidencialidade aplicado a ele, independentemente de quando ou como o rótulo de sensibilidade tenha sido aplicado. Para obter mais informações sobre rótulos de confidencialidade, confira:
+
+- [Saiba mais sobre rótulos de confidencialidade](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels)
+
+- [Aplicar um rótulo de confidencialidade automaticamente ao conteúdo](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically)
+
+|**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
+|:-----|:-----|:-----|:-----|
+|Remetente|Edm.String|Não|O endereço de email no campo De da mensagem de email.|
+|Receptores|Collection(Edm.String)|Não|Todos os endereços de email nos campos Para, CC e Cco da mensagem de email.|
+|ItemName|Edm.String|Não|A cadeia de caracteres no campo Assunto da mensagem de email.|
+|LabelID|Edm.Guid|Não|O GUID do rótulo de confidenciallidade aplicado à mensagem de email.|
+|LabelName|Edm.String|Não|O nome do rótulo de sensibilidade aplicado à mensagem de email.|
+|Labelaction|Edm.String|Não|As ações especificadas pelo rótulo de confidencialidade que foram aplicados à mensagem de email antes da mensagem entrar no pipeline de transporte de email.|
+|LabelAppliedDateTime|Edm.Date|Não|A data em que o rótulo de confidencialidade foi aplicado à mensagem de email.|
+|Applicationmode|Edm.String|Não|Especifica como o rótulo de confidencialidade foi aplicado à mensagem de email. O valor **Privilegiado** indica que o rótulo foi aplicado manualmente por um usuário. O valor **Padrão** indica que o rótulo foi aplicado automaticamente por um processo de rotulagem do lado do cliente ou do serviço.|
+|||||
