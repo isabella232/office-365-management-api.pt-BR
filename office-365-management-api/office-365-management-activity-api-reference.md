@@ -6,12 +6,12 @@ ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 858829d304c85e3c6658b3f6a1215d923871283a
-ms.sourcegitcommit: 967a95b214c620ca58875af6b5a96e28482c85aa
+ms.openlocfilehash: 48065e1770e485ffa04778d662a170ae14916354
+ms.sourcegitcommit: d55928a0d535090fa2dbe94f38c7316d0e52e9a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "41857283"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "44173138"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referência da API da Atividade de Gerenciamento do Office 365
 
@@ -57,14 +57,29 @@ Após criar uma assinatura, você pode realizar uma sondagem regularmente para d
 
 ## <a name="activity-api-operations"></a>Operações de API de atividade
 
-Todas as operações da API têm como escopo um único locatário, e a URL raiz da API inclui uma ID de locatário que especifica o contexto do locatário. A ID de locatário é um GUID. Para saber mais sobre como obter o GUID, confira [Introdução às APIs de Gerenciamento do Office 365](get-started-with-office-365-management-apis.md).
+Todas as operações da API têm como escopo um único locatário, e a URL raiz da API inclui uma ID de locatário que especifica o contexto do locatário. A ID de locatário é um GUID. Para saber mais sobre como obter o GUID, confira [Introdução às APIs de Gerenciamento do Office 365](get-started-with-office-365-management-apis.md). 
 
+Como as notificações que enviamos a seu webhook incluem a ID de locatário, você pode usar o mesmo webhook para receber notificações para todos os locatários.
+
+A URL do ponto de extremidade da API que você usa é baseada no tipo de plano de assinatura do Microsoft 365 ou Office 365 para sua organização.
+
+**Plano empresarial e plano governamental GCC**
 
 ```http
 https://manage.office.com/api/v1.0/{tenant_id}/activity/feed/{operation}
 ```
 
-Como as notificações que enviamos a seu webhook incluem a **ID de locatário**, você pode usar o mesmo webhook para receber notificações para todos os locatários.
+**Plano de alto governo GCC**
+
+```http
+https://manage.office365.us/api/v1.0/{tenant_id}/activity/feed/{operation}
+```
+
+**Plano governamental DoD**
+
+```http
+https://manage.protection.apps.mil/api/v1.0/{tenant_id}/activity/feed/{operation}
+```
 
 Todas as operações de API exigem um cabeçalho de Autorização HTTP com um token obtido do Azure AD. A ID de locatário no token de acesso deve corresponder à ID de locatário na URL raiz da API, e o token de acesso deve conter a declaração ActivityFeed.Read (isso corresponde à permissão [Ler dados de atividade de uma organização] que você configurou para o aplicativo no Azure AD).
 
