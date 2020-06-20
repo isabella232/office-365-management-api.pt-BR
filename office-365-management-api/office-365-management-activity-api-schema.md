@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 882967c45d8cee813ec1abb6064258e49a98a1e0
-ms.sourcegitcommit: 91db29fbd6695c92ca5e5647b336d8f10ca267bb
+ms.openlocfilehash: 311fbfedbef52c12f40bc275b66acd5f791e1b47
+ms.sourcegitcommit: 18a48948fb8973efd51e29a1287c1b130bcff44b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "44407438"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "44803448"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
@@ -210,7 +210,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |:-----|:-----|
 |AccessInvitationAccepted*|O destinatário de um convite para exibir ou editar um arquivo compartilhado (ou pasta) acessou o arquivo compartilhado clicando no link do convite.|
 |AccessInvitationCreated*|O usuário envia um convite a outra pessoa (dentro ou fora da organização) para exibir ou editar um arquivo ou pasta compartilhada em um site do SharePoint ou do OneDrive for Business. Os detalhes da entrada do evento identificam o nome do arquivo que foi compartilhado, o usuário ao qual o convite foi enviado e o tipo de permissão de compartilhamento selecionado pela pessoa que enviou o convite.|
-|AccessInvitationExpired*|Um convite enviado a um usuário externo expirou. Por padrão, um convite enviado a um usuário fora de sua organização expira após sete dias se não for aceito.|
+|AccessInvitationExpired*|An invitation sent to an external user expires. By default, an invitation sent to a user outside of your organization expires after 7 days if the invitation isn't accepted.|
 |AccessInvitationRevoked*|O administrador do site ou proprietário de um site ou documento no SharePoint ou OneDrive for Business retira um convite que foi enviado para um usuário fora da organização. Um convite pode ser retirado somente antes de ser aceito.|
 |AccessInvitationUpdated*|O usuário que criou e enviou um convite a outra pessoa para exibir ou editar um arquivo (ou pasta) compartilhado em um site do SharePoint ou do OneDrive for Business reenvia o convite.|
 |AccessRequestApproved|O administrador do site ou proprietário de um site ou documento no SharePoint ou no OneDrive for Business aprova uma solicitação do usuário para acessar o site ou documento.|
@@ -246,7 +246,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |EntityForceCheckedIn|O usuário força um check-in em um calendário, campo personalizado ou tabela de pesquisa no Project Web App.|
 |ExemptUserAgentSet*|O administrador global adiciona um agente do usuário à lista de agentes do usuário isentos no Centro de administração do SharePoint.|
 |FileAccessed|O usuário ou a conta do sistema acessa um arquivo em um site do SharePoint ou OneDrive for Business. Contas do sistema também podem gerar eventos FileAccessed.|
-|FileCheckOutDiscarded*|O usuário descarta (ou desfaz) um arquivo em check-out. Isso significa que todas as alterações que ele tiver feito nesse arquivo durante o estado de check-out serão descartados, e não salvas na versão do documento localizada na biblioteca de documentos.|
+|FileCheckOutDiscarded*|User discards (or undos) a checked out file. That means any changes they made to the file when it was checked out are discarded, and not saved to the version of the document in the document library.|
 |FileCheckedIn*|O usuário faz check-in em um documento em que fez check-out de uma Biblioteca de documentos do SharePoint ou do OneDrive for Business.|
 |FileCheckedOut*|O usuário faz check-out de um documento localizado em uma biblioteca de documentos do SharePoint ou do OneDrive for Business. Os usuários podem fazer check-out e alterações nos documentos que foram compartilhados com eles.|
 |FileCopied|O usuário copia um documento de um site do SharePoint ou do OneDrive for Business. O arquivo copiado pode ser salvo em outra pasta no site.|
@@ -335,7 +335,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |SharedLinkCreated|O usuário cria um link para um arquivo compartilhado no SharePoint ou no OneDrive for Business. Este link pode ser enviado para outras pessoas para dar acesso ao arquivo. Um usuário pode criar dois tipos de links: um link que permite ao usuário visualizar e editar o arquivo compartilhado, ou um link que permite ao usuário apenas visualizar o arquivo.|
 |SharedLinkDisabled*|O usuário desabilita (permanentemente) um link que foi criado para compartilhar um arquivo.|
 |SharingInvitationAccepted *|O usuário aceita um convite para compartilhar um arquivo ou uma pasta. Esse evento é registrado quando um usuário compartilha um arquivo com outros usuários.|
-|SharingRevoked*|O usuário descompartilha um arquivo ou pasta anteriormente compartilhada com outros usuários. Esse evento é registrado quando um usuário deixa de compartilhar um arquivo com outros usuários.|
+|SharingRevoked*|User unshares a file or folder that was previously shared with other users. This event is logged when a user stops sharing a file with other users.|
 |SharingSet|O usuário compartilha um arquivo ou pasta localizado no SharePoint ou no OneDrive for Business com outro usuário dentro de sua organização.|
 |SiteAdminChangeRequest*|O usuário solicita ser adicionado como um administrador do conjunto de sites de um conjunto de sites do SharePoint. Os administradores do conjunto de sites têm permissões de controle total para o conjunto de sites e todos os subsites.|
 |SiteCollectionAdminAdded*|O administrador ou proprietário do conjunto de sites adiciona uma pessoa como administrador do conjunto de sites para um site do SharePoint ou do OneDrive for Business. Os administradores do conjunto de sites têm permissões de controle total para o conjunto de sites e todos os subsites.|
@@ -861,11 +861,13 @@ Os sinais de alerta incluem:
 - Todos os alertas gerados baseados nas [Políticas de alerta no Centro de Conformidade e Segurança](https://docs.microsoft.com/office365/securitycompliance/alert-policies#default-alert-policies).
 - Alertas relacionados ao Office 365 gerados no [Office 365 Cloud App Security](https://docs.microsoft.com/office365/securitycompliance/office-365-cas-overview) e no [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security).
 
-O UserId e o UserKey desses eventos são sempre SecurityComplianceAlerts. Existem dois tipos de sinais de alerta armazenados como o valor da propriedade Operation do esquema comum:
+O UserId e o UserKey desses eventos são sempre SecurityComplianceAlerts. Há três tipos de eventos de alerta que são armazenados como o valor da Propriedade Operation do esquema comum:
 
 - AlertTriggered – um novo alerta é gerado devido a uma correspondência com a política.
 
-- AlertEntityGenerated – uma nova entidade é adicionada a um alerta. Este evento somente é aplicável aos alertas gerados com base nas Políticas de alerta no Centro de Conformidade e Segurança do Office 365. Cada alerta gerado pode ser associado a um ou vários desses eventos. Por exemplo, uma política de alerta é definida para disparar um alerta se um usuário exclui mais de 100 arquivos em cinco minutos. Se dois usuários ultrapassarem o limite ao mesmo tempo, haverá dois eventos AlertEntityGenerated, mas apenas um evento AlertTriggered.
+- AlertEntityGenerated – uma nova entidade é adicionada a um alerta. Esse evento só é aplicável a alertas gerados com base nas políticas de alerta no centro de segurança e conformidade. Cada alerta gerado pode ser associado a um ou vários desses eventos. Por exemplo, uma política de alerta é definida para disparar um alerta se um usuário exclui mais de 100 arquivos em cinco minutos. Se dois usuários ultrapassarem o limite ao mesmo tempo, haverá dois eventos AlertEntityGenerated, mas apenas um evento AlertTriggered.
+
+- AlertUpdated-uma atualização foi feita nos metadados de um alerta. Esse evento é registrado quando o status de um alerta é alterado (por exemplo, de "ativo" para "resolvido") e quando alguém adiciona um comentário ao alerta.
 
 |**Parâmetros**|**Tipo**|**Obrigatório**|**Descrição**|
 |:-----|:-----|:-----|:-----|
@@ -1401,7 +1403,7 @@ Os eventos de higiene estão relacionados à proteção contra spam de saída. E
 
 Os eventos do Power BI listados em [Pesquisar o log de auditoria no Centro de Proteção do Office 365](/power-bi/service-admin-auditing#activities-audited-by-power-bi) usarão este esquema.
 
-|**Parameters**|**Tipo**|**Obrigatório?**|**Descrição**|
+|**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 | AppName               | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  Não  | O nome do aplicativo em que o evento ocorreu. |
 | DashboardName         | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  Não  | O nome do painel onde o evento ocorreu. |
@@ -1417,7 +1419,7 @@ Os eventos do Power BI listados em [Pesquisar o log de auditoria no Centro de Pr
 
 ### <a name="membershipinformationtype-complex-type"></a>Tipo de complexo MembershipInformationType
 
-|**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
+|**Parameters**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 | MemberEmail | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  Não  | O endereço de email do grupo. |
 | Status      | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  Não  | Não está preenchido no momento. |
@@ -1456,7 +1458,7 @@ Eventos de entidade de aplicativos orientados por modelos no Dynamics 365 Use es
 |:------------------ | :------------------ | :--------------|:--------------|
 |EntityId|Edm.Guid|Não|O identificador exclusivo da entidade.|
 |EntityName|Edm.String|Sim|O nome da entidade na organização. Exemplos de entidades incluem `contact` ou `authentication` .|
-|Mensagem|Edm.String|Sim|Este parâmetro contém a operação que foi realizada em relação à entidade. Por exemplo, se um novo contato foi criado, o valor da propriedade Message é `Create` e o valor correspondente da propriedade EntityName é `contact` .|
+|Message|Edm.String|Sim|Este parâmetro contém a operação que foi realizada em relação à entidade. Por exemplo, se um novo contato foi criado, o valor da propriedade Message é `Create` e o valor correspondente da propriedade EntityName é `contact` .|
 |Consulta|Edm.String|Não|Os parâmetros da consulta de filtro que foi usado durante a execução da operação FetchXML.|
 |PrimaryFieldValue|Edm.String|Não|Indica o valor do atributo que é o campo principal da entidade.|
 |||||
@@ -1582,7 +1584,7 @@ Os eventos de conformidade de comunicação listados no log de auditoria do Offi
 | InternetMessageId |Edm.String|A ID de mensagem da Internet da mensagem de email.|
 | AttachmentData|Coleção ([AttachmentDetails](#attachmentdetails))|Informações sobre arquivos anexados à mensagem de email.|
 | Destinatários|Collection(Edm.String)|Os endereços de email nos campos para, CC e Cco da mensagem de email. |
-| Assunto|Edm.String|O texto no campo assunto da mensagem de email.|
+| Subject|Edm.String|O texto no campo assunto da mensagem de email.|
 | MessageTime|Edm.Date|A data e a hora em que a mensagem de email foi enviada.|
 | From| Edm.String|O endereço de email no campo De da mensagem de email.|
 | Direcionalidade|Edm.String|O status de origem da mensagem de email.|
