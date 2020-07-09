@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 311fbfedbef52c12f40bc275b66acd5f791e1b47
-ms.sourcegitcommit: 18a48948fb8973efd51e29a1287c1b130bcff44b
+ms.openlocfilehash: 40d3c2e2fd7fee3a5e88ec09b969f722ffbbf36e
+ms.sourcegitcommit: 745a6e43dc3a9849897a5b57eadb3e7c57511c6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "44803448"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "45083719"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
@@ -90,16 +90,16 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |Valor|Nome do membro|Descrição|
 |:-----|:-----|:-----|
 |1 |ExchangeAdmin|Eventos do log de auditoria do administrador do Exchange.|
-|duas|ExchangeItem|Eventos de um log de auditoria de caixa de correio do Exchange para ações executadas em um único item, como criar ou receber uma mensagem de email.|
-|3D|ExchangeItemGroup|Eventos de um log de auditoria de caixa de correio do Exchange para ações que podem ser executadas em vários itens, como mover ou excluir uma ou mais mensagens de email.|
+|2 |ExchangeItem|Eventos de um log de auditoria de caixa de correio do Exchange para ações executadas em um único item, como criar ou receber uma mensagem de email.|
+|3 |ExchangeItemGroup|Eventos de um log de auditoria de caixa de correio do Exchange para ações que podem ser executadas em vários itens, como mover ou excluir uma ou mais mensagens de email.|
 |4 |SharePoint|Eventos do SharePoint.|
 |6 |SharePointFileOperation|Eventos de operação de arquivos do SharePoint.|
 |8 |AzureActiveDirectory|Eventos do Azure Active Directory.|
 |9 |AzureActiveDirectoryAccountLogon|Eventos de logon do Azure Active Directory OrgId (descontinuando).|
 |10 |DataCenterSecurityCmdlet|Eventos de cmdlet de segurança do Data Center.|
-|11|ComplianceDLPSharePoint|Eventos de proteção contra perda de dados (DLP) no SharePoint e no OneDrive for Business.|
+|11 |ComplianceDLPSharePoint|Eventos de proteção contra perda de dados (DLP) no SharePoint e no OneDrive for Business.|
 |12 |Sway|Eventos dos clientes e serviço do Sway.|
-|13 |ComplianceDLPExchange|Eventos de Proteção contra a Perda de Dados (DLP), quando configurados via Política DLP Unificada. Não há suporte para eventos de DLP com base em Regras de Transporte do Exchange.|
+|Treze|ComplianceDLPExchange|Eventos de Proteção contra a Perda de Dados (DLP), quando configurados via Política DLP Unificada. Não há suporte para eventos de DLP com base em Regras de Transporte do Exchange.|
 |14 |SharePointSharingOperation|Eventos de compartilhamento do SharePoint.|
 |15 |AzureActiveDirectoryStsLogon|Eventos de logon do Serviço de Token Seguro (STS) no Azure Active Directory.|
 |18 |SecurityComplianceCenterEOPCmdlet|Ações de administração do Centro de Conformidade e Segurança.|
@@ -127,6 +127,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |47|ThreatIntelligenceAtpContent|Eventos de phishing e malware para arquivos no SharePoint, OneDrive for Business e o Microsoft Teams da Proteção Avançada contra Ameaças do Office 365.|
 |48|LabelContentExplorer|Eventos relacionados ao [explorador de conteúdo de classificação de dados](https://docs.microsoft.com/microsoft-365/compliance/data-classification-content-explorer).|
 |49|TeamsHealthcare|Eventos relacionados ao [Aplicativo dos pacientes](https://docs.microsoft.com/MicrosoftTeams/expand-teams-across-your-org/healthcare/patients-audit) no Microsoft Teams para Assistência Médica.|
+|50|ExchangeItemAggregated|Eventos relacionados à [ação de auditoria de caixa de correio do MailItemsAccessed](https://docs.microsoft.com/microsoft-365/compliance/mailitemsaccessed-forensics-investigations).|
 |51|HygieneEvent|Eventos relacionados à proteção contra spam de saída. |
 |52|DataInsightsRestApiAudit|Informações sobre os dados de eventos da API REST.|
 |54|SharePointListItemOperation|Eventos de item de lista do SharePoint.|
@@ -146,8 +147,8 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |:-----|:-----|:-----|
 |,0|Regular|Um usuário regular.|
 |1 |Reserved|Um usuário reservado.|
-|duas|Admin|Um administrador.|
-|3D|DcAdmin|Um operador de datacenter da Microsoft.|
+|2 |Admin|Um administrador.|
+|3 |DcAdmin|Um operador de datacenter da Microsoft.|
 |4 |System|Uma conta do sistema.|
 |5 |Application|Um aplicativo.|
 |6 |ServicePrincipal|Uma entidade de serviço.|
@@ -191,7 +192,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |7 |Site|O item é um site.|
 |8 |Tenant|O item é um locatário.|
 |9 |DocumentLibrary|O item é uma biblioteca de documentos.|
-|11|Page|O item é uma página.|
+|11 |Page|O item é uma página.|
 ||||
 
 ### <a name="enum-eventsource---type-edmint32"></a>Enumeração: EventSource - Tipo: Edm.Int32
@@ -533,8 +534,8 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do centro de 
 |:-----|:-----|:-----|
 |,0|Owner|O proprietário da caixa de correio.|
 |1 |Admin|Uma pessoa com privilégios administrativos para a caixa de correio de uma pessoa.|
-|duas|Delegated|Uma pessoa com privilégios de delegado para a caixa de correio de uma pessoa.|
-|3D|Transport|Um serviço de transporte no datacenter da Microsoft.|
+|2 |Delegated|Uma pessoa com privilégios de delegado para a caixa de correio de uma pessoa.|
+|3 |Transport|Um serviço de transporte no datacenter da Microsoft.|
 |4 |SystemService|Uma conta de serviço no datacenter da Microsoft.|
 |5 |BestAccess|Reservado para uso interno.|
 |6 |DelegatedAdmin|Um administrador delegado.|
@@ -631,10 +632,10 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do centro de 
 |-1|Other|Outra autenticação.|
 |,0|Password|A credencial do usuário é o nome de usuário e a senha.|
 |1 |MobilePhone|A credencial do usuários é o telefone celular.|
-|duas|SecretQuestion|A credencial do usuário é a pergunta secreta.|
-|3D|SecurePin|A credencial do usuário é um PIN seguro.|
+|2 |SecretQuestion|A credencial do usuário é a pergunta secreta.|
+|3 |SecurePin|A credencial do usuário é um PIN seguro.|
 |4 |SecurePinReset|A credencial do usuário é a redefinição do PIN seguro.|
-|11|EasyID|A credencial do usuário é EasyID.|
+|11 |EasyID|A credencial do usuário é EasyID.|
 |14 |PasswordIndexCredentialType|A credencial do usuário é PasswordIndexCredentialType.|
 |16 |Device|A credencial do usuário é um dispositivo.|
 |17 |ForeignRealmIndex|A credencial do usuário é ForeignRealmIndex.|
@@ -647,8 +648,8 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do centro de 
 |:-----|:-----|:-----|
 |-1|Other|Outro tipo de i.|
 |1 |InitialAuth|Login com autenticação inicial.|
-|duas|CookieCopy|Login com cookies.|
-|3D|SilentReAuth|Logon com reautenticação silenciosa.|
+|2 |CookieCopy|Login com cookies.|
+|3 |SilentReAuth|Logon com reautenticação silenciosa.|
 |||||
 
 ### <a name="enum-authenticationmethod---type-edmint32"></a>Enumeração: AuthenticationMethod - Tipo: Edm.Int32
@@ -658,8 +659,8 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do centro de 
 |:-----|:-----|:-----|
 |,0|Min|O método de autenticação é um Min.|
 |1 |Password|O método de autenticação é uma senha.|
-|duas|Digest|O método de autenticação é um resumo.|
-|3D|ProxyAuth|O método de autenticação é um ProxyAuth.|
+|2 |Digest|O método de autenticação é um resumo.|
+|3 |ProxyAuth|O método de autenticação é um ProxyAuth.|
 |4 |InfoCard|O método de autenticação é um InfoCard.|
 |5 |DAToken|O método de autenticação é um DAToken.|
 |6 |Sha1RememberMyPassword|O método de autenticação é um Sha1RememberMyPassword.|
@@ -667,9 +668,9 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do centro de 
 |8 |ADFSFederatedToken|O método de autenticação é um ADFSFederatedToken.|
 |9 |EID|O método de autenticação é um EID.|
 |10 |DeviceID|O método de autenticação é um DeviceID. |
-|11|MD5|O método de autenticação é MD5.|
+|11 |MD5|O método de autenticação é MD5.|
 |12 |EncProxyPasswordHash|O método de autenticação é um EncProxyPasswordHash.|
-|13 |LWAFederation|O método de autenticação é um LWAFederation.|
+|Treze|LWAFederation|O método de autenticação é um LWAFederation.|
 |14 |Sha1HashedPassword|O método de autenticação é um Sha1HashedPassword.|
 |15 |SecurePin|O método de autenticação é um Pin seguro.|
 |16 |SecurePinReset|O método de autenticação é uma redefinição de um Pin seguro.|
@@ -929,7 +930,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |:-----|:-----|:-----|
 |,0|Sway|O evento foi disparado de um Sway.|
 |1 |SwayEmbedded|O evento foi disparado de um Sway, que é inserido em um host.|
-|duas|SwayAdminPortal|O evento foi disparado a partir das configurações do serviço Sway no portal de administração do Office 365.|
+|2 |SwayAdminPortal|O evento foi disparado a partir das configurações do serviço Sway no portal de administração do Office 365.|
 |||||
 
 
@@ -952,8 +953,8 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |:-----|:-----|:-----|
 |,0|SwayWeb|O evento foi acionado usando o cliente Web do Sway.|
 |1 |SwayIOS|O evento foi acionado usando o cliente iOS do Sway.|
-|duas|SwayWindows|O evento foi acionado usando o cliente Windows do Sway.|
-|3D|SwayAndroid|O evento foi acionado usando o cliente Android do Sway.|
+|2 |SwayWindows|O evento foi acionado usando o cliente Windows do Sway.|
+|3 |SwayAndroid|O evento foi acionado usando o cliente Android do Sway.|
 |||||
 
 
@@ -965,7 +966,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |:-----|:-----|:-----|
 |,0|Desktop|O evento foi acionado usando o desktop.|
 |1 |Mobile|O evento foi acionado usando um dispositivo móvel.|
-|duas|Tablet|O evento foi acionado usando um dispositivo tablet.|
+|2 |Tablet|O evento foi acionado usando um dispositivo tablet.|
 |||||
 
 ### <a name="enum-swayauditoperation---type-edmint32"></a>Enumeração: SwayAuditOperation - Tipo: Edm.Int32
@@ -975,17 +976,17 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |**Valor**|**Nome do membro**|**Descrição**|
 |:-----|:-----|:-----|
 |1|Create|O usuário cria um Sway.|
-|duas|Excluir|O usuário exclui um Sway.|
-|3D|View|O usuário exibe um Sway.|
+|2 |Excluir|O usuário exclui um Sway.|
+|3 |View|O usuário exibe um Sway.|
 |4 |Editar|O usuário edita um Sway.|
 |5 |Duplicate|O usuário duplica um Sway.|
 |7 |Compartilhar|O usuário inicia o compartilhamento de um Sway. Esse evento captura a ação do usuário de clicar em um destino de compartilhamento específico no menu de compartilhamento do Sway. O evento não indica se o usuário realmente segue e conclui a ação de compartilhamento.|
 |8 |ChangeShareLevel|O usuário altera o nível da compartilhamento de um Sway. Esse evento captura o usuário alterando o escopo de compartilhamento associado a um Sway. Por exemplo, público em comparação a interno da organização.|
 |9 |RevokeShare|O usuário para de compartilhar um Sway revogando o acesso. Revogar o acesso altera os links associados a um Sway.|
 |10 |EnableDuplication|O usuário habilita a duplicação de um Sway (ativado por padrão).|
-|11|DisableDuplication|O usuário desabilita a duplicação de um Sway (desativado por padrão).|
+|11 |DisableDuplication|O usuário desabilita a duplicação de um Sway (desativado por padrão).|
 |12 |ServiceOn|O usuário habilita o Sway para toda a organização através do Centro de administração do Office 365 (ativado por padrão).|
-|13 |ServiceOff|O usuário desabilita o Sway para toda a organização através do Centro de administração do Office 365 (desativado por padrão).|
+|Treze|ServiceOff|O usuário desabilita o Sway para toda a organização através do Centro de administração do Office 365 (desativado por padrão).|
 |14 |ExternalSharingOn|O usuário habilita o compartilhamento externo para toda a organização através do Centro de administração do Office 365.|
 |15 |ExternalSharingOff|O usuário desabilita o compartilhamento externo para toda a organização através do Centro de administração do Office 365.|
 |||||
@@ -1063,7 +1064,7 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |:-----|:-----|:-----|
 |,0|Member|Um usuário que é um membro da equipe.|
 |1 |Owner|Um usuário que é o proprietário da equipe.|
-|duas|Guest|Um usuário que não é um membro da equipe.|
+|2 |Guest|Um usuário que não é um membro da equipe.|
 ||||
 
 ### <a name="keyvaluepair-complex-type"></a>KeyValuePair tipo complexo
@@ -1082,8 +1083,8 @@ Os eventos do Sway listados em [Pesquisar o log de auditoria do Centro de Prote�
 |**Valor**|**Nome do membro**|**Descrição**|
 |:-----|:-----|:-----|
 |1|Bot|Um bot do Microsoft Teams.|
-|duas|Connector|Um conector do Microsoft Teams.|
-|3D|Tab|Uma guia do Microsoft Teams.|
+|2 |Connector|Um conector do Microsoft Teams.|
+|3 |Tab|Uma guia do Microsoft Teams.|
 ||||
 
 ## <a name="office-365-advanced-threat-protection-and-threat-investigation-and-response-schema"></a>Esquema de Proteção Avançada contra Ameaças e Investigação e Resposta contra Ameaças do Office 365
@@ -1155,9 +1156,9 @@ Os eventos da [Proteção Avançada contra Ameaças](https://docs.microsoft.com/
 
 |**Valor**|**Nome do membro**|**Descrição**|
 |:-----|:-----|:-----|
-|1 |Anti-spam, HSPM|Ação de HSPM (Spam de Alta Confiança) na política anti-spam.|
-|duas|Anti-spam, SPM|Ação de Spam (SPM) na política anti-spam.|
-|3D|Anti-spam, em massa|Ação em massa na política anti-spam.|
+|1|Anti-spam, HSPM|Ação de HSPM (Spam de Alta Confiança) na política anti-spam.|
+|2 |Anti-spam, SPM|Ação de Spam (SPM) na política anti-spam.|
+|3 |Anti-spam, em massa|Ação em massa na política anti-spam.|
 |4 |Anti-spam, PHSH|Ação de PHSH (phishing) na política anti-spam.|
 |5 |Anti-phishing, DIMP|Ação de Representação de Domínio (DIMP) na política anti-phishing.|
 |6 |Anti-phishing, UIMP|Ação de Representação de Usuários (UIMP) na política anti-phishing.|
@@ -1165,9 +1166,9 @@ Os eventos da [Proteção Avançada contra Ameaças](https://docs.microsoft.com/
 |8 |Anti-phishing, GIMP|Ação de inteligência da caixa de correio na política Antiphishing.|
 |9 |Antimalware, AMP| Ação de política de malware na política antimalware.|
 |10 |Anexo seguro, SAP| Ação de diretiva na diretiva de anexos seguros da Office 365 ATP.|
-|11|Regra de transporte do Exchange, ETR| Ação de diretiva na Regra de Transporte do Exchange.|
+|11 |Regra de transporte do Exchange, ETR| Ação de diretiva na Regra de Transporte do Exchange.|
 |12 |Antimalware, ZAPM| Ação de política de malware na política antimalware aplicada ao ZAP (zero-hour purge).|
-|13 |Anti-phishing, ZAPP| Ação de política de phishing na política anti-phishing aplicada ao ZAP.|
+|Treze|Anti-phishing, ZAPP| Ação de política de phishing na política anti-phishing aplicada ao ZAP.|
 |14 |Anti-phishing, ZAPS| Ação de política de spam na política antispam aplicada ao ZAP.|
 |15 |Antispam, email de phishing de alta confiança (HPHISH)|Ação de política de phishing de alta confiabilidade na política antispam.|
 |17 |Antispam, política de spam de saída (OSPM)|Ação de política na política de filtro de spam de saída em Antispam.|
@@ -1181,8 +1182,8 @@ Os eventos da [Proteção Avançada contra Ameaças](https://docs.microsoft.com/
 |:-----|:-----|:-----|
 |,0|MoveToJMF|A ação de política é mover para a pasta Lixo Eletrônico.|
 |1 |AddXHeader|A ação de política é adicionar o cabeçalho X à mensagem de email.|
-|duas|ModifySubject|A ação de política é modificar o assunto na mensagem de email com as informações especificadas pela política de filtragem.|
-|3D|Redirecionamento|A ação de política é redirecionar a mensagem de email para o endereço de email especificado pela política de filtragem.|
+|2 |ModifySubject|A ação de política é modificar o assunto na mensagem de email com as informações especificadas pela política de filtragem.|
+|3 |Redirecionamento|A ação de política é redirecionar a mensagem de email para o endereço de email especificado pela política de filtragem.|
 |4 |Excluir|A ação de política é excluir (descartar) a mensagem de email.|
 |5 |Quarentena|A ação de política é colocar a mensagem de email em quarentena.|
 |6 |NoAction| A política está configurada para não executar nenhuma ação na mensagem de email.|
@@ -1209,8 +1210,8 @@ Os eventos da [Proteção Avançada contra Ameaças](https://docs.microsoft.com/
 
 |**Valor**|**Nome do membro**|**Descrição**|
 |:-----|:-----|:-----|
-|duas|Blockpage|O usuário é impedido de navegar para a URL pelo serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
-|3D|PendingDetonationPage|O usuário recebe a página de detonação pendente do serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
+|2 |Blockpage|O usuário é impedido de navegar para a URL pelo serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
+|3 |PendingDetonationPage|O usuário recebe a página de detonação pendente do serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
 |4 |BlockPageOverride|O usuário é impedido de navegar para a URL pelo serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links), no entanto, ele substitui o bloqueio para navegar até a URL.|
 |5 |PendingDetonationPageOverride|O usuário recebe a página de detonação do serviço [Links seguros da ATP do Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links), no entanto, ele a substitui para navegar até a URL.|
 |||||
@@ -1251,7 +1252,7 @@ Os eventos da [Proteção Avançada contra Ameaças](https://docs.microsoft.com/
 |:-----|:-----|
 |,0|SharePoint Online|
 |1 |OneDrive for Business|
-|duas|Microsoft Teams|
+|2 |Microsoft Teams|
 |||||
 
 ## <a name="automated-investigation-and-response-events-in-office-365"></a>Eventos de investigação e resposta automatizadas no Office 365
@@ -1403,7 +1404,7 @@ Os eventos de higiene estão relacionados à proteção contra spam de saída. E
 
 Os eventos do Power BI listados em [Pesquisar o log de auditoria no Centro de Proteção do Office 365](/power-bi/service-admin-auditing#activities-audited-by-power-bi) usarão este esquema.
 
-|**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
+|**Parameters**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 | AppName               | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  Não  | O nome do aplicativo em que o evento ocorreu. |
 | DashboardName         | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  Não  | O nome do painel onde o evento ocorreu. |
@@ -1419,7 +1420,7 @@ Os eventos do Power BI listados em [Pesquisar o log de auditoria no Centro de Pr
 
 ### <a name="membershipinformationtype-complex-type"></a>Tipo de complexo MembershipInformationType
 
-|**Parameters**|**Tipo**|**Obrigatório?**|**Descrição**|
+|**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 | MemberEmail | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  Não  | O endereço de email do grupo. |
 | Status      | Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  Não  | Não está preenchido no momento. |
@@ -1492,8 +1493,8 @@ Os eventos de quarentena listados em [Pesquisar o log de auditoria no Centro de 
 |:-----|:-----|:-----|
 |,0|Visualização|Esta é uma solicitação de um usuário para visualizar uma mensagem de email considerada prejudicial.|
 |1 |Excluir|Esta é uma solicitação de um usuário para excluir uma mensagem de email considerada prejudicial.|
-|duas|Liberar|Esta é uma solicitação de um usuário para liberar uma mensagem de email considerada prejudicial.|
-|3D|Exportar|Esta é uma solicitação de um usuário para exportar uma mensagem de email considerada prejudicial.|
+|2 |Liberar|Esta é uma solicitação de um usuário para liberar uma mensagem de email considerada prejudicial.|
+|3 |Exportar|Esta é uma solicitação de um usuário para exportar uma mensagem de email considerada prejudicial.|
 |4 |ViewHeader|Esta é uma solicitação de um usuário para exibir o cabeçalho de uma mensagem de email considerada prejudicial.|
 ||||
 
@@ -1503,7 +1504,7 @@ Os eventos de quarentena listados em [Pesquisar o log de auditoria no Centro de 
 |:-----|:-----|:-----|
 |,0|SCC|O Centro de Conformidade e Segurança (SCC) é a fonte da qual pode originar a solicitação de um usuário para visualizar, excluir, liberar, exportar ou exibir o cabeçalho de uma mensagem de email potencialmente prejudicial. |
 |1 |Cmdlet|Um cmdlet é a fonte da qual pode originar a solicitação de um usuário para visualizar, excluir, liberar, exportar ou exibir o cabeçalho de uma mensagem de email potencialmente prejudicial.|
-|duas|URLlink|Essa é a fonte da qual pode originar a solicitação de um usuário para visualizar, excluir, liberar, exportar ou exibir o cabeçalho de uma mensagem de email potencialmente prejudicial.|
+|2 |URLlink|Essa é a fonte da qual pode originar a solicitação de um usuário para visualizar, excluir, liberar, exportar ou exibir o cabeçalho de uma mensagem de email potencialmente prejudicial.|
 ||||
 
 ## <a name="microsoft-forms-schema"></a>Esquema do Microsoft Forms
@@ -1528,8 +1529,8 @@ Os eventos do Micorosft Forms listados em [Pesquisar o log de auditoria no Centr
 |:-----|:-----|:-----|
 |,0|Administrador|Um administrador que tem acesso ao formulário.|
 |1 |Proprietário|Um usuário que é o proprietário do formulário.|
-|duas|Respondente|Um usuário que enviou uma resposta a um formulário.|
-|3D|Co-autor|Um usuário que usou um link de colaboração fornecido pelo proprietário do formulário para fazer logon e editar um formulário.|
+|2 |Respondente|Um usuário que enviou uma resposta a um formulário.|
+|3 |Co-autor|Um usuário que usou um link de colaboração fornecido pelo proprietário do formulário para fazer logon e editar um formulário.|
 ||||
 
 ### <a name="enum-formtypes---type-edmint32"></a>Enum: FormTypes - Tipo: Edm.Int32
@@ -1540,7 +1541,7 @@ Os eventos do Micorosft Forms listados em [Pesquisar o log de auditoria no Centr
 |:-----|:-----|:-----|
 |,0|Formulário|Formulários criados com a opção Novo Formulário.|
 |1 |Quiz|Quizzes criados com a Nova Opção de Quiz.  Um quiz é um tipo especial de formulário que inclui recursos adicionais como valores de ponto, classificações automáticas e manuais e comentários.|
-|duas|Pesquisa|Pesquisas criadas com a opção Nova Pesquisa.  Uma pesquisa é um tipo especial de formulário que inclui recursos adicionais como a integração e o suporte a CMS para regras de Fluxo.|
+|2 |Pesquisa|Pesquisas criadas com a opção Nova Pesquisa.  Uma pesquisa é um tipo especial de formulário que inclui recursos adicionais como a integração e o suporte a CMS para regras de Fluxo.|
 ||||
 
 ## <a name="mip-label-schema"></a>Esquema de rótulos MIP

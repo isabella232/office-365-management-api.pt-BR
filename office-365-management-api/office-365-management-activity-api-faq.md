@@ -6,12 +6,12 @@ ms.ContentId: ''
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 19603e9f22d65c51ee01c9b410c61cb46ca97434
-ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
+ms.openlocfilehash: 4ceec751e72bc5bec3d8c0412d48aafa38d40596
+ms.sourcegitcommit: 745a6e43dc3a9849897a5b57eadb3e7c57511c6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "41263230"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "45083691"
 ---
 # <a name="office-365-management-activity-api-frequently-asked-questions"></a>Perguntas frequentes sobre a API de Atividade de Gerenciamento do Office 365
 
@@ -46,10 +46,6 @@ Não. A auditoria unificada do Office 365 deve estar habilitada na sua organiza�
 #### <a name="arent-webhook-notifications-more-immediate-after-all-arent-they-event-driven"></a>As notificações do webhook não são mais imediatas? Afinal, elas não são controlados por evento?
 
 Não. As notificações do webhook não são controladas por evento, no sentido de que o evento dispara a notificação. O blob de conteúdo ainda deve ser criado, e é a criação desse conteúdo que aciona a entrega da notificação. Recentemente, o tempo de espera de entrega de notificações ao usar um webhook tem sido maior se comparado à consulta da API diretamente com a operação */content*. Portanto, a API de Atividade de Gerenciamento não deve ser considerada como um sistema de alerta de segurança em tempo real. A Microsoft tem outros produtos para isso. No que diz respeito à segurança, as notificações de eventos da API de Atividade de Gerenciamento podem ser usadas de maneira mais apropriada para determinar padrões de uso por longos períodos.
-
-#### <a name="when-pulling-the-data-from-the-management-activity-api-there-is-sometimes-a-delay-of-more-than-3-to-5-days-why-is-this"></a>Ao extrair os dados da API de Atividade de Gerenciamento, pode ocorrer um atraso de mais de três a cinco dias. Por que isso ocorre?
-
-Às vezes, há situações de interrupção temporária ou outros problemas no serviço do Office 365. Nesses casos, alguns registros de auditoria são descartados, e o serviço tenta preenchê-los. Embora isso ocorra apenas em cerca de 5% a 10% dos registros, esses são os registros que podem gerar atrasos em determinadas situações. Se o atraso for superior a cinco dias, verifique o Painel de Integridade do Serviço no Centro de administração do Office 365. Se necessário, você também pode abrir um tíquete com o [suporte da Microsoft](https://support.office.com/article/contact-support-for-business-products-admin-help-32a17ca7-6fa0-4870-8a8d-e25ba4ccfd4b#ID0EAADAAA=online).
 
 #### <a name="im-encountering-a-throttling-error-in-the-management-activity-api-what-should-i-do"></a>Estou encontrando um erro de limitação na API da Atividade de Gestão. O que devo fazer?
 
