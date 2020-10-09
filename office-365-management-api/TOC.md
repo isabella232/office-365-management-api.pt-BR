@@ -4,5 +4,4 @@
 ## [API de Comunicações de Serviço](office-365-service-communications-api-reference.md)
 ## [Referência da API da Atividade de Gerenciamento](office-365-management-activity-api-reference.md)
 ## [Esquema da API da Atividade de Gerenciamento](office-365-management-activity-api-schema.md)
-## [Solução de problemas da API da Atividade de Gerenciamento](troubleshooting-the-office-365-management-activity-api.md)
-## [Perguntas frequentes sobre a API da Atividade de Gerenciamento](office-365-management-activity-api-faq.md)
+## [Perguntas Frequentes sobre o Gerenciamento de Atividade da API e solução de problemas](troubleshooting-the-office-365-management-activity-api.md).
