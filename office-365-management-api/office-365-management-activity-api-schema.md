@@ -1,4 +1,5 @@
 ---
+ms.technology: o365-service-communications
 ms.TocTitle: Office 365 Management Activity API schema
 title: Esquema da API da Atividade de Gerenciamento do Office 365
 description: 'O esquema da API da Atividade de Gerenciamento do Office 365 é fornecido como um serviço de dados em duas camadas: esquema Comum e esquema específico do produto.'
@@ -6,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 01ca346835edc94007d90db0a85d20a9bc5b945e
-ms.sourcegitcommit: a4ba198b7417e49880905e49a38d0bd1f4ad8802
+ms.openlocfilehash: c800a099dc102b36f938607599bd0c66ac007ccd
+ms.sourcegitcommit: ec60dbd5990cfc61b8c000b423e7ade25fa613a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "47334878"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "48397465"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
