@@ -7,22 +7,25 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 218c0517697f1d71b1557f3b55a4c184fb52ec54
-ms.sourcegitcommit: c9cb078e6c94bcf0bb28cb0fffef39302ec8c197
+ms.openlocfilehash: a5661cd1650ac6412bf6723a5ffc27c3a81c11b1
+ms.sourcegitcommit: e7f345710dc63003704399419f784c4a9b5fc529
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "48425616"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "48830473"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Perguntas frequentes e Soluções de problemas da API da Atividade de Gestão do Office 365
 
-A API da Atividade de Gestão do Office 365 (também conhecida como a *API de Auditoria Unificada*) é apenas uma parte das ofertas de conformidade e segurança do Office 365, que:
+A API da Atividade de Gestão do Office 365 (também conhecida como a *API de Auditoria Unificada* ) é apenas uma parte das ofertas de conformidade e segurança do Office 365, que:
 
 - Permite o acesso programático a várias cargas de trabalho de pipeline de auditoria (como o SharePoint e o Exchange)
 
 - É a principal interface usada por uma variedade de produtos de fornecedores de terceiros para agregar e indexar dados de auditoria
 
 A API da Atividade de Gestão não deve ser confundida com a API de Comunicações de Serviço do Office 365. A API da Atividade de Gerenciamento serve para auditar as atividades do usuário final em várias cargas de trabalho. A API do Serviço de Comunicações serve para auditar o status e as mensagens enviadas pelos serviços disponíveis no Office 365 (como Dynamics CRM ou Serviço de Identidade).
+ 
+> [!NOTE]
+> Estamos atualmente investigando uma questão em que os eventos com o Audit.AzureActiveDirectory não estão disponíveis ao usar a API da Atividade de Gestão do Office 365. Este problema começou por volta de 26 de outubro de 2020. Os eventos de entrada do Microsoft Azure AD não são afetados por esse problema. Forneceremos uma atualização quando o problema for resolvido.
 
 ## <a name="frequently-asked-questions-about-the-office-365-management-activity-api"></a>Perguntas frequentes sobre a API da Atividade de Gestão do Office 365
 
@@ -32,7 +35,7 @@ Para começar a usar a API da Atividade de Gestão do Office 365, confira [ Intr
 
 **O que acontece se eu desabilitar a auditoria para a minha organização do Office 365? Ainda terei os eventos pela API da Atividade de Gestão?**
 
-Não.A auditoria unificada do Office 365 deve estar habilitada na sua organização para incluir os registros por meio da API de Atividade de Gestão. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria](https://docs.microsoft.com/microsoft-365/compliance/turn-audit-log-search-on-or-off).
+Não. A auditoria unificada do Office 365 deve estar habilitada na sua organização para incluir os registros por meio da API de Atividade de Gestão. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria](https://docs.microsoft.com/microsoft-365/compliance/turn-audit-log-search-on-or-off).
 
 **Que eventos são auditados para um serviço específico do Office 365?**
 
@@ -322,11 +325,11 @@ Isso provavelmente é devido à limitação. Observe que o valor do parâmetro P
 > [!NOTE]
 > Na referência de API, o parâmetro *PublisherIdentifier* está listado em cada operação da API, mas ele também deverá será incluído na solicitação GET para a URL contentUri ao recuperar blobs de conteúdo.
 
-Se você estiver fazendo chamadas simples de API para solucionar problemas (por exemplo, verificando se uma determinado assinatura está ativa), você pode omitir com segurança o parâmetro *PublisherIdentifier*, mas qualquer código que seja importante para uso de produção deverá incluir o parâmetro *PublisherIdentifier* em todas as chamadas.
+Se você estiver fazendo chamadas simples de API para solucionar problemas (por exemplo, verificando se uma determinado assinatura está ativa), você pode omitir com segurança o parâmetro *PublisherIdentifier* , mas qualquer código que seja importante para uso de produção deverá incluir o parâmetro *PublisherIdentifier* em todas as chamadas.
 
 Se você estiver implementando um cliente para o locatário da sua empresa, o *PublisherIdentifier* será o GUID de locatário. Se você estiver criando um aplicativo de ISV ou suplemento para vários clientes, o *PublisherIdentifier* será a GUID de locatário do ISV e não a GUID de locatário da empresa do usuário final.
 
-Se você incluir o *PublisherIdentifier* válido, estará em um pool alocado com 60 mil solicitações por minuto por locatário. Este é um número de solicitações excepcionalmente grande. No entanto, se você não incluir o parâmetro *PublisherIdentifier*, você estará no pool geral alocado com 60 mil solicitações por minuto para todos os locatários. Nesse caso, você provavelmente achará que suas chamadas estão ficando limitadas. Para evitar isso, veja aqui como é possível solicitar um blob de conteúdo usando o *PublisherIdentifier*:
+Se você incluir o *PublisherIdentifier* válido, estará em um pool alocado com 60 mil solicitações por minuto por locatário. Este é um número de solicitações excepcionalmente grande. No entanto, se você não incluir o parâmetro *PublisherIdentifier* , você estará no pool geral alocado com 60 mil solicitações por minuto para todos os locatários. Nesse caso, você provavelmente achará que suas chamadas estão ficando limitadas. Para evitar isso, veja aqui como é possível solicitar um blob de conteúdo usando o *PublisherIdentifier* :
 
 ```json
 $contentUri = ($response.Content | ConvertFrom-Json).contentUri[0]

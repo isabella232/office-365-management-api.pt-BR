@@ -7,24 +7,24 @@ ms.ContentId: d0b9341a-b205-5442-1c20-8fb56407351d
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 9845fb5f422160a658b45bd7dd9a5bc6d4635914
-ms.sourcegitcommit: ec60dbd5990cfc61b8c000b423e7ade25fa613a8
+ms.openlocfilehash: 7cd91d9a43090b4731a11df701e0bf1aa340800e
+ms.sourcegitcommit: e7f345710dc63003704399419f784c4a9b5fc529
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "48397437"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "48830466"
 ---
 # <a name="office-365-service-communications-api-reference"></a>Referência da API de Comunicações de Serviço do Office 365
 
 Você pode usar o API de Comunicações do Serviço do Office 365 V2 para acessar os seguintes dados:
 
-- **Obter Serviços**: obtenha a lista de serviços assinados.
+- **Obter Serviços** : obtenha a lista de serviços assinados.
 
-- **Obter Status Atual**: obtenha uma visualização em tempo real dos eventos de manutenção e dos incidentes de serviço.
+- **Obter Status Atual** : obtenha uma visualização em tempo real dos eventos de manutenção e dos incidentes de serviço.
 
-- **Obter Status Histórico**: obtenha uma visualização do histórico de incidentes de serviço.
+- **Obter Status Histórico** : obtenha uma visualização do histórico de incidentes de serviço.
 
-- **Obter Mensagens**: comunicações do Localizar Incidente e Centro de Mensagens.
+- **Obter Mensagens** : comunicações do Localizar Incidente e Centro de Mensagens.
 
 Atualmente, a API de Comunicações do Serviço do Office 365 contém dados para os serviços de nuvem do Office 365, Yammer, Dynamics CRM e Microsoft Intune.
 
@@ -392,7 +392,7 @@ Retorna as mensagens sobre o serviço de um determinado intervalo de tempo. Use 
 ||StartTime|Filtrar por Hora de Início (DateTimeOffset, padrão: ge CurrentTime – 7 dias).|
 ||EndTime|Filtrar por Hora de Término (DateTimeOffset, padrão: le CurrentTime).|
 ||MessageType|Filtrar por Tipo de Mensagem (Cadeia de caracteres, padrão: todos).|
-||ID|Filtrar por ID (Cadeia de caracteres, padrão: todos).|
+||Id|Filtrar por Id (Cadeia de caracteres, padrão: todos).|
 |**Query-option**|$select|Escolha um subconjunto de propriedades.|
 ||$top|Escolha o número máximo de resultados (padrão e máx. $top=100).|
 ||$skip|Ignorar o número de resultados (padrão: $skip=0).|
