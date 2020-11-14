@@ -7,12 +7,12 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: a5661cd1650ac6412bf6723a5ffc27c3a81c11b1
-ms.sourcegitcommit: e7f345710dc63003704399419f784c4a9b5fc529
+ms.openlocfilehash: a65c8dff39d80b57b1c885639be2e228e8119cb7
+ms.sourcegitcommit: 263cfbc04033ea8a1d765215e8777739587818e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "48830473"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "49021006"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Perguntas frequentes e Soluções de problemas da API da Atividade de Gestão do Office 365
 
@@ -25,7 +25,7 @@ A API da Atividade de Gestão do Office 365 (também conhecida como a *API de Au
 A API da Atividade de Gestão não deve ser confundida com a API de Comunicações de Serviço do Office 365. A API da Atividade de Gerenciamento serve para auditar as atividades do usuário final em várias cargas de trabalho. A API do Serviço de Comunicações serve para auditar o status e as mensagens enviadas pelos serviços disponíveis no Office 365 (como Dynamics CRM ou Serviço de Identidade).
  
 > [!NOTE]
-> Estamos atualmente investigando uma questão em que os eventos com o Audit.AzureActiveDirectory não estão disponíveis ao usar a API da Atividade de Gestão do Office 365. Este problema começou por volta de 26 de outubro de 2020. Os eventos de entrada do Microsoft Azure AD não são afetados por esse problema. Forneceremos uma atualização quando o problema for resolvido.
+> Houve um problema com eventos pertencentes ao tipo de conteúdo Audit.AzureActiveDirectory não disponíveis por meio da API da Atividade de Gestão do Office 365 entre 22 de outubro de 2020 e 6 de novembro de 2020. Os eventos de entrada do Microsoft Azure Active Directory não foram afetados por esse problema. Os eventos ausentes para o período de impacto estarão disponíveis nos próximos dias, e espera-se que sejam concluídos o mais tardar até 20 de novembro de 2020. Em alguns casos, os clientes podem notar dados de eventos duplicados para eventos gerados entre 26 de outubro de 2020 e 5 de novembro de 2020.
 
 ## <a name="frequently-asked-questions-about-the-office-365-management-activity-api"></a>Perguntas frequentes sobre a API da Atividade de Gestão do Office 365
 
