@@ -16,7 +16,7 @@ ms.locfileid: "49021006"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Perguntas frequentes e Soluções de problemas da API da Atividade de Gestão do Office 365
 
-A API da Atividade de Gestão do Office 365 (também conhecida como a *API de Auditoria Unificada* ) é apenas uma parte das ofertas de conformidade e segurança do Office 365, que:
+A API da Atividade de Gestão do Office 365 (também conhecida como a *API de Auditoria Unificada*) é apenas uma parte das ofertas de conformidade e segurança do Office 365, que:
 
 - Permite o acesso programático a várias cargas de trabalho de pipeline de auditoria (como o SharePoint e o Exchange)
 
@@ -325,11 +325,11 @@ Isso provavelmente é devido à limitação. Observe que o valor do parâmetro P
 > [!NOTE]
 > Na referência de API, o parâmetro *PublisherIdentifier* está listado em cada operação da API, mas ele também deverá será incluído na solicitação GET para a URL contentUri ao recuperar blobs de conteúdo.
 
-Se você estiver fazendo chamadas simples de API para solucionar problemas (por exemplo, verificando se uma determinado assinatura está ativa), você pode omitir com segurança o parâmetro *PublisherIdentifier* , mas qualquer código que seja importante para uso de produção deverá incluir o parâmetro *PublisherIdentifier* em todas as chamadas.
+Se você estiver fazendo chamadas simples de API para solucionar problemas (por exemplo, verificando se uma determinado assinatura está ativa), você pode omitir com segurança o parâmetro *PublisherIdentifier*, mas qualquer código que seja importante para uso de produção deverá incluir o parâmetro *PublisherIdentifier* em todas as chamadas.
 
 Se você estiver implementando um cliente para o locatário da sua empresa, o *PublisherIdentifier* será o GUID de locatário. Se você estiver criando um aplicativo de ISV ou suplemento para vários clientes, o *PublisherIdentifier* será a GUID de locatário do ISV e não a GUID de locatário da empresa do usuário final.
 
-Se você incluir o *PublisherIdentifier* válido, estará em um pool alocado com 60 mil solicitações por minuto por locatário. Este é um número de solicitações excepcionalmente grande. No entanto, se você não incluir o parâmetro *PublisherIdentifier* , você estará no pool geral alocado com 60 mil solicitações por minuto para todos os locatários. Nesse caso, você provavelmente achará que suas chamadas estão ficando limitadas. Para evitar isso, veja aqui como é possível solicitar um blob de conteúdo usando o *PublisherIdentifier* :
+Se você incluir o *PublisherIdentifier* válido, estará em um pool alocado com 60 mil solicitações por minuto por locatário. Este é um número de solicitações excepcionalmente grande. No entanto, se você não incluir o parâmetro *PublisherIdentifier*, você estará no pool geral alocado com 60 mil solicitações por minuto para todos os locatários. Nesse caso, você provavelmente achará que suas chamadas estão ficando limitadas. Para evitar isso, veja aqui como é possível solicitar um blob de conteúdo usando o *PublisherIdentifier*:
 
 ```json
 $contentUri = ($response.Content | ConvertFrom-Json).contentUri[0]
