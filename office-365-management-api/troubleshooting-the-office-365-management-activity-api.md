@@ -7,12 +7,12 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: a65c8dff39d80b57b1c885639be2e228e8119cb7
-ms.sourcegitcommit: 263cfbc04033ea8a1d765215e8777739587818e0
+ms.openlocfilehash: 9c909220d660e0202c3ebda2777b2d8922da45a3
+ms.sourcegitcommit: c3bb30b86a4569e9f18891f1cdc30cbffc8c8db4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "49021006"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "49784204"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Perguntas frequentes e Soluções de problemas da API da Atividade de Gestão do Office 365
 
@@ -79,6 +79,10 @@ Abra um tíquete com o Suporte da Microsoft e solicite uma nova restrição de l
 **Por que as TargetUpdatedProperties não estão mais em ExtendedProperties nos logs de auditoria das atividades do Azure Active Directory?**
 
 As TargetUpdatedProperties aparecem em ExtendedProperties. No entanto, eles foram removidos das ExtendedProperties e aparecerão em ModifiedProperties.
+
+**Por que os logs de auditoria para erros de UserAccountNotFound para atividades de entrada do Azure Active Directory (Azure AD) não estão disponíveis por meio da API de atividade de gerenciamento?**
+
+A partir de novembro de 2020, os logs de auditoria para atividades de entrada do Azure AD serão inseridos no log de auditoria unificado dos Hubs de Eventos do Microsoft Azure Active Directory. Como os erros de logon UserAccountNotFound não estão disponíveis nos Hubs de Eventos, os logs de auditoria para erros UserAccountNotFound não são mais retornados pela API de Atividade de Gerenciamento.
 
 ## <a name="troubleshooting-the-office-365-management-activity-api"></a>Solução de problemas da API da Atividade de Gestão do Office 365
 
