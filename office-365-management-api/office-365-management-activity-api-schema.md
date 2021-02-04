@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: c39865d8b3aff5a11aaf113482982e1c407b9800
-ms.sourcegitcommit: 0f988a3c25a34491a6e80307cfcf097a85aa26fa
+ms.openlocfilehash: c71536ad05afe50e675661cebbfe1826cf6af3fa
+ms.sourcegitcommit: 3a6a64742924b9fbc1ffd6826b5651eb5583f70c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "49385166"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "50096952"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
@@ -332,7 +332,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |GroupUpdated|O administrador ou proprietário do site altera as configurações de um grupo para um site do SharePoint ou do OneDrive for Business. Isso pode incluir a alteração do nome do grupo, quem pode visualizar ou editar os membros do grupo e como as solicitações de associação são tratadas.|
 |LanguageAddedToTermStore|Idioma adicionado ao repositório de terminologia.|
 |LanguageRemovedFromTermStore|Idioma removido do repositório de terminologia.|
-|LegacyWorkflowEnabledSet|O administrador ou proprietário do site adiciona o tipo de conteúdo Tarefa do Fluxo de Trabalho do SharePoint ao site. Os administradores globais também podem ativar fluxos de trabalho para toda a organização no Centro de administração do SharePoint.|
+|LegacyWorkflowEnabledSet|O proprietário ou administrador do site adiciona o tipo de conteúdo da Tarefa de Fluxo de Trabalho do SharePoint ao site. Os administradores globais também podem ativar fluxos de trabalho para toda a organização no centro de administração do SharePoint.|
 |LookAndFeelModified|O usuário modifica um início rápido, formatos de gráfico de gantt ou formatos de grupo.  Ou o usuário cria, modifica ou exclui uma exibição no Project Web App.|
 |ManagedSyncClientAllowed|O usuário estabelece com êxito uma relação de sincronização com um site do SharePoint ou do OneDrive for Business. A relação de sincronização é bem-sucedida porque o computador do usuário é membro de um domínio que foi adicionado à lista de domínios (chamada de Lista de Destinatários Confiáveis) que pode acessar bibliotecas de documentos em sua organização. Para obter mais informações, confira [PowerShell do SharePoint Online ](https://go.microsoft.com/fwlink/p/?LinkID=534609) para habilitar a sincronização do OneDrive para domínios que estão na lista de destinatários confiáveis.|
 |MaxQuotaModified|A cota máxima de um site foi modificada.|
@@ -746,7 +746,8 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do centro de 
 |:-----|:-----|:-----|:-----|
 |ApplicationId|Edm.String|Não|O GUID que representa o aplicativo que está solicitando o logon. O nome de exibição pode ser pesquisado por meio da API de gráfico do Azure Active Directory.|
 |Client|Edm.String|Não|Informações do dispositivo cliente, fornecidas pelo navegador que executa o logon.|
-|LogonError|Edm.String|Não|Para logons com falha, contém o motivo pelo qual o logon falhou. Para obter uma descrição completa de LogonErrors, confira a lista de [Códigos de erro de autenticação e autorização](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes).
+|ErrorCode|Edm.String|Não|Para logons com falha (em que o valor da propriedade Operation é UserLoginFailed), essa propriedade contém o código de erro STS do Azure Active Directory (AADSTS). Para obter descrições desses códigos de erro, confira [Códigos de erro de autenticação e autorização](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes). Um valor de `0` indica um logon bem-sucedido.|
+|LogonError|Edm.String|Não|Para logons com falha, esta propriedade contém uma descrição legível pelo usuário do motivo do logon com falha.|
 |||||
 
 ## <a name="dlp-schema"></a>Esquema DLP
@@ -871,7 +872,7 @@ Os dados confidenciais de DLP só estão disponíveis na API do feed de atividad
 |CmdletVersion|Edm.String|Não|A versão de build do cmdlet quando foi executado.|
 |EffectiveOrganization|Edm.String|Não|O GUID da organização afetada pelo cmdlet. (Descontinuado: este parâmetro será retirado no futuro.)|
 |UserServicePlan|Edm.String|Não|O plano de serviço Proteção do Exchange Online atribuído ao usuário que executou o cmdlet.|
-|ClientApplication|Edm.String|Não|Se o cmdlet tiver sido executado por um aplicativo, ao contrário do powershell remoto, esse campo conterá o nome desse aplicativo.|
+|ClientApplication|Edm.String|Não|Se o cmdlet tiver sido executado por um aplicativo, ao contrário do PowerShell remoto, esse campo conterá o nome desse aplicativo.|
 |Parâmetros|Edm.String|Não|O nome e o valor dos parâmetros que foram usados ​​com o cmdlet que não incluem Informações de Identificação Pessoal.|
 |NonPiiParameters|Edm.String|Não|O nome e o valor dos parâmetros que foram usados ​​com o cmdlet que incluem Informações de Identificação Pessoal. (Preterido: esse campo será retirado no futuro e seu conteúdo mesclado com o campo de parâmetros.)|
 |||||
@@ -1439,7 +1440,7 @@ Os eventos de quarentena listados em [Pesquisar o log de auditoria no Centro de 
 
 ## <a name="microsoft-forms-schema"></a>Esquema do Microsoft Forms
 
-Os eventos do Micorosft Forms listados em [Pesquisar o log de auditoria no Centro de Conformidade e Segurança do Office 365](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#microsoft-forms-activities) usarão este esquema.
+Os eventos do Microrosft Forms listados em [Pesquisar o log de auditoria no Centro de Segurança e Conformidade do Office 365](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#microsoft-forms-activities) usarão este esquema.
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
