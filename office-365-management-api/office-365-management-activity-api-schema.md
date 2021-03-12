@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: c71536ad05afe50e675661cebbfe1826cf6af3fa
-ms.sourcegitcommit: 3a6a64742924b9fbc1ffd6826b5651eb5583f70c
+ms.openlocfilehash: c0e253532abd43779cb624d5b63b907600e0f5b5
+ms.sourcegitcommit: bd92bba316c564fd7c09d5202ce46c1f9276f5ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "50096952"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "50726895"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
@@ -837,10 +837,23 @@ Os eventos de DLP (Prevenção contra Perda de Dados) sempre terão UserKey = "D
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
-|Confidence|Edm.Int|Sim|A confiança do padrão que correspondeu à detecção.|
-|Count|Edm.Int|Sim|O número de instâncias confidenciais detectadas.|
+|Confidence|Edm.Int|Sim|A confiança agregada de todos os padrões corresponde ao Tipo de Informação Confidencial.|
+|Count|Edm.Int|Sim|O número total de instâncias confidenciais detectadas.|
+|Local|Edm.String|Não||
 |SensitiveType|Edm.Guid|Sim|Um guid que identifica o tipo de dados confidenciais detectados.|
 |SensitiveInformationDetections|Self.SensitiveInformationDetections|Não|Uma matriz de objetos que contêm dados de informações confidenciais com os seguintes detalhes – valor correspondente e contexto do valor correspondente.|
+|SensitiveInformationDetailedClassificationAttributes|Coleção(SensitiveInformationDetailedConfidenceLevelResult)|Sim|Informações sobre a contagem do tipo de informação confidencial detectada para cada um dos três níveis de confiança (Alto, Médio e Baixo) e se ela corresponde à regra DLP ou não|
+|SensitiveInformationTypeName|Edm.String|Não|O nome do tipo de informação confidencial.|
+|UniqueCount|Edm.Int32|Sim|A contagem exclusiva de instâncias confidenciais detectadas.|
+|||||
+
+### <a name="sensitiveinformationdetailedclassificationattributes-complex-type"></a>Tipo complexo SensitiveInformationDetailedClassificationAttributes
+
+|**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
+|:-----|:-----|:-----|:-----|
+|Confidence|Edm.int32|Sim|O nível de confiança do padrão que foi detectado.|
+|Contar|Edm.Int32|Sim|O número de instâncias confidenciais detectadas para um nível de particular de confiança.|
+|IsMatch|Edm.Boolean|Sim|Indica se a contagem fornecida e o nível de confiança do tipo confidencial detectado resulta em uma correspondência de regra de DLP.|
 |||||
 
 ### <a name="sensitiveinformationdetections-complex-type"></a>Tipo complexo SensitiveInformationDetections
@@ -849,7 +862,7 @@ Os dados confidenciais de DLP só estão disponíveis na API do feed de atividad
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
-|Detections|Collection(Self.Detections)|Sim|Uma matriz de informações confidenciais que foram detectadas. As informações contêm pares de valores chave com Valor = valor correspondente (por exemplo, o valor de cartão de crédito de seguro social dos EUA) e o Contexto = um trecho do conteúdo de origem que contém o valor correspondente. |
+|ValoresDetectados|Coleção(Common.NameValuePair)|Sim|Uma matriz de informações confidenciais que foram detectadas. As informações contêm pares de valores chave com Valor = valor correspondente (por exemplo, Valor do cartão de crédito) e Contexto = um trecho do conteúdo da origem que contém o valor correspondente. |
 |ResultsTruncated|Edm.Boolean|Sim|Indica se os logs foram truncados devido ao grande número de resultados. |
 |||||
 
