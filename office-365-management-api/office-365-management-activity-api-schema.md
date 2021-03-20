@@ -2,28 +2,25 @@
 ms.technology: o365-service-communications
 ms.TocTitle: Office 365 Management Activity API schema
 title: Esquema da API da Atividade de Gerenciamento do Office 365
-description: 'O esquema da API da Atividade de Gerenciamento do Office 365 é fornecido como um serviço de dados em duas camadas: esquema Comum e esquema específico do produto.'
+description: 'O esquema da API da Atividade de Gestão do Office 365 é fornecido como um serviço de dados em duas camadas: esquema comum e esquema específico do serviço.'
 ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: c0e253532abd43779cb624d5b63b907600e0f5b5
-ms.sourcegitcommit: bd92bba316c564fd7c09d5202ce46c1f9276f5ee
+ms.openlocfilehash: 1d4fdfd920ae10331e789847ef76dc1a719ad2fc
+ms.sourcegitcommit: 1bd313b6add47b58e5aa1af53cd00d2872610556
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "50726895"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "50903352"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
 O esquema da API da Atividade de Gerenciamento do Office 365 é fornecido como um serviço de dados em duas camadas:
 
-- **Esquema comum**. A interface para acessar os principais conceitos de auditoria do Office 365, como Tipo de Registro, Hora de Criação, Tipo de Usuário e Ação, além de fornecer dimensões principais (como ID de Usuário), detalhes de local (como endereço IP do Cliente) e propriedades específicas do produto (como Identificação do Objeto). Ele estabelece exibições uniformes e consistentes para os usuários extraírem todos os dados de auditoria do Office 365 em algumas exibições de nível superior com os parâmetros apropriados e fornece um esquema fixo para todas as fontes de dados, o que reduz significativamente o custo do aprendizado. O esquema Comum é originado de dados de produto que pertencem a cada equipe de produto, como o Exchange, o SharePoint, o Azure Active Directory, o Yammer e o OneDrive for Business. O campo Identificação do Objeto pode ser estendido por equipes de produto para adicionar propriedades específicas do produto.
+- **Esquema comum**. A interface para acessar os principais conceitos de auditoria do Office 365, como Tipo de registro, Hora de criação, Tipo de usuário e Ação, além de fornecer dimensões principais (como ID de usuário), especificações do local (como endereço IP do cliente) e propriedades específicas do serviço (como ID de objeto). Ele estabelece exibições uniformes e consistentes para os usuários extraírem todos os dados de auditoria do Office 365 em algumas exibições de nível superior com os parâmetros apropriados e fornece um esquema fixo para todas as fontes de dados, o que reduz significativamente o custo do aprendizado. O esquema Comum é originado de dados de produto que pertencem a cada equipe de produto, como o Exchange, o SharePoint, o Azure Active Directory, o Yammer e o OneDrive for Business. O campo ID de objeto pode ser estendido por equipes de produtos do Microsoft 365 para adicionar propriedades específicas do serviço.
 
-- **Esquema específico do produto**. Compilado com base no esquema comum para fornecer um conjunto de atributos específicos do produto; por exemplo, esquema do SharePoint, esquema do OneDrive for Business e esquema de administração do Exchange.
-
-**Qual camada você deve usar para o seu cenário?**
-Em geral, se os dados estiverem disponíveis em uma camada superior, não retorne a uma camada inferior. Em outras palavras, se os requisitos de dados puderem ser ajustados a um esquema específico do produto, não é preciso retornar ao esquema Comum. 
+- **Esquema específico do serviço**. Criado sobre o esquema comum para fornecer um conjunto de atributos específicos do serviço do Microsoft 365; por exemplo, esquema do SharePoint, esquema do OneDrive for Business e esquema de administração do Exchange.
 
 ## <a name="office-365-management-api-schemas"></a>Esquemas da API de Gerenciamento do Office 365
 
@@ -31,7 +28,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 
 |Nome do esquema|Descrição|
 |:-----|:-----|
-|[Esquema Comum](#common-schema)|O modo de exibição para extrair o Tipo de Registro, ID de Usuário, IP do Cliente, Tipo de Usuário e Ação junto com as dimensões principais, como propriedades do usuário (como UserID), propriedades de localização (como IP do Cliente) e propriedades específicas do produto (como Identificação do Objeto).|
+|[Esquema Comum](#common-schema)|O modo de exibição para extrair o Tipo de registro, ID de usuário, IP do cliente, Tipo de usuário e Ação junto com as dimensões principais, como propriedades do usuário (como UserID), propriedades do local (como IP do cliente) e propriedades específicas do serviço (como ID de objeto).|
 |[Esquema Base do SharePoint](#sharepoint-base-schema)|Estende o esquema Comum com as propriedades específicas de todos os dados de auditoria do SharePoint.|
 |[Operações de Arquivos do SharePoint](#sharepoint-file-operations)|Estende o esquema Base do SharePoint com as propriedades específicas do acesso e manipulação de arquivos no SharePoint.|
 |[Esquema de compartilhamento do SharePoint](#sharepoint-sharing-schema)|Estende o esquema Base do SharePoint com as propriedades específicas do compartilhamento de arquivos.|
@@ -1067,7 +1064,40 @@ Os eventos do Yammer listados em [Pesquisar no log de auditoria no Centro de Con
 |Verdict|Edm.String|Sim|A conclusão da mensagem.|
 |MessageTime|Edm.Date|Sim|Data e hora em UTC (Tempo Universal Coordenado), na qual a mensagem de email foi recebida ou enviada.|
 |EventDeepLink|Edm.String|Sim|Link profundo para o evento de email no Explorador ou para relatórios em tempo real no Centro de Conformidade e Segurança do Office 365.|
+|Ação de entrega (campo seguinte) |Edm.String|Sim|A ação de entrega original na mensagem.|
+|Local de entrega original (campo seguinte) |Edm.String|Sim|O local de entrega original da mensagem.|
+|Local de entrega mais recente (campo seguinte) |Edm.String|Sim|O local de entrega mais recente da mensagem no momento do evento.|
+|Direção (campo seguinte) |Edm.String|Sim|Identifica se uma mensagem foi de entrada, de saída ou de dentro da organização.|
+|ThreatsAndDetectionTech (campo seguinte) |Edm.String|Sim|As ameaças e as tecnologias de detecção correspondentes. Este campo expõe todas as ameaças em uma mensagem, incluindo a adição mais recente no veredicto de spam.  Por exemplo, ["Phishing: [falsificar DMARC]", "Spam: [URL de reputação maliciosa]"]. As diferentes ameaças de detecção e tecnologias de detecção são descritas a seguir.|
 |||||
+
+> [!NOTE]
+> Recomendamos o uso do novo campo ThreatsAndDetectionTech porque ele mostra vários veredictos e as tecnologias de detecção atualizadas. Isso também se alinha com os valores observados em outras experiências, como no Explorador de ameaças e na busca avançada de ameaças. 
+
+### <a name="detection-technologies"></a>Tecnologias de detecção
+
+|**Nome**|**Descrição**|
+|:-----|:-----|
+|Filtro geral |Sinais de phishing baseados em regras.|
+|Marca de usurpação de identidade | O tipo de arquivo do anexo.|
+|Domínio externo falso |O remetente está tentando falsificar algum outro domínio.|
+|DMARC falso |Falha de autenticação DMARC para mensagens.|
+|Domínio de usurpação de identidade | Usurpação de identidade de domínios que o cliente possui ou define.|
+|Detonação de arquivo |Anexos de arquivo considerados perigosos durante a análise de detonação.|
+|Reputação de arquivos |Anexos de arquivo marcados como perigosos devido à má reputação.|
+|Reputação da detonação de arquivo |Anexo de arquivo marcado como perigoso devido à reputação da detonação anterior.|
+|Correspondência de impressão digital |A mensagem foi marcada como perigosa devido a mensagens anteriores.|
+|Usurpação de identidade da inteligência de caixa de correio |Usurpação de identidade baseada na inteligência de caixa de correio.|
+|Reputação do domínio |Análise baseada na reputação do domínio.|
+|Falsificação dentro da organização |  O remetente está tentando falsificar o domínio do destinatário. |
+|Filtro avançado |  Sinais de phishing com base no aprendizado de máquina.|
+|Mecanismo antimalware    | Detecção de mecanismos antimalware. |
+|Detecção de análise mista   | Vários filtros contribuíram para o veredicto desta mensagem. |
+|Reputação mal-intencionada de URL   | A mensagem foi considerada perigosa devido a uma URL mal-intencionada. |
+|Detonação de URL | A mensagem foi considerada perigosa devido a uma detonação de URL maliciosa anterior. |
+|Reputação da detonação de URL| A mensagem foi considerada perigosa devido à detonação de URL mal-intencionada. |
+|Usuário de usurpação de identidade|    Usurpação de identidade de usuários definida pelo administrador ou aprendida por meio da inteligência de caixa de correio.|
+|Campanha   |Mensagens identificadas como parte de uma campanha.|
 
 ### <a name="attachmentdata-complex-type"></a>Tipo complexo AttachmentData
 
@@ -1081,6 +1111,9 @@ Os eventos do Yammer listados em [Pesquisar no log de auditoria no Centro de Con
 |MalwareFamily|Edm.String|Não|A família de malware do arquivo.|
 |SHA256|Edm.String|Sim|O hash SHA256 do arquivo.|
 |||||
+
+> [!NOTE]
+> Dentro da família Malware, você poderá ver o nome exato do MalwareFamily (por exemplo, HTML/Phish.VS! MSR) ou carga maliciosa como uma cadeia de caracteres estática. Uma carga maliciosa ainda deve ser tratada como email malicioso quando um nome específico não é identificado.
 
 ### <a name="enum-fileverdict---type-edmint32"></a>Enumeração: FileVerdict - Tipo: Edm.Int32
 
