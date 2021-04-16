@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 1d4fdfd920ae10331e789847ef76dc1a719ad2fc
-ms.sourcegitcommit: 1bd313b6add47b58e5aa1af53cd00d2872610556
+ms.openlocfilehash: 9ce20bd1fd8f0b6e706df46a5d8b63540962ffaf
+ms.sourcegitcommit: dfdacf2cdee3ad0f305167ba0c8a9bf9df8af356
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "50903352"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "51761994"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
@@ -1064,11 +1064,11 @@ Os eventos do Yammer listados em [Pesquisar no log de auditoria no Centro de Con
 |Verdict|Edm.String|Sim|A conclusão da mensagem.|
 |MessageTime|Edm.Date|Sim|Data e hora em UTC (Tempo Universal Coordenado), na qual a mensagem de email foi recebida ou enviada.|
 |EventDeepLink|Edm.String|Sim|Link profundo para o evento de email no Explorador ou para relatórios em tempo real no Centro de Conformidade e Segurança do Office 365.|
-|Ação de entrega (campo seguinte) |Edm.String|Sim|A ação de entrega original na mensagem.|
-|Local de entrega original (campo seguinte) |Edm.String|Sim|O local de entrega original da mensagem.|
-|Local de entrega mais recente (campo seguinte) |Edm.String|Sim|O local de entrega mais recente da mensagem no momento do evento.|
-|Direção (campo seguinte) |Edm.String|Sim|Identifica se uma mensagem foi de entrada, de saída ou de dentro da organização.|
-|ThreatsAndDetectionTech (campo seguinte) |Edm.String|Sim|As ameaças e as tecnologias de detecção correspondentes. Este campo expõe todas as ameaças em uma mensagem, incluindo a adição mais recente no veredicto de spam.  Por exemplo, ["Phishing: [falsificar DMARC]", "Spam: [URL de reputação maliciosa]"]. As diferentes ameaças de detecção e tecnologias de detecção são descritas a seguir.|
+|Ação de Entrega |Edm.String|Sim|A ação de entrega original na mensagem.|
+|Local de Entrega original |Edm.String|Sim|O local de entrega original da mensagem.|
+|Local de Entrega mais recente |Edm.String|Sim|O local de entrega mais recente da mensagem no momento do evento.|
+|Directionality |Edm.String|Sim|Identifica se uma mensagem foi de entrada, de saída ou de dentro da organização.|
+|ThreatsAndDetectionTech |Edm.String|Sim|As ameaças e as tecnologias de detecção correspondentes. Este campo expõe todas as ameaças em uma mensagem, incluindo a adição mais recente no veredicto de spam.  Por exemplo, ["Phishing: [falsificar DMARC]", "Spam: [URL de reputação maliciosa]"]. As diferentes ameaças de detecção e tecnologias de detecção são descritas a seguir.|
 |||||
 
 > [!NOTE]
