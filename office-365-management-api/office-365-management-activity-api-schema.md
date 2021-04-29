@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 9ce20bd1fd8f0b6e706df46a5d8b63540962ffaf
-ms.sourcegitcommit: dfdacf2cdee3ad0f305167ba0c8a9bf9df8af356
+ms.openlocfilehash: 5e2274dd3d5050a0db433fd93aa8ea1514744549
+ms.sourcegitcommit: c3786c4bfacf3c1187f1269c162946288b45c967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "51761994"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "52059938"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
@@ -24,7 +24,7 @@ O esquema da API da Atividade de Gerenciamento do Office 365 é fornecido como u
 
 ## <a name="office-365-management-api-schemas"></a>Esquemas da API de Gerenciamento do Office 365
 
-Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquemas específicos de produto. A tabela a seguir descreve os esquemas disponíveis.
+Este artigo fornece detalhes sobre o esquema comum, assim como cada um dos esquemas específicos do produto. A tabela a seguir descreve os esquemas disponíveis.
 
 |Nome do esquema|Descrição|
 |:-----|:-----|
@@ -279,7 +279,7 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |CustomFieldOrLookupTableCreated|O usuário criou um campo personalizado ou uma tabela/item de consulta no Project Web App.|
 |CustomFieldOrLookupTableDeleted|O usuário excluiu um campo personalizado ou uma tabela/item de consulta no Project Web App.|
 |CustomFieldOrLookupTableModified|O usuário modificou um campo personalizado ou uma tabela/item de consulta no Project Web App.|
-|CustomizeExemptUsers|O administrador global personalizou a lista de agentes do usuário isentos no Centro de administração do SharePoint. Você pode especificar quais agentes do usuário ficarão isentos do recebimento de uma página da Web completa para indexar. Isso significa que quando um agente do usuário que você especificou como isento encontrar um formulário do InfoPath, o formulário será retornado como um arquivo XML em vez de uma página da Web completa. Isso torna a indexação de formulários do InfoPath mais rápida.|
+|CustomizeExemptUsers|O administrador global personalizou a lista de agentes de usuário isentos no Centro de administração do SharePoint. Você pode especificar quais agentes de usuário serão isentos de receber uma página da Web inteira para indexar. Isso significa que quando um agente de usuário especificado como isento encontra um formulário do InfoPath, o formulário é retornado como um arquivo XML em vez de uma página da Web inteira. Isso torna a indexação de formulários do InfoPath mais rápida.|
 |DefaultLanguageChangedInTermStore*|Configuração de idioma alterada no repositório de terminologia.|
 |DelegateModified|O usuário criou ou modificou um representante de segurança no Project Web App.|
 |DelegateRemoved|O usuário excluiu um representante de segurança no Project Web App.|
@@ -379,14 +379,14 @@ Este artigo fornece detalhes sobre o esquema Comum, bem como cada um dos esquema
 |SecondaryMySiteOwnerSet|Um usuário adicionou um proprietário secundário ao seu MySite.|
 |SecurityCategoryModified|O usuário cria, modifica ou exclui uma categoria de segurança no Project Web App.|
 |SecurityGroupModified|O usuário cria, modifica ou exclui um grupo de segurança no Project Web App.|
-|SendToConnectionAdded|O administrador global cria uma nova conexão Enviar para na página Gerenciamento de registros no Centro de administração do SharePoint. Uma conexão Enviar para especifica configurações para um repositório de documentos ou um centro de registros. Quando você cria uma conexão Enviar para, um Organizador de Conteúdo pode enviar documentos à localização especificada.|
+|SendToConnectionAdded|O administrador global cria uma nova conexão Enviar para na página de Gerenciamento de registros no Centro de Administração do SharePoint. Uma conexão Enviar para especifica as configurações de um repositório de documentos ou de uma central de registros. Quando você cria uma conexão Enviar para, um Organizador de conteúdo pode enviar documentos para o local especificado.|
 |SendToConnectionRemoved|O administrador global exclui uma conexão Enviar para na página Gerenciamento de registros no Centro de administração do SharePoint.|
 |SharedLinkCreated|O usuário cria um link para um arquivo compartilhado no SharePoint ou no OneDrive for Business. Este link pode ser enviado para outras pessoas para dar acesso ao arquivo. Um usuário pode criar dois tipos de links: um link que permite ao usuário visualizar e editar o arquivo compartilhado, ou um link que permite ao usuário apenas visualizar o arquivo.|
 |SharedLinkDisabled|O usuário desabilita (permanentemente) um link que foi criado para compartilhar um arquivo.|
 |SharingInvitationAccepted *|O usuário aceita um convite para compartilhar um arquivo ou uma pasta. Esse evento é registrado quando um usuário compartilha um arquivo com outros usuários.|
 |SharingRevoked|O usuário descompartilha um arquivo ou pasta anteriormente compartilhada com outros usuários. Esse evento é registrado quando um usuário deixa de compartilhar um arquivo com outros usuários.|
 |SharingSet|O usuário compartilha um arquivo ou pasta localizado no SharePoint ou no OneDrive for Business com outro usuário dentro de sua organização.|
-|SiteAdminChangeRequest|O usuário solicita ser adicionado como um administrador do conjunto de sites de um conjunto de sites do SharePoint. Os administradores do conjunto de sites têm permissões de controle total para o conjunto de sites e todos os subsites.|
+|SiteAdminChangeRequest|O usuário solicita a adição como administrador de conjunto de sites de um conjunto de sites do SharePoint. Os administradores de conjunto de sites têm permissões de controle total para o conjunto de sites e todos seus subsites.|
 |SiteCollectionAdminAdded*|O administrador ou proprietário do conjunto de sites adiciona uma pessoa como administrador do conjunto de sites para um site do SharePoint ou do OneDrive for Business. Os administradores do conjunto de sites têm permissões de controle total para o conjunto de sites e todos os subsites.|
 |SiteCollectionCreated| O administrador global cria um novo conjunto de sites em sua organização do SharePoint.|
 |SiteRenamed|O administrador ou proprietário do site renomeia um site do SharePoint ou do OneDrive for Business.|
@@ -743,6 +743,7 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do centro de 
 |:-----|:-----|:-----|:-----|
 |ApplicationId|Edm.String|Não|O GUID que representa o aplicativo que está solicitando o logon. O nome de exibição pode ser pesquisado por meio da API de gráfico do Azure Active Directory.|
 |Client|Edm.String|Não|Informações do dispositivo cliente, fornecidas pelo navegador que executa o logon.|
+|DeviceProperties|Collection(Common.NameValuePair)|Não|Esta propriedade inclui vários detalhes do dispositivo, incluindo Id, Nome do Display, OS, Browser, IsCompliant, IsCompliantAndManaged, SessionId e DeviceTrustType. A propriedade DeviceTrustType pode ter os seguintes valores:<br/><br/>**0** - Registrado no Microsoft Azure AD<br/> **1** - Ingressado no Microsoft Azure AD<br/> **2** - Ingressado no Azure AD Híbrido|
 |ErrorCode|Edm.String|Não|Para logons com falha (em que o valor da propriedade Operation é UserLoginFailed), essa propriedade contém o código de erro STS do Azure Active Directory (AADSTS). Para obter descrições desses códigos de erro, confira [Códigos de erro de autenticação e autorização](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes). Um valor de `0` indica um logon bem-sucedido.|
 |LogonError|Edm.String|Não|Para logons com falha, esta propriedade contém uma descrição legível pelo usuário do motivo do logon com falha.|
 |||||
@@ -988,6 +989,7 @@ Os eventos do Yammer listados em [Pesquisar no log de auditoria no Centro de Con
 |Nome|Edm.String|Não|Só apresenta para eventos de configurações. Nome da configuração que foi alterada.|
 |OldValue|Edm.String|Não|Só apresenta para eventos de configurações. Valor antigo da configuração.|
 |NewValue|Edm.String|Não|Só apresenta para eventos de configurações. Novo valor da configuração.|
+|MessageURLs|Edm.String|Não|Presente para qualquer URL enviado nas mensagens do Teams.|
 ||||
 
 ### <a name="microsoftteamsmember-complex-type"></a>Tipo complexo MicrosoftTeamsMember
