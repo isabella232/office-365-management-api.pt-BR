@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 5e2274dd3d5050a0db433fd93aa8ea1514744549
-ms.sourcegitcommit: c3786c4bfacf3c1187f1269c162946288b45c967
+ms.openlocfilehash: fe70aa617829bcfc9709c32f6349798f0ceb27aa
+ms.sourcegitcommit: b112bebdb289e0be863009ac032b11107a12c1f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "52059938"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "53242688"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
@@ -69,7 +69,7 @@ Este artigo fornece detalhes sobre o esquema comum, assim como cada um dos esque
 |RecordType|Self.[AuditLogRecordType](#auditlogrecordtype)|Sim|O tipo de operação indicado pelo registro. Confira a tabela [AuditLogRecordType](#auditlogrecordtype) para obter detalhes sobre os tipos de registros de log de auditoria.|
 |CreationTime|Edm.Date|Sim|A data e hora no Tempo Universal Coordenado (UTC) de quando o usuário realizou a atividade.|
 |Operation|Edm.String|Sim|O nome do usuário ou atividade administrativa. Para obter uma descrição das operações/atividades mais comuns, veja [Pesquisar o log de auditoria no Centro de Proteção do Office 365](https://go.microsoft.com/fwlink/p/?LinkId=708432). Para a atividade de administração do Exchange, essa propriedade identifica o nome do cmdlet que foi executado. Para eventos Dlp, as opções podem ser "DlpRuleMatch", "DlpRuleUndo" ou "DlpInfo", que são descritas em "Esquema DLP" abaixo.|
-|OrganizationId|Edm.Guid|Sim|O GUID do locatário do Office 365 da sua organização. Este valor será sempre o mesmo para a sua organização, independentemente do serviço do Office 365 em que ocorre.|
+|OrganizationId|Edm.Guid|Sim|O GUID para o arrendatário do Office 365 de sua organização. Este valor será sempre o mesmo para sua organização, independentemente do serviço do Office 365 em que ele ocorra.|
 |UserType|Self.[UserType](#user-type)|Sim|O tipo de usuário que executou a operação. Confira a tabela [UserType](#user-type) para detalhes sobre os tipos de usuários.|
 |UserKey|Edm.String|Sim|Uma ID alternativa para o usuário identificado na propriedade UserId. Por exemplo, essa propriedade é preenchida com a ID exclusiva do passaporte (PUID) para eventos executados por usuários no SharePoint, no OneDrive for Business e no Exchange. Essa propriedade também pode especificar o mesmo valor da propriedade UserID para eventos que ocorrem em outros serviços e eventos executados por contas do sistema.|
 |Workload|Edm.String|Não|O serviço do Office 365 em que a atividade ocorreu. 
@@ -223,8 +223,8 @@ Este artigo fornece detalhes sobre o esquema comum, assim como cada um dos esque
 |EventSource|Edm.String String="Microsoft.Office.Audit.Schema.SharePoint.[EventSource](#eventsource)"|Não|Identifica que um evento ocorreu no SharePoint. Valores possíveis são **SharePoint** ou **ObjectModel**.|
 |SourceName|Edm.String|Não|A entidade que acionou a operação auditada. Valores possíveis são SharePoint ou **ObjectModel**.|
 |UserAgent|Edm.String|Não|Informações sobre o cliente ou navegador do usuário. Esta informação é fornecida pelo cliente ou navegador.|
-|MachineDomainInfo|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|Não|Informações sobre as operações de sincronização do dispositivo. Essas informações são relatadas somente se estiverem presentes na solicitação.|
-|MachineId|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|Não|Informações sobre as operações de sincronização do dispositivo. Essas informações são relatadas somente se estiverem presentes na solicitação.|
+|MachineDomainInfo|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|Não|Informações sobre as operações de sincronização do dispositivo. Essas informações são relatadas apenas se estiverem presentes na solicitação.|
+|MachineId|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|Não|Informações sobre as operações de sincronização do dispositivo. Essas informações são relatadas apenas se estiverem presentes na solicitação.|
 |||||
 
 ### <a name="enum-itemtype---type-edmint32"></a>Enumeração: ItemType - Tipo: Edm.Int32
@@ -258,9 +258,9 @@ Este artigo fornece detalhes sobre o esquema comum, assim como cada um dos esque
 |**Nome do membro**|**Descrição**|
 |:-----|:-----|
 |AccessInvitationAccepted|O destinatário de um convite para exibir ou editar um arquivo compartilhado (ou pasta) acessou o arquivo compartilhado clicando no link do convite.|
-|AccessInvitationCreated|O usuário envia um convite a outra pessoa (dentro ou fora da organização) para exibir ou editar um arquivo ou pasta compartilhada em um site do SharePoint ou do OneDrive for Business. Os detalhes da entrada do evento identificam o nome do arquivo que foi compartilhado, o usuário ao qual o convite foi enviado e o tipo de permissão de compartilhamento selecionado pela pessoa que enviou o convite.|
+|AccessInvitationCreated|O usuário envia um convite para outra pessoa (dentro ou fora de sua organização) para exibir ou editar um arquivo ou pasta compartilhada em um site do Microsoft Office SharePoint Online ou OneDrive for Business. Os detalhes da entrada do evento identificam o nome do arquivo que foi compartilhado, o usuário para o qual o convite foi enviado e o tipo de permissão de compartilhamento selecionada pela pessoa que enviou o convite.|
 |AccessInvitationExpired|Um convite enviado a um usuário externo expirou. Por padrão, um convite enviado a um usuário fora de sua organização expira após sete dias se não for aceito.|
-|AccessInvitationRevoked|O administrador do site ou proprietário de um site ou documento no SharePoint ou OneDrive for Business retira um convite que foi enviado para um usuário fora da organização. Um convite pode ser retirado somente antes de ser aceito.|
+|AccessInvitationRevoked|O administrador do site ou proprietário de um site ou documento no Microsoft Office SharePoint Online ou OneDrive for Business retira um convite que foi enviado a um usuário fora da sua organização. Um convite só pode ser retirado antes de ser aceito.|
 |AccessInvitationUpdated|O usuário que criou e enviou um convite a outra pessoa para exibir ou editar um arquivo (ou pasta) compartilhado em um site do SharePoint ou do OneDrive for Business reenvia o convite.|
 |AccessRequestApproved|O administrador do site ou proprietário de um site ou documento no SharePoint ou no OneDrive for Business aprova uma solicitação do usuário para acessar o site ou documento.|
 |AccessRequestCreated|O usuário solicita acesso a um site ou documento no SharePoint ou no OneDrive for Business que ele não tem permissão para acessar. |
@@ -294,11 +294,11 @@ Este artigo fornece detalhes sobre o esquema comum, assim como cada um dos esque
 |EntityDeleted|O usuário exclui um quadro de horários no Project Web App.|
 |EntityForceCheckedIn|O usuário força um check-in em um calendário, campo personalizado ou tabela de pesquisa no Project Web App.|
 |ExemptUserAgentSet|O administrador global adiciona um agente do usuário à lista de agentes do usuário isentos no Centro de administração do SharePoint.|
-|FileAccessed|O usuário ou a conta do sistema acessa um arquivo em um site do SharePoint ou OneDrive for Business. Contas do sistema também podem gerar eventos FileAccessed.|
+|FileAccessed|A conta do usuário ou do sistema acessa um arquivo em um site do Microsoft Office SharePoint Online ou OneDrive for Business. As contas do sistema também podem gerar eventos FileAccessed.|
 |FileCheckOutDiscarded|O usuário descarta (ou desfaz) um arquivo em check-out. Isso significa que todas as alterações que ele tiver feito nesse arquivo durante o estado de check-out serão descartados, e não salvas na versão do documento localizada na biblioteca de documentos.|
 |FileCheckedIn|O usuário devolve um documento que retirou de uma biblioteca de documentos do SharePoint ou do OneDrive for Business.|
-|FileCheckedOut|O usuário faz check-out de um documento localizado em uma biblioteca de documentos do SharePoint ou do OneDrive for Business. Os usuários podem fazer check-out e alterações nos documentos que foram compartilhados com eles.|
-|FileCopied|O usuário copia um documento de um site do SharePoint ou do OneDrive for Business. O arquivo copiado pode ser salvo em outra pasta no site.|
+|FileCheckedOut|O usuário faz o check-out de um documento localizado em uma biblioteca de documentos do Microsoft Office SharePoint Online ou OneDrive for Business. Os usuários podem fazer check-out e fazer alterações em documentos que foram compartilhados com eles.|
+|FileCopied|O usuário copia um documento de um site do Microsoft Office SharePoint Online ou OneDrive for Business. O arquivo copiado pode ser salvo em outra pasta do site.|
 |FileDeleted|O usuário exclui um documento de um site do SharePoint ou do OneDrive for Business.|
 |FileDeletedFirstStageRecycleBin|O usuário exclui um arquivo da lixeira em um site do SharePoint ou do OneDrive for Business.|
 |FileDeletedSecondStageRecycleBin|O usuário exclui um arquivo da lixeira de segundo estágio em um site do SharePoint ou do OneDrive for Business.|
@@ -310,9 +310,9 @@ Este artigo fornece detalhes sobre o esquema comum, assim como cada um dos esque
 |FileRenamed|O usuário renomeia um documento em um site do SharePoint ou OneDrive for Business.|
 |FileRestored|O usuário restaura um documento da lixeira de um site do SharePoint ou OneDrive for Business. |
 |FileSyncDownloadedFull|O usuário estabelece um relacionamento de sincronização e faz download dos arquivos com êxito pela primeira vez em seu computador a partir de uma biblioteca de documentos do SharePoint ou do OneDrive for Business.|
-|FileSyncDownloadedPartial|O usuário faz o download com êxito de qualquer alteração nos arquivos da biblioteca de documentos do SharePoint ou do OneDrive for Business. Esse evento indica que as alterações feitas nos arquivos da biblioteca de documentos foram baixados para o computador do usuário. Apenas as alterações foram baixadas, pois a biblioteca de documentos foi baixada anteriormente pelo usuário (conforme indicado pelo evento FileSyncDownloadedFull).|
+|FileSyncDownloadedPartial|O usuário baixa com sucesso quaisquer alterações em arquivos da biblioteca de documentos do Microsoft Office SharePoint Online ou OneDrive for Business. Esse evento indica que todas as alterações feitas nos arquivos da biblioteca de documentos foram baixadas para o computador do usuário. Apenas as alterações foram baixadas porque a biblioteca de documentos foi previamente baixada pelo usuário (conforme indicado pelo FileSyncDow|
 |FileSyncUploadedFull|O usuário estabelece um relacionamento de sincronização e faz upload dos arquivos com êxito pela primeira vez do seu computador para uma biblioteca de documentos do SharePoint ou do OneDrive for Business.|
-|FileSyncUploadedPartial|O usuário faz o upload com êxito das alterações nos arquivos da biblioteca de documentos do SharePoint ou do OneDrive for Business. Esse evento indica que quaisquer alterações feitas na versão local de um arquivo de uma biblioteca de documentos foram carregadas com êxito para a biblioteca de documentos. Somente as alterações são carregadas, pois esses arquivos foram carregados anteriormente pelo usuário (conforme indicado pelo evento FileSyncUploadedFull).|
+|FileSyncUploadedPartial|O usuário carrega com sucesso as alterações de arquivos em uma biblioteca de documentos do Microsoft Office SharePoint Online ou OneDrive for Business. Este evento indica que todas as alterações feitas na versão local de um arquivo de uma biblioteca de documentos foram carregadas com sucesso  para a biblioteca de documentos. Somente as alterações são descarregadas porque esses arquivos foram previamente carregados pelo usuário (conforme indicado pelo evento FileSyncUploadedFull).|
 |FileUploaded|O usuário faz upload de um documento para uma pasta em um site do SharePoint ou do OneDrive for Business. |
 |FileViewed|Este evento foi substituído pelo evento FileAccessed e foi descontinuado.|
 |FolderCopied|O usuário copia uma pasta de um site do SharePoint ou do OneDrive for Business para outro local no SharePoint ou no OneDrive for Business.|
@@ -324,20 +324,20 @@ Este artigo fornece detalhes sobre o esquema comum, assim como cada um dos esque
 |FolderMoved|O usuário move uma pasta de um site do SharePoint ou do OneDrive for Business.|
 |FolderRenamed|O usuário renomeia uma pasta de um site do SharePoint ou do OneDrive for Business.|
 |FolderRestored|O usuário restaura uma pasta da lixeira em um site do SharePoint ou do OneDrive for Business.|
-|GroupAdded|O administrador ou proprietário do site cria um grupo para um site do SharePoint ou OneDrive for Business ou executa uma tarefa que resulta na criação de um grupo. Por exemplo, na primeira vez que um usuário cria um link para compartilhar um arquivo, um grupo de sistemas é adicionado ao site do OneDrive for Business do usuário. Esse evento também pode ser o resultado de um usuário ter criado um link com permissões de edição para um arquivo compartilhado.|
+|GroupAdded|O administrador ou proprietário do site cria um grupo para um site do Microsoft Office SharePoint Online ou OneDrive for Business ou executa uma tarefa que resulta na criação de um grupo. Por exemplo, na primeira vez que um usuário cria um link para compartilhar um arquivo, um grupo de sistema é adicionado ao site OneDrive for Business do usuário. Este evento também pode ser o resultado de um usuário criar um link com permissões de edição para um arquivo compartilhado.|
 |GroupRemoved|O usuário exclui um grupo de um site do SharePoint ou do OneDrive for Business. |
-|GroupUpdated|O administrador ou proprietário do site altera as configurações de um grupo para um site do SharePoint ou do OneDrive for Business. Isso pode incluir a alteração do nome do grupo, quem pode visualizar ou editar os membros do grupo e como as solicitações de associação são tratadas.|
+|GroupUpdated|O administrador ou proprietário do site altera as configurações de um grupo para um site do Microsoft Office SharePoint Online ou OneDrive for Business. Isso pode incluir a alteração do nome do grupo, quem pode visualizar ou editar a associação ao grupo e como as solicitações de associação são tratadas.|
 |LanguageAddedToTermStore|Idioma adicionado ao repositório de terminologia.|
 |LanguageRemovedFromTermStore|Idioma removido do repositório de terminologia.|
-|LegacyWorkflowEnabledSet|O proprietário ou administrador do site adiciona o tipo de conteúdo da Tarefa de Fluxo de Trabalho do SharePoint ao site. Os administradores globais também podem ativar fluxos de trabalho para toda a organização no centro de administração do SharePoint.|
+|LegacyWorkflowEnabledSet|O administrador ou proprietário do site adiciona o tipo de conteúdo Tarefa de Fluxo de Trabalho do SharePoint ao site. Os administradores globais também podem ativar fluxos de trabalho para toda a organização no Centro de Administração do SharePoint.|
 |LookAndFeelModified|O usuário modifica um início rápido, formatos de gráfico de gantt ou formatos de grupo.  Ou o usuário cria, modifica ou exclui uma exibição no Project Web App.|
 |ManagedSyncClientAllowed|O usuário estabelece com êxito uma relação de sincronização com um site do SharePoint ou do OneDrive for Business. A relação de sincronização é bem-sucedida porque o computador do usuário é membro de um domínio que foi adicionado à lista de domínios (chamada de Lista de Destinatários Confiáveis) que pode acessar bibliotecas de documentos em sua organização. Para obter mais informações, confira [PowerShell do SharePoint Online ](https://go.microsoft.com/fwlink/p/?LinkID=534609) para habilitar a sincronização do OneDrive para domínios que estão na lista de destinatários confiáveis.|
 |MaxQuotaModified|A cota máxima de um site foi modificada.|
 |MaxResourceUsageModified|O uso máximo permitido de recursos para um site foi modificado.|
 |MySitePublicEnabledSet|O sinalizador que permite aos usuários ter MySites públicos foi definido pelo Administrador de serviços do SharePoint.|
-|NewsFeedEnabledSet|O administrador ou proprietário do site habilita feeds RSS para um site do SharePoint ou do OneDrive for Business. Os administradores globais podem ativar RSS feeds para toda a organização no centro de administração do SharePoint.|
+|NewsFeedEnabledSet|O administrador ou proprietário do site habilita feeds RSS para um site do SharePoint ou OneDrive for Business. Os administradores globais podem habilitar o RSS feeds para toda a organização no Centro de administração do SharePoint.|
 |ODBNextUXSettings|Uma nova interface do usuário do OneDrive for Business foi ativada.|
-|OfficeOnDemandSet|O administrador do site habilita o Office on Demand, que permite aos usuários acessar a versão mais recente dos aplicativos da área de trabalho do Office. O Office on Demand está habilitado no Centro de administração do SharePoint e exige uma assinatura do Office 365 que inclua aplicativos completos do Office instalados.|
+|OfficeOnDemandSet|O administrador do site ativa o Office on Demand, que permite aos usuários acessar a versão mais recente dos aplicativos de área de trabalho do Office. O Office on Demand é habilitado no Centro de administração do SharePoint e requer uma assinatura do Office 365 que inclua aplicações completas e instaladas do Office.|
 |PageViewed|O usuário visualiza uma página em um site do SharePoint ou no site do OneDrive for Business. Isso não inclui a exibição de arquivos da biblioteca de documentos de um site do SharePoint ou do site One Drive for Business em um navegador.|
 |PeopleResultsScopeSet|O administrador do site cria ou altera a fonte de resultados para Pesquisas de Pessoas em um site do SharePoint.|
 |PermissionSyncSettingModified|O usuário modifica as configurações de sincronização de permissão do projeto no Project Web App.|
@@ -381,13 +381,13 @@ Este artigo fornece detalhes sobre o esquema comum, assim como cada um dos esque
 |SecurityGroupModified|O usuário cria, modifica ou exclui um grupo de segurança no Project Web App.|
 |SendToConnectionAdded|O administrador global cria uma nova conexão Enviar para na página de Gerenciamento de registros no Centro de Administração do SharePoint. Uma conexão Enviar para especifica as configurações de um repositório de documentos ou de uma central de registros. Quando você cria uma conexão Enviar para, um Organizador de conteúdo pode enviar documentos para o local especificado.|
 |SendToConnectionRemoved|O administrador global exclui uma conexão Enviar para na página Gerenciamento de registros no Centro de administração do SharePoint.|
-|SharedLinkCreated|O usuário cria um link para um arquivo compartilhado no SharePoint ou no OneDrive for Business. Este link pode ser enviado para outras pessoas para dar acesso ao arquivo. Um usuário pode criar dois tipos de links: um link que permite ao usuário visualizar e editar o arquivo compartilhado, ou um link que permite ao usuário apenas visualizar o arquivo.|
+|SharedLinkCreated|O usuário cria um link para um arquivo compartilhado no Microsoft Office SharePoint Online ou OneDrive for Business. Este link pode ser enviado a outras pessoas para lhes dar acesso ao arquivo. Um usuário pode criar dois tipos de links: um link que permite a um usuário visualizar e editar o arquivo compartilhado ou um link que permite ao usuário apenas visualizar o arquivo.|
 |SharedLinkDisabled|O usuário desabilita (permanentemente) um link que foi criado para compartilhar um arquivo.|
 |SharingInvitationAccepted *|O usuário aceita um convite para compartilhar um arquivo ou uma pasta. Esse evento é registrado quando um usuário compartilha um arquivo com outros usuários.|
 |SharingRevoked|O usuário descompartilha um arquivo ou pasta anteriormente compartilhada com outros usuários. Esse evento é registrado quando um usuário deixa de compartilhar um arquivo com outros usuários.|
 |SharingSet|O usuário compartilha um arquivo ou pasta localizado no SharePoint ou no OneDrive for Business com outro usuário dentro de sua organização.|
 |SiteAdminChangeRequest|O usuário solicita a adição como administrador de conjunto de sites de um conjunto de sites do SharePoint. Os administradores de conjunto de sites têm permissões de controle total para o conjunto de sites e todos seus subsites.|
-|SiteCollectionAdminAdded*|O administrador ou proprietário do conjunto de sites adiciona uma pessoa como administrador do conjunto de sites para um site do SharePoint ou do OneDrive for Business. Os administradores do conjunto de sites têm permissões de controle total para o conjunto de sites e todos os subsites.|
+|SiteCollectionAdminAdded*|O administrador ou proprietário de um conjunto de sites adiciona uma pessoa como administrador do conjunto de sites para um site do Microsoft Office SharePoint Online ou OneDrive for Business. Os administradores do conjunto de sites têm permissões de controle total para o conjunto de sites e todos os subsites.|
 |SiteCollectionCreated| O administrador global cria um novo conjunto de sites em sua organização do SharePoint.|
 |SiteRenamed|O administrador ou proprietário do site renomeia um site do SharePoint ou do OneDrive for Business.|
 |StatusReportModified|O usuário cria, modifica ou exclui um relatório de status no Project Web App.|
@@ -404,8 +404,8 @@ Este artigo fornece detalhes sobre o esquema comum, assim como cada um dos esque
 |TimesheetSubmitted|O usuário envia um quadro de horários de status no Project Web App.|
 |UnmanagedSyncClientBlocked|O usuário tenta estabelecer uma relação de sincronização com um site do SharePoint ou do OneDrive for Business em um computador que não é membro do domínio de sua organização ou que é membro de um domínio que não foi adicionado à lista de domínios (chamada de Lista de Destinatários Confiáveis) que podem acessar bibliotecas de documentos em sua organização. A relação de sincronização não é permitida e o computador do usuário é impedido de sincronizar, fazer download ou fazer upload de arquivos em uma biblioteca de documentos. Para obter informações sobre esse recurso, confira [Usar os cmdlets do Windows PowerShell para habilitar a sincronização do OneDrive para domínios que estão na Lista de Destinatários Confiáveis](https://docs.microsoft.com/powershell/module/sharepoint-online/index).|
 |UpdateSSOApplication|Aplicativo de destino atualizado no Serviço de Repositório Seguro.|
-|UserAddedToGroup|O administrador ou proprietário do site adiciona uma pessoa a um grupo em um site do SharePoint ou OneDrive for Business. Adicionar uma pessoa a um grupo concede ao usuário as permissões que foram atribuídas ao grupo. |
-|UserRemovedFromGroup|O administrador ou proprietário do site remove uma pessoa de um grupo em um site do SharePoint ou OneDrive for Business. Depois que a pessoa é removida, ela não recebe mais as permissões que foram atribuídas ao grupo. |
+|UserAddedToGroup|O administrador ou proprietário do site adiciona uma pessoa a um grupo em um site do Microsoft Office SharePoint Online ou OneDrive for Business. Adicionar uma pessoa a um grupo concede ao usuário as permissões que foram atribuídas ao grupo. |
+|UserRemovedFromGroup|O administrador ou proprietário do site remove uma pessoa de um grupo em um site do Microsoft Office SharePoint Online ou OneDrive for Business. Depois que a pessoa é removida, não lhe são mais concedidas as permissões que foram atribuídas ao grupo. |
 |WorkflowModified|O usuário cria, modifica ou exclui fases ou estágios do tipo de projeto ou fluxo de trabalho corporativo no Project Web App.|
 |||||
 
@@ -532,7 +532,7 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do centro de 
 |:-----|:-----|:-----|:-----|
 |ModifiedObjectResolvedName|Edm.String|Não|Esse é o nome amigável do objeto que foi modificado pelo cmdlet. Ele é registrado somente se o cmdlet modificar o objeto.|
 |Parâmetros|Collection(Common.NameValuePair)|Não|O nome e o valor de todos os parâmetros que foram usados ​​com o cmdlet identificado na propriedade Operations.|
-|ModifiedProperties|Collection(Common.ModifiedProperty)|Não|A propriedade está incluída para eventos de administrador. A propriedade inclui o nome da propriedade que foi modificada, o novo valor da propriedade modificada e o valor anterior do objeto modificado.|
+|ModifiedProperties|Collection(Common.ModifiedProperty)|Não|A propriedade está incluída para eventos administrativos. A propriedade inclui o nome da propriedade que foi modificada, o novo valor da propriedade modificada e o valor anterior do objeto modificado.|
 |ExternalAccess|Edm.Boolean|Sim|Especifica se o cmdlet foi executado por um usuário em sua organização, pela equipe de datacenters da Microsoft ou por uma conta de serviço do datacenter ou por um administrador delegado. O valor **Falso** indica que o cmdlet foi executado por alguém em sua organização. O valor **Verdadeiro** indica que o cmdlet foi executado pela equipe do datacenter, por uma conta de serviço do datacenter ou por um administrador delegado.|
 |OriginatingServer|Edm.String|Não|O nome do servidor do qual o cmdlet foi executado.|
 |OrganizationName|Edm.String|Não|O nome do locatário.|
@@ -626,7 +626,7 @@ Os eventos do SharePoint listados em [Pesquisar o log de auditoria do centro de 
 |:-----|:-----|:-----|:-----|
 |AzureActiveDirectoryEventType|Self.[AzureActiveDirectoryEventType](#azureactivedirectoryeventtype)|Sim|O tipo de evento do Azure AD. |
 |ExtendedProperties|Collection(Common.NameValuePair)|Não|As propriedades estendidas do evento do Azure AD.|
-|ModifiedProperties|Collection(Common.ModifiedProperty)|Não|Esta propriedade está incluída para eventos de administrador. A propriedade inclui o nome da propriedade que foi modificada, o novo valor da propriedade modificada e o valor anterior da propriedade modificada.|
+|ModifiedProperties|Collection(Common.ModifiedProperty)|Não|Esta propriedade está incluída para eventos administrativos. A propriedade inclui o nome da propriedade que foi modificada, o novo valor da propriedade modificada e o valor anterior da propriedade modificada.|
 |||||
 
 ### <a name="enum-azureactivedirectoryeventtype---type--edmint32"></a>Enumeração: AzureActiveDirectoryEventType - Tipo: Edm.Int32
@@ -784,6 +784,7 @@ Os eventos de DLP (Prevenção contra Perda de Dados) sempre terão UserKey = "D
 |DocumentSharer|Edm.String|Sim|O usuário que modificou pela última vez o compartilhamento do documento.|
 |UniqueId|Edm.String|Sim|Uma GUID que identifica o arquivo.|
 |LastModifiedTime|Edm.DateTime|Sim|Carimbo de data/hora em UTC de quando o documento foi modificado pela última vez.|
+|IsViewableByExternalUsers|Edm.Boolean|Sim|Determina se o arquivo é acessível para qualquer usuário externo.|
 |||||
 
 ### <a name="exchangemetadata-complex-type"></a>Tipo complexo ExchangeMetadata
@@ -879,7 +880,7 @@ Os dados confidenciais de DLP só estão disponíveis na API do feed de atividad
 |**Parâmetros**|**Tipo**|**Obrigatório**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 |StartTime|Edm.Date|Não|A data e hora em que o cmdlet foi executado.|
-|ClientRequestId|Edm.String|Não|Um GUID que pode ser usado para correlacionar esse cmdlet com as operações de UX do Centro de Conformidade e Segurança. Essas informações são usadas apenas pelo suporte da Microsoft.|
+|ClientRequestId|Edm.String|Não|Um GUID que pode ser usado para correlacionar este cmdlet com as operações UX do Centro de Conformidade e Segurança. Essas informações são usadas apenas pelo suporte da Microsoft.|
 |CmdletVersion|Edm.String|Não|A versão de build do cmdlet quando foi executado.|
 |EffectiveOrganization|Edm.String|Não|O GUID da organização afetada pelo cmdlet. (Descontinuado: este parâmetro será retirado no futuro.)|
 |UserServicePlan|Edm.String|Não|O plano de serviço Proteção do Exchange Online atribuído ao usuário que executou o cmdlet.|
@@ -916,7 +917,7 @@ O UserId e o UserKey desses eventos são sempre SecurityComplianceAlerts. Existe
 |Comments|Edm.String|Não|Comentários realizados pelos usuários que visualizaram o alerta. Por padrão, é "Novo alerta".|
 |Data|Edm.String|Não|O BLOB de dados de detalhes do alerta ou da entidade de alerta.|
 |AlertEntityId|Edm.String|Não|O identificador da entidade de alerta. Esse parâmetro só é aplicável em eventos AlertEntityGenerated.|
-|EntityType|Edm.String|Não|Tipo de entidade ou entidade de alerta. Os tipos de entidades incluem: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>User</p></li><li><p>Recipients</p></li><li><p>Sender</p></li><li><p>MalwareFamily</p></li></ul>Esse parâmetro só é aplicável em eventos AlertEntityGenerated.|
+|EntityType|Edm.String|Não|Tipo de alerta ou entidade de alerta. Os tipos de entidade incluem: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>User</p></li><li><p>Recipients</p></li><li><p>Sender</p></li><li><p>MalwareFamily</p></li></ul>Esse parâmetro só é aplicável em eventos AlertEntityGenerated.|
 |||||
 
 ## <a name="yammer-schema"></a>Esquema do Yammer
