@@ -7,12 +7,12 @@ ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 92eb7f2838e673992a778043075b6c0ef3f8d133
-ms.sourcegitcommit: e998d2175540269e94db529e74532efd4c43fab9
+ms.openlocfilehash: c8eb59433b49c9735ddfefea0d1e6804e8937439
+ms.sourcegitcommit: f08ff7cfd17aedd9d2ca85b5df0666ca986c9aed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "50094980"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "53447895"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referência da API da Atividade de Gerenciamento do Office 365
 
@@ -30,7 +30,7 @@ Para obter informações sobre os dados que a API da Atividade de Gerenciamento 
 
 ## <a name="working-with-the-office-365-management-activity-api"></a>Usar a API da Atividade de Gerenciamento do Office 365
 
-A API da Atividade de Gerenciamento do Office 365 agrega ações e eventos em blobs de conteúdo específicos de locatário, que são classificados pelo tipo e pela origem de seu conteúdo. Atualmente, há suporte para estes tipos de conteúdo:
+A API da Atividade de Gestão do Office 365 agrega ações e eventos em blobs de conteúdo específicos de locatário, que são classificados pelo tipo e pela origem de seu conteúdo. Atualmente, há suporte para estes tipos de conteúdo:
 
 - Audit.AzureActiveDirectory
     
@@ -132,7 +132,7 @@ Essa operação inicia uma assinatura para o tipo de conteúdo especificado. Se 
 ||PublisherIdentifier|O GUID de locatário de codificação de fornecedor para a API. Este **não** é o GUID de aplicativo nem o GUID do cliente que está usando o aplicativo, mas o GUID da empresa que está escrevendo o código. Este parâmetro é usado para limitar a taxa de solicitações. Verifique se este parâmetro foi especificado em todas as solicitações emitidas para obter uma cota dedicada. Todas as solicitações recebidas sem este parâmetro compartilharão a mesma cota.|
 |**Body**|webhook|Objeto JSON opcional com três propriedades:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>address</b>: ponto de extremidade HTTPS necessário que pode receber notificações.  Uma mensagem de teste será enviada ao webhook para validá-lo antes da criação da assinatura.</p></li><li><p><b>authId</b>: cadeia de caracteres opcional que é incluída como o cabeçalho WebHook AuthID na notificação enviada ao webhook para identificar e autorizar a origem da solicitação para o webhook.</p></li><li><p><b>expiration</b>: data e hora opcionais que indicam uma data e uma hora após as quais as notificações não devem ser enviadas ao webhook.</p></li></ul>|
 |**Response**|contentType|O tipo de conteúdo especificado na chamada.|
-||status|O status da assinatura. Se uma assinatura for desabilitada, você não poderá listar nem recuperar o conteúdo.|
+||status|O status da assinatura. Se uma assinatura estiver desabilitada, você não poderá listar ou recuperar conteúdo.|
 ||webhook|As propriedades de webhook especificadas na chamada, juntamente com o status do webhook. Se o webhook for desabilitado, você não receberá notificações, mas ainda poderá listar e recuperar conteúdo, desde que a assinatura esteja habilitada.|
 
 #### <a name="sample-request"></a>Solicitação de amostra
@@ -547,7 +547,7 @@ Ao ser listado o histórico de notificações para um intervalo de tempo, o núm
 ```json
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
-NextPageUrl: https://manage.office.com/api/v1/{tenant_id}/activity/feed/subscriptions/content?contentType=Audit.SharePoint&amp;startTime=2015-10-01&amp;endTime=2015-10-02&amp;nextPage=2015101900R022885001761
+NextPageUri: https://manage.office.com/api/v1/{tenant_id}/activity/feed/subscriptions/content?contentType=Audit.SharePoint&amp;startTime=2015-10-01&amp;endTime=2015-10-02&amp;nextPage=2015101900R022885001761
 
 ```
 

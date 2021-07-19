@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 8ee293d2e82fc2a4cc5cce04289c7428f39339d5
-ms.sourcegitcommit: 1c2efaeeeb4942591cf37f16edb64b3b41b9e83c
+ms.openlocfilehash: 6bb8d836281ebb4e98ef90957ab98d24e0c1342d
+ms.sourcegitcommit: f08ff7cfd17aedd9d2ca85b5df0666ca986c9aed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "53326599"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "53447902"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
@@ -976,22 +976,26 @@ Os eventos do Yammer listados em [Pesquisar no log de auditoria no Centro de Con
 
 |**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
 |:-----|:-----|:-----|:-----|
-|MessageId|Edm.String|Não|Um identificador para uma mensagem de bate-papo ou canal.|
-|Members|Collection(Self.[MicrosoftTeamsMember](#microsoftteamsmember-complex-type))|Não|Uma lista de usuários dentro de uma equipe.|
-|TeamName|Edm.String|Não|O nome da equipe que está sendo auditada.|
-|TeamGuid|Edm.Guid|Não|Um identificador exclusivo para a equipe que está sendo auditada.|
-|ChannelType|Edm.String|Não|O tipo de canal que está sendo auditado (padrão/particular).|
-|ChannelName|Edm.String|Não|O nome do canal que está sendo auditado.|
-|ChannelGuid|Edm.Guid|Não|Um identificador exclusivo para o canal que está sendo auditado.|
-|ExtraProperties|Coleção (Self.[ KeyValuePair](#keyvaluepair-complex-type))|Não|Uma lista de propriedades adicionais.|
-|AddOnType|Self.[AddOnType](#addontype)|Não|O tipo de complemento que gerou esse evento.|
-|AddonName|Edm.String|Não|O nome do complemento que gerou esse evento.|
 |AddOnGuid|Edm.Guid|Não|O identificador exclusivo do complemento que gerou esse evento.|
-|TabType|Edm.String|Não|Só apresenta para eventos de tabulação. O tipo de guia que gerou esse evento.|
-|Nome|Edm.String|Não|Só apresenta para eventos de configurações. Nome da configuração que foi alterada.|
-|OldValue|Edm.String|Não|Só apresenta para eventos de configurações. Valor antigo da configuração.|
-|NewValue|Edm.String|Não|Só apresenta para eventos de configurações. Novo valor da configuração.|
+|AddOnName|Edm.String|Não|O nome do complemento que gerou esse evento.|
+|AddOnType|Self.[AddOnType](#addontype)|Não|O tipo de complemento que gerou esse evento.|
+|ChannelGuid|Edm.Guid|Não|Um identificador exclusivo para o canal que está sendo auditado.|
+|ChannelName|Edm.String|Não|O nome do canal que está sendo auditado.|
+|ChannelType|Edm.String|Não|O tipo de canal que está sendo auditado (padrão/particular).|
+|ExtraProperties|Coleção (Self.[ KeyValuePair](#keyvaluepair-complex-type))|Não|Uma lista de propriedades adicionais.|
+|HostedContents|Coleção (Self.[HostedContent](#hostedcontent-complex-type))|Não|Uma coleção de conteúdo hospedado por mensagem de chat ou canal.|
+|Members|Collection(Self.[MicrosoftTeamsMember](#microsoftteamsmember-complex-type))|Não|Uma lista de usuários dentro de uma equipe.|
+|MessageId|Edm.String|Não|Um identificador para uma mensagem de bate-papo ou canal.|
 |MessageURLs|Edm.String|Não|Presente para qualquer URL enviado nas mensagens do Teams.|
+|Mensagens|Coleção (Self.[Message](#message-complex-type))|Não|Uma coleção de mensagens de chat ou canal.|
+|MessageSizeInBytes|Edm.Int64|Não|O tamanho de uma mensagem de chat ou canal em bytes com codificação UTF-16.|
+|Nome|Edm.String|Não|Só apresenta para eventos de configurações. Nome da configuração que foi alterada.|
+|NewValue|Edm.String|Não|Só apresenta para eventos de configurações. Novo valor da configuração.|
+|OldValue|Edm.String|Não|Só apresenta para eventos de configurações. Valor antigo da configuração.|
+|SubscriptionId|Edm.String|Não|Um identificador exclusivo de uma assinatura de notificação de alteração do Microsoft Graph.|
+|TabType|Edm.String|Não|Só apresenta para eventos de tabulação. O tipo de guia que gerou esse evento.|
+|TeamGuid|Edm.Guid|Não|Um identificador exclusivo para a equipe que está sendo auditada.|
+|TeamName|Edm.String|Não|O nome da equipe que está sendo auditada.|
 ||||
 
 ### <a name="microsoftteamsmember-complex-type"></a>Tipo complexo MicrosoftTeamsMember
@@ -1033,6 +1037,32 @@ Os eventos do Yammer listados em [Pesquisar no log de auditoria no Centro de Con
 |3|Tab|Uma guia do Microsoft Teams.|
 ||||
 
+### <a name="hostedcontent-complex-type"></a>Tipo complexo HostedContent
+
+|**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
+|:-----|:-----|:-----|:-----|
+|Id|Edm.String|Sim|Um identificador exclusivo do conteúdo hospedado da mensagem.|
+|Sizeinbytes|Edm.Int64|Não|O tamanho do conteúdo hospedado da mensagem em bytes.|
+|||||
+
+### <a name="message-complex-type"></a>Tipo complexo de mensagem
+
+|**Parâmetros**|**Tipo**|**Obrigatório?**|**Descrição**|
+|:-----|:-----|:-----|:-----|
+|AADGroupId|Edm.String|Não|Um identificador exclusivo do grupo no Azure Active Directory ao qual a mensagem pertence.|
+|Id|Edm.String|Sim|Um identificador exclusivo da mensagem de chat ou canal.|
+|ChannelGuid|Edm.String|Não|Um identificador exclusivo do canal ao qual a mensagem pertence.|
+|ChannelName|Edm.String|Não|O nome do canal ao qual a mensagem pertence.|
+|ChannelType|Edm.String|Não|O tipo do canal ao qual a mensagem pertence.|
+|Nome do Chat|Edm.String|Não|O nome do chat ao qual a mensagem pertence.|
+|ChatThreadId|Edm.String|Não|Um identificador exclusivo do chat ao qual a mensagem pertence.|
+|ParentMessageId|Edm.String|Não|Um identificador exclusivo da mensagem do canal ou chat pai.|
+|Sizeinbytes|Edm.Int64|Não|O tamanho da mensagem em bytes com codificação UTF-16.|
+|TeamGuid|Edm.String|Não|Um identificador exclusivo da equipe à qual a mensagem pertence.|
+|TeamName|Edm.String|Não|O nome da equipe à qual a mensagem pertence.|
+|Versão|Edm.String|Não|A versão do chat ou mensagem do canal.|
+|||||
+ 
 ## <a name="microsoft-defender-for-office-365-and-threat-investigation-and-response-schema"></a>Microsoft Defender para Office 365 e esquema de investigação e resposta de ameaças
 
 [Microsoft Defender para Office 365](/office365/securitycompliance/office-365-atp) e eventos de Investigação e Resposta a Ameaças estão disponíveis para clientes do Office 365 que tenham um Plano 1 do Defender para Office 365, Plano 2 do Defender para Office 365 ou uma assinatura E5.  Cada evento no feed do Defender para Office 365 corresponde aos seguintes eventos que foram determinados como contendo uma ameaça:
