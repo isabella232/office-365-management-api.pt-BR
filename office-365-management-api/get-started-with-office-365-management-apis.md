@@ -7,12 +7,12 @@ ms.ContentId: 74137c9a-29e0-b588-6122-26f4d2c5e3fc
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: d11644a4a9985096c14ad4ae265471159243b65b
-ms.sourcegitcommit: ec60dbd5990cfc61b8c000b423e7ade25fa613a8
+ms.openlocfilehash: 64406bc52070f89223142fbf06313c9357d97a79311a2f00c95bfa4c829147e1
+ms.sourcegitcommit: 88ef5f75a9e2a25760a2caa2cef1f51f9afba90c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "48397444"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "54274225"
 ---
 # <a name="get-started-with-office-365-management-apis"></a>Introdução às APIs de Gerenciamento do Office 365
 
@@ -117,9 +117,9 @@ Um aplicativo que está sendo executado em segundo plano, como um daemon ou serv
 
 Confira mais informações em [Chamadas de serviço a serviço usando credenciais do cliente](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
-Você deve configurar um certificado X.509 com seu aplicativo para ser usado como credencial de cliente ao solicitar tokens de acesso somente aplicativo do Azure AD. Há duas etapas para o processo:
+Você deve configurar um certificado X.509 com seu aplicativo para ser usado como credenciais de cliente ao solicitar tokens de acesso somente de aplicativo do Microsoft Azure Active Directory. Há duas etapas para o processo:
 
-- Obter um certificado X.509. Você pode usar um certificado autoassinado ou um certificado emitido pela autoridade de certificação confiável publicamente.
+- Obtenha um certificado X.509. Você pode usar um certificado autoassinado ou um certificado emitido por uma autoridade de certificação publicamente confiável.
     
 - Modificar o manifesto do seu aplicativo para incluir a impressão digital e a chave pública do seu certificado.
     
@@ -191,7 +191,7 @@ As instruções a seguir mostram como usar a ferramenta _makecert_ do Visual Stu
 Por fim, você precisa especificar exatamente quais permissões seu aplicativo requer das APIs de Gerenciamento do Office 365. Para isso, adicione acesso às APIs de Gerenciamento do Office 365 ao seu aplicativo e especifique as permissões necessárias.
 
 
-1. No Portal de Gerenciamento do Azure, selecione seu aplicativo e escolha **Configurar** no menu superior. Role a tela até **Permissões para outros aplicativos ** e escolha **Adicionar aplicativo**.
+1. No Portal de Gerenciamento do Azure, selecione seu aplicativo e escolha **Configurar** no menu superior. Role a tela até **Permissões para outros aplicativos** e escolha **Adicionar aplicativo**.
     
    ![Página do Azure AD](images/azure-ad-page.png)
     
@@ -229,7 +229,7 @@ Por exemplo:
 https://login.windows.net/common/oauth2/authorize?response_type=code&resource=https%3A%2F%2Fmanage.office.com&client_id=2d4d11a2-f814-46a7-890a-274a72a7309e&redirect_uri=http%3A%2F%2Fwww.mycompany.com%2Fmyapp%2F
 ```
 
-Você pode testar a URL de consentimento colando-a em um navegador e entrando usando as credenciais de um administrador do Office 365 para um locatário que não seja o usado para registrar o aplicativo. Você verá a solicitação para conceder ao seu aplicativo permissão para usar as APIs de Gerenciamento do Office.
+Você pode testar a URL de consentimento colando-a em um navegador e entrando usando as credenciais de um administrador do Office 365 para um locatário diferente do locatário que você usou para registrar o aplicativo. Você verá a solicitação para conceder permissão ao aplicativo para usar as APIs de Gerenciamento do Office.
 
 
 ![Página adicionada do aplicativo Azure AD](images/azure-ad-app-added-page.png)

@@ -7,12 +7,12 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: d954cc97320953ed35d6e46cb118395469c93394
-ms.sourcegitcommit: 24ef06fd001f273d16be72733509b5ec202d3ebb
+ms.openlocfilehash: 086b40d0207fba761db66d918d74dc872ae66c9471ceced91d2b4b6dfe73ac1e
+ms.sourcegitcommit: 88ef5f75a9e2a25760a2caa2cef1f51f9afba90c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "50418185"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "54274347"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Perguntas frequentes e Soluções de problemas da API da Atividade de Gestão do Office 365
 
@@ -55,7 +55,7 @@ Não. Recentemente, o tempo de espera de entrega de notificações ao usar um we
 
 **Quanto tempo o conteúdo permanecerá disponível para buscar pela API?**
 
-O conteúdo está disponível para ser obtido pela API por 7 dias após a notificação da disponibilidade do conteúdo. Mesmo que a notificação atrase por um período excepcionalmente longo (por exemplo, no caso de uma interrupção do serviço), você ainda terá sete dias após a primeira disponibilidade da notificação para baixar o blob de conteúdo relacionado ao evento de origem.
+O conteúdo está disponível para busca por meio da API por 7 dias após a notificação da disponibilidade do conteúdo. Mesmo que a notificação seja atrasada por um período excepcionalmente longo (por exemplo, no caso de uma interrupção de serviço), você ainda teria 7 dias após a primeira disponibilidade da notificação para baixar o blob de conteúdo relacionado ao evento de origem.
 
 **Posso consultar a API da Atividade de Gestão para uma ID de evento específico ou RecordType ou outras propriedades no blob de conteúdo?**
 
@@ -78,7 +78,7 @@ Abra um tíquete com o Suporte da Microsoft e solicite uma nova restrição de l
 
 **Por que as TargetUpdatedProperties não estão mais em ExtendedProperties nos logs de auditoria das atividades do Azure Active Directory?**
 
-As TargetUpdatedProperties aparecem em ExtendedProperties. No entanto, eles foram removidos das ExtendedProperties e aparecerão em ModifiedProperties.
+TargetUpdatedProperties estavam aparecendo em ExtendedProperties. No entanto, eles foram removidos de ExtendedProperties e agora aparecem em ModifiedProperties.
 
 **Por que os logs de auditoria com UserAccountNotFound "LogonError" para atividades de entrada do Azure Active Directory (Azure AD) não estão disponíveis via API da Atividade de Gestão?**
 
@@ -86,7 +86,7 @@ A partir de novembro de 2020, os logs de auditoria para atividades de entrada do
 
 ## <a name="troubleshooting-the-office-365-management-activity-api"></a>Solução de problemas da API da Atividade de Gestão do Office 365
 
-Qualquer pessoa que comece a usar a API da Atividade de Gestão do Office 365 deve entender que não há um conceito de consulta por informações específicas do evento, como a data em que ocorreu o evento, de qual coleção de sites um evento pode ter sido acionado ou o tipo de evento. Em vez disso, você cria assinaturas para cargas de trabalho específicas (por exemplo, Microsoft Office SharePoint Online ou Microsoft Azure Active Directory) e cada assinatura é por locatário.
+Uma coisa que deve ser clara para qualquer pessoa que esteja começando a usar a API da Atividade de Gestão do Office 365 é que não há nenhum conceito de consulta por especificações de evento, como a data em que o evento ocorreu, de qual conjunto de sites um evento pode ter sido disparado ou o tipo de evento. Em vez disso, você cria assinaturas para cargas de trabalho específicas (por exemplo, Microsoft Office SharePoint Online ou Azure Active Directory) e cada assinatura é por locatário.
 
 As seções a seguir resumem as perguntas mais comuns que os clientes fazem ao usar a API da Atividade de Gestão do Office 365:
 
@@ -174,7 +174,7 @@ access_token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjJLVmN1enFBaWRPTHF
 
 ### <a name="checking-your-subscriptions"></a>Como verificar suas assinaturas
 
-Se você já passou por uma interrupção no fluxo de dados para uma solução ou cliente de API da Atividade de Gestão existente, pode estar se perguntando se algo aconteceu com a sua assinatura. Para verificar suas assinaturas ativas, adicione o seguinte ao script anterior:
+Se você passou por uma interrupção no fluxo de dados para um cliente ou solução existente da API de Atividade de Gerenciamento, pode estar se perguntando se algo aconteceu com sua assinatura. Para verificar suas assinaturas ativas, adicione o seguinte ao script anterior:
 
 ```powershell
 Invoke-WebRequest -Headers $headerParams -Uri "$resource/api/v1.0/$tenantGUID/activity/feed/subscriptions/list" 

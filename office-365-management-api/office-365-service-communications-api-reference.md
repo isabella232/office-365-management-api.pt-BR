@@ -7,24 +7,27 @@ ms.ContentId: d0b9341a-b205-5442-1c20-8fb56407351d
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 7cd91d9a43090b4731a11df701e0bf1aa340800e
-ms.sourcegitcommit: e7f345710dc63003704399419f784c4a9b5fc529
+ms.openlocfilehash: 883c7026ea41794e290208bed73b8da4f8ce90861cd2a1f8193e731e5dd1a4ef
+ms.sourcegitcommit: 88ef5f75a9e2a25760a2caa2cef1f51f9afba90c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "48830466"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "54274333"
 ---
 # <a name="office-365-service-communications-api-reference"></a>Referência da API de Comunicações de Serviço do Office 365
 
+> [!IMPORTANT]
+> A API de integridade e comunicações no Microsoft Graph serviço já está disponível. A API do Microsoft Graph substitui a API de Comunicações de Serviço documentada neste artigo. Desativaremos a versão herdada da API de Comunicações de Serviço a partir de 17 de dezembro de 2021. Para obter mais informações sobre a nova API do Microsoft Graph, consulte [Visão geral para acessar a integridade do serviço e as comunicações por meio do Microsoft Graph](/graph/service-communications-concept-overview).
+
 Você pode usar o API de Comunicações do Serviço do Office 365 V2 para acessar os seguintes dados:
 
-- **Obter Serviços** : obtenha a lista de serviços assinados.
+- **Obter Serviços**: obtenha a lista de serviços assinados.
 
-- **Obter Status Atual** : obtenha uma visualização em tempo real dos eventos de manutenção e dos incidentes de serviço.
+- **Obter Status Atual**: obtenha uma visualização em tempo real dos eventos de manutenção e dos incidentes de serviço.
 
-- **Obter Status Histórico** : obtenha uma visualização do histórico de incidentes de serviço.
+- **Obter Status Histórico**: obtenha uma visualização do histórico de incidentes de serviço.
 
-- **Obter Mensagens** : comunicações do Localizar Incidente e Centro de Mensagens.
+- **Obter Mensagens**: comunicações do Localizar Incidente e Centro de Mensagens.
 
 Atualmente, a API de Comunicações do Serviço do Office 365 contém dados para os serviços de nuvem do Office 365, Yammer, Dynamics CRM e Microsoft Intune.
 
@@ -278,7 +281,7 @@ As definições de status incluem os seguintes valores:
 - PostIncidentReportPublished
 - ServiceOperational
 
-Para uma descrição dessas definições de status, consulte [Como verificar a saúde dos serviços do Microsoft 365](https://docs.microsoft.com/microsoft-365/enterprise/view-service-health#status-definitions).
+Para uma descrição dessas definições de status, consulte [Como verificar a saúde dos serviços do Microsoft 365](/enterprise/view-service-health#status-definitions).
 
 ## <a name="get-historical-status"></a>Obter Status Histórico
 
@@ -464,7 +467,6 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
     ]
 }
 ```
-
 
 ## <a name="errors"></a>Erros
 
