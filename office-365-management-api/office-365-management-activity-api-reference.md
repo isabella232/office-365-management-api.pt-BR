@@ -6,26 +6,26 @@ description: Use a API da Atividade de Gerenciamento do Office 365 para recupera
 ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: ''
-localization_priority: Priority
-ms.openlocfilehash: 6d2f013a79d444a596dab1423ac2c731fb86a8df4358c99480705a2a8f23bbe1
-ms.sourcegitcommit: 88ef5f75a9e2a25760a2caa2cef1f51f9afba90c
+ms.localizationpriority: high
+ms.openlocfilehash: ba8913806f13719e0851ea5a3574ac7847ab35f5
+ms.sourcegitcommit: 13b50617b1a73f5890414087d8eabe6b2240cfb4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2021
-ms.locfileid: "54274326"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "58510135"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referência da API da Atividade de Gerenciamento do Office 365
 
 Use a API da Atividade de Gerenciamento do Office 365 para recuperar informações sobre ações e eventos de usuário, administração, sistema e políticas dos logs de atividades do Office 365 e do Azure AD. 
 
-Você pode usar as ações e os eventos dos logs de auditoria e atividades do Office 365 e do Microsoft Azure Active Directory para criar soluções que forneçam monitoramento, análise e visualização de dados. Essas soluções oferecem às organizações mais visibilidade das ações realizadas em relação a seu conteúdo. Essas ações e eventos também estão disponíveis nos Relatórios de Atividades do Office 365. Para saber mais, confira [Pesquisar o log de auditoria no Centro de Conformidade e Segurança do Office 365](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c).
+Você pode usar as ações e os eventos dos logs de auditoria e atividades do Office 365 e do Microsoft Azure Active Directory para criar soluções que forneçam monitoramento, análise e visualização de dados. Essas soluções oferecem às organizações mais visibilidade das ações realizadas em relação a seu conteúdo. Essas ações e eventos também estão disponíveis nos Relatórios de Atividades do Office 365. Para obter mais informações, consulte [Pesquisar o log de auditoria no Microsoft 365](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance).
 
 A API da Atividade de Gerenciamento do Office 365 é um serviço Web REST que você pode usar para desenvolver soluções usando qualquer linguagem e ambiente de hospedagem que dê suporte a certificados HTTPS e X.509. A API depende do Azure AD e do protocolo OAuth2 para autorização e autenticação. Para acessar a API por meio de seu aplicativo, primeiro será preciso registrá-la no Azure AD e configurá-la com permissões apropriadas. Isso habilitará o aplicativo a solicitar os tokens de acesso OAuth2 necessários para chamar a API. Para saber mais, confira [Introdução às APIs de Gerenciamento do Office 365](get-started-with-office-365-management-apis.md).
 
 Para obter informações sobre os dados que a API da Atividade de Gerenciamento do Office 365 retorna, confira [Esquema da API da Atividade de Gerenciamento do Office 365](office-365-management-activity-api-schema.md).
 
 > [!IMPORTANT]
-> Para poder acessar dados por meio da API de Atividade de Gerenciamento do Office 365, habilite o log de auditoria unificado para a sua organização do Office 365. Para fazer isso, ative o log de auditoria do Office 365. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria do Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
+> Para poder acessar dados por meio da API de Atividade de Gerenciamento do Office 365, habilite o log de auditoria unificado para a sua organização do Office 365. Para fazer isso, ative o log de auditoria do Office 365. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria do Office 365](/microsoft-365/compliance/turn-audit-log-search-on-or-off).
 
 
 ## <a name="working-with-the-office-365-management-activity-api"></a>Usar a API da Atividade de Gerenciamento do Office 365
@@ -130,7 +130,7 @@ Essa operação inicia uma assinatura para o tipo de conteúdo especificado. Se 
 |**Path**| `/subscriptions/start?contentType={ContentType}`||
 |**Parâmetros**|contentType|Deve ser um tipo de conteúdo válido.|
 ||PublisherIdentifier|O GUID de locatário de codificação de fornecedor para a API. Este **não** é o GUID de aplicativo nem o GUID do cliente que está usando o aplicativo, mas o GUID da empresa que está escrevendo o código. Este parâmetro é usado para limitar a taxa de solicitações. Verifique se este parâmetro foi especificado em todas as solicitações emitidas para obter uma cota dedicada. Todas as solicitações recebidas sem este parâmetro compartilharão a mesma cota.|
-|**Body**|webhook|Objeto JSON opcional com três propriedades:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>address</b>: ponto de extremidade HTTPS necessário que pode receber notificações.  Uma mensagem de teste será enviada ao webhook para validá-lo antes da criação da assinatura.</p></li><li><p><b>authId</b>: cadeia de caracteres opcional que é incluída como o cabeçalho WebHook AuthID na notificação enviada ao webhook para identificar e autorizar a origem da solicitação para o webhook.</p></li><li><p><b>expiration</b>: data e hora opcionais que indicam uma data e uma hora após as quais as notificações não devem ser enviadas ao webhook.</p></li></ul>|
+|**Body**|webhook|Objeto JSON opcional com três propriedades:<ul><li>**address**</b>: ponto de extremidade HTTPS necessário que pode receber notificações.  Uma mensagem de teste será enviada ao webhook para validá-lo antes da criação da assinatura.</li><li>**authId**: cadeia de caracteres opcional que é incluída como o cabeçalho WebHook AuthID na notificação enviada ao webhook para identificar e autorizar a origem da solicitação para o webhook.</li><li>**expiration**: data e hora opcionais que indicam uma data e uma hora após as quais as notificações não devem ser enviadas ao webhook.|
 |**Response**|contentType|O tipo de conteúdo especificado na chamada.|
 ||status|O status da assinatura. Se uma assinatura estiver desabilitada, você não poderá listar ou recuperar conteúdo.|
 ||webhook|As propriedades de webhook especificadas na chamada, juntamente com o status do webhook. Se o webhook for desabilitado, você não receberá notificações, mas ainda poderá listar e recuperar conteúdo, desde que a assinatura esteja habilitada.|
@@ -171,8 +171,6 @@ Content-Type: application/json; charset=utf-8
 }
 
 ```
-
-
 ## <a name="webhook-validation"></a>Validação de webhook
 
 Quando a operação /start for chamada e um webhook for especificado, enviaremos uma notificação de validação ao endereço de webhook especificado para validar que um ouvinte ativo pode aceitar e processar notificações. Se não recebermos uma resposta HTTP 200 OK, a assinatura não será criada. Ou então, se /start for chamado para adicionar um webhook a uma assinatura existente, e uma resposta HTTP 200 OK não for recebida, o webhook não será adicionado, e a assinatura permanecerá inalterada.
@@ -190,7 +188,6 @@ Webhook-ValidationCode: (random opaque string)
 }
 
 ```
-
 
 #### <a name="sample-response"></a>Resposta de amostra
 
@@ -240,7 +237,7 @@ Essa operação retorna um conjunto de assinaturas atuais com os webhooks associ
 |**Path**| `/subscriptions/list`||
 |**Parâmetros**|PublisherIdentifier|O GUID de locatário de codificação de fornecedor para a API. Este **não** é o GUID de aplicativo nem o GUID do cliente que está usando o aplicativo, mas o GUID da empresa que está escrevendo o código. Este parâmetro é usado para limitar a taxa de solicitações. Verifique se este parâmetro foi especificado em todas as solicitações emitidas para obter uma cota dedicada. Todas as solicitações recebidas sem este parâmetro compartilharão a mesma cota.|
 |**Body**|(vazio)||
-|**Response**|Matriz JSON|Cada assinatura será representada por um objeto JSON com três propriedades:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>contentType</b>: indica o tipo de conteúdo.</p></li><li><p><b>status</b>: indica o status da assinatura.</p></li><li><p><b>webhook</b>: indica o webhook configurado, juntamente com o status (habilitado, desabilitado, expirado) dele.  Se uma assinatura não tiver um webhook, a propriedade webhook estará presente, mas com um valor nulo.</p></li></ul>|
+|**Response**|Matriz JSON|Cada assinatura será representada por um objeto JSON com três propriedades:<ul><li>**contentType**: indica o tipo de conteúdo.</li><li>**status**: indica o status da assinatura.</li><li>**webhook**: indica o webhook configurado, juntamente com o status (habilitado, desabilitado, expirado) dele.  Se uma assinatura não tiver um webhook, a propriedade webhook estará presente, mas com um valor nulo.|
 
 
 #### <a name="sample-request"></a>Solicitação de amostra
@@ -290,8 +287,8 @@ Essa operação lista o conteúdo atualmente disponível para recuperação para
 |**Path**| `/subscriptions/content?contentType={ContentType}&amp;startTime={0}&amp;endTime={1}`||
 |**Parâmetros**|contentType|Deve ser um tipo de conteúdo válido.|
 ||PublisherIdentifier|O GUID de locatário de codificação de fornecedor para a API. Este **não** é o GUID de aplicativo nem o GUID do cliente que está usando o aplicativo, mas o GUID da empresa que está escrevendo o código. Este parâmetro é usado para limitar a taxa de solicitações. Verifique se este parâmetro foi especificado em todas as solicitações emitidas para obter uma cota dedicada. Todas as solicitações recebidas sem este parâmetro compartilharão a mesma cota.|
-||startTime endTime|As datas e horas opcionais (UTC) que indicam o intervalo de tempo do conteúdo a ser retornado, com base em quando o conteúdo foi disponibilizado. O intervalo de tempo é inclusivo em relação a startTime(startTime <= contentCreated) e exclusivo em relação a endTime (contentCreated < endTime). Portanto, intervalos de tempo incrementos e não sobrepostos podem ser usados para percorrer o conteúdo disponível.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>AAAA-MM-DD</p></li><li><p>AAAA-MM-DDTHH:MM</p></li><li><p>AAAA-MM-DDTHH:MM:SS</p></li></ul>Ambos devem ser especificados (ou ambos omitidos), não devem estar separados por mais de 24 horas e a hora de início não pode ser mais de sete dias no passado. Por padrão, se startTime e endTime forem omitidos, o conteúdo disponível nas últimas 24 horas será retornado.<p>**OBSERVAÇÃO**: embora seja possível especificar startTime e endTime separados por mais de 24 horas, isso não é recomendável. Além disso, se você obtiver resultados em resposta a uma solicitação de mais de 24 horas, serão resultados parciais e não deverão ser levados em consideração. A solicitação deve ser emitida com um intervalo de no máximo 24 horas entre startTime e endTime.</p>|
-|**Response**|Matriz JSON|O conteúdo disponível será representado por objetos JSON com as seguintes propriedades:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>contentType</b>: indica o tipo de conteúdo.</p></li><li><p><b>contentId</b>: uma cadeia de caracteres opaca que identifica o conteúdo de forma exclusiva.</p></li><li><p><b>contentUri</b>: a URL a ser usada ao recuperar o conteúdo.</p></li><li><p><b>contentCreated</b>: data e hora em que o conteúdo foi disponibilizado.</p></li><li><p><b>contentExpiration</b>: data e hora em que o conteúdo não estará mais disponível para recuperação.</p></li></ul>|
+||startTime endTime|As datas e horas opcionais (UTC) que indicam o intervalo de tempo do conteúdo a ser retornado, com base em quando o conteúdo foi disponibilizado. O intervalo de tempo é inclusivo em relação a startTime(startTime <= contentCreated) e exclusivo em relação a endTime (contentCreated < endTime). Portanto, intervalos de tempo incrementos e não sobrepostos podem ser usados para percorrer o conteúdo disponível.<ul><li>AAAA-MM-DD</li><li>AAAA-MM-DDTHH:MM</li><li>AAAA-MM-DDTHH:MM:SS</ul>Ambos devem ser especificados (ou ambos omitidos), não devem estar separados por mais de 24 horas e a hora de início não pode ser mais de sete dias no passado. Por padrão, se startTime e endTime forem omitidos, o conteúdo disponível nas últimas 24 horas será retornado.<p>**OBSERVAÇÃO**: embora seja possível especificar startTime e endTime separados por mais de 24 horas, isso não é recomendável. Além disso, se você obtiver resultados em resposta a uma solicitação de mais de 24 horas, serão resultados parciais e não deverão ser levados em consideração. A solicitação deve ser emitida com um intervalo de no máximo 24 horas entre startTime e endTime.</p>|
+|**Response**|Matriz JSON|O conteúdo disponível será representado por objetos JSON com as seguintes propriedades:<ul><li>**contentType**: indica o tipo de conteúdo.</li><li>**contentId**: uma cadeia de caracteres opaca que identifica o conteúdo de forma exclusiva.</li><li> **contentUri**: a URL a ser usada ao recuperar o conteúdo.</li><li>**contentCreated**: data e hora em que o conteúdo foi disponibilizado.</li><li> **contentExpiration**: data e hora em que o conteúdo não estará mais disponível para recuperação.|
 
 
 #### <a name="sample-request"></a>Solicitação de amostra
@@ -321,7 +318,6 @@ Content-Type: application/json; charset=utf-8
 
 ```
 
-
 ### <a name="pagination"></a>Paginação
 
 Ao ser listado o conteúdo disponível para um intervalo de tempo, o número de resultados retornados é limitado para impedir tempos limite de resposta. Se houver mais resultados no intervalo de tempo especificado do que o máximo que pode ser retornados em uma única resposta, eles serão truncados, e um cabeçalho será adicionado à resposta para indicar a URL a ser usada para recuperar a próxima página de resultados. A URL conterá os mesmos parâmetros _startTime_ e _endTime_ especificados na solicitação original, juntamente com um parâmetro que indica a ID interna da próxima página. Se _startTime_ e _endTime_ não tiverem sido especificados na solicitação original, eles serão definidos para refletir o intervalo de 24 horas que precedia a solicitação original.
@@ -346,17 +342,17 @@ A notificação é criada como um HTTP POST sobre TLS (TLS 1.0 e versões poster
 O corpo da solicitação conterá uma matriz de um ou mais objetos JSON que representam os blobs de conteúdo disponíveis. O número de blobs de conteúdo em cada notificação é limitado para manter o tamanho da notificação relativamente pequeno. Como esse limite pode ser alterado, a implementação deve consultar o comprimento da matriz, em vez de esperar um tamanho fixo. Cada objeto incluirá as mesmas propriedades retornadas pela operação /content, juntamente com o GUID do locatário ao qual os dados pertencem e o GUID do aplicativo que criou as assinaturas. Isso permite que o webhook estabeleça o contexto quando está sendo usado com vários locatários e aplicativos.
 
 - **tenantId**: o GUID do locatário ao qual o conteúdo pertence.
-    
+
 - **clientId**: o GUID do aplicativo que criou a assinatura.
-    
+
 - **contentType**: indica o tipo de conteúdo.
-    
+
 - **contentId**: uma cadeia de caracteres opaca que identifica o conteúdo de forma exclusiva.
-    
+
 - **contentUri**: a URL a ser usada ao recuperar o conteúdo.
-    
+
 - **contentCreated**: data e hora em que o conteúdo foi disponibilizado.
-    
+
 - **contentExpiration**: data e hora em que o conteúdo não estará mais disponível para recuperação.
     
 A seguir há um exemplo de uma notificação.
@@ -381,11 +377,9 @@ Webhook-AuthID: o365activityapinotification
 
 ```
 
-
 ## <a name="notification-failure-and-retry"></a>Falha de notificação e nova tentativa
 
 O sistema de notificação envia notificações à medida que novo conteúdo é disponibilizado. Se encontramos um número excessivo de falhas ao enviar notificações, o mecanismo de novas tentativas aumentará exponencialmente o tempo entre as novas tentativas. Se continuarmos a encontrar falhas, nos reservaremos o direito de desabilitar o webhook e interromper completamente o envio de notificações. A operação /start pode ser usada para reabilitar um webhook desabilitado.
-
 
 ## <a name="retrieving-content"></a>Recuperar conteúdo
 
@@ -493,7 +487,6 @@ Content-Type: application/json; charset=utf-8
 
 ```
 
-
 ## <a name="list-notifications"></a>Listar notificações
 
 Essa operação lista todas as tentativas de notificação para o tipo de conteúdo especificado. Se você não tiver incluído um webhook ao iniciar a assinatura para o tipo de conteúdo, não haverá notificações a serem recuperadas. Como repetimos as notificações em caso de falha, essa operação pode retornar várias notificações para o mesmo conteúdo. A ordem em que as notificações são enviadas não necessariamente corresponde à ordem em que o conteúdo foi disponibilizado (especialmente quando há falhas e repetições). 
@@ -506,7 +499,7 @@ Você pode usar essa operação para ajudar a investigar problemas relacionados 
 |**Path**| `/subscriptions/notifications?contentType={ContentType}&amp;startTime={0}&amp;endTime={1}`||
 |**Parâmetros**|contentType|Deve ser um tipo de conteúdo válido.|
 ||PublisherIdentifier|O GUID de locatário de codificação de fornecedor para a API. Este **não** é o GUID de aplicativo nem o GUID do cliente que está usando o aplicativo, mas o GUID da empresa que está escrevendo o código. Este parâmetro é usado para limitar a taxa de solicitações. Verifique se este parâmetro foi especificado em todas as solicitações emitidas para obter uma cota dedicada. Todas as solicitações recebidas sem este parâmetro compartilharão a mesma cota.|
-||startTime endTime|Datas e horas opcionais (UTC) que indicam o intervalo de tempo do conteúdo a ser retornado, com base em quando o conteúdo foi disponibilizado. O intervalo de tempo é inclusivo em relação a _startTime_ ( _startTime_ <= contentCreated) e exclusivo em relação a _endTime_ (_contentCreated_ < endTime). Portanto, intervalos de tempo incrementos e não sobrepostos podem ser usados para percorrer o conteúdo disponível.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>AAAA-MM-DD</p></li><li><p>AAAA-MM-DDTHH:MM</p></li><li><p>AAAA-MM-DDTHH:MM:SS</p></li></ul>Ambos devem ser especificados (ou ambos omitidos), não devem estar separados por mais de 24 horas e a hora de início não pode ser mais de sete dias no passado. Por padrão, se _startTime_ e _endTime_ forem omitidos, o conteúdo disponível nas últimas 24 horas será retornado.|
+||startTime endTime|Datas e horas opcionais (UTC) que indicam o intervalo de tempo do conteúdo a ser retornado, com base em quando o conteúdo foi disponibilizado. O intervalo de tempo é inclusivo em relação a _startTime_ ( _startTime_ <= contentCreated) e exclusivo em relação a _endTime_ (_contentCreated_ < endTime). Portanto, intervalos de tempo incrementos e não sobrepostos podem ser usados para percorrer o conteúdo disponível.<ul><li>AAAA-MM-DD</li><li>AAAA-MM-DDTHH:MM</li><li>AAAA-MM-DDTHH:MM:SS</ul>Ambos devem ser especificados (ou ambos omitidos), não devem estar separados por mais de 24 horas e a hora de início não pode ser mais de sete dias no passado. Por padrão, se _startTime_ e _endTime_ forem omitidos, o conteúdo disponível nas últimas 24 horas será retornado.|
 |**Response**|Matriz JSON|As notificações serão representadas por objetos JSON com as seguintes propriedades: <ul><li>**contentType**: indica o tipo de conteúdo.</li><li>**contentId**: uma cadeia de caracteres opaca que identifica o conteúdo de forma exclusiva.</li><li>**contentUri**: a URL a ser usada ao recuperar o conteúdo. </li><li>**contentCreated**: data e hora em que o conteúdo foi disponibilizado.</li><li>**contentExpiration**: data e hora em que o conteúdo não estará mais disponível para recuperação.</li><li>**contentCreated**: data e hora em que o conteúdo foi disponibilizado.</li><li>**notificationStatus**: indica o êxito ou a falha da tentativa de notificação.</li></ul>|
 
 #### <a name="sample-request"></a>Solicitação de amostra
@@ -564,7 +557,7 @@ Essa operação recupera nomes amigáveis de recursos para objetos no feed de da
 |**Parâmetros**|PublisherIdentifier|O GUID de locatário de codificação de fornecedor para a API. Este **não** é o GUID de aplicativo nem o GUID do cliente que está usando o aplicativo, mas o GUID da empresa que está escrevendo o código. Este parâmetro é usado para limitar a taxa de solicitações. Verifique se este parâmetro foi especificado em todas as solicitações emitidas para obter uma cota dedicada. Todas as solicitações recebidas sem este parâmetro compartilharão a mesma cota.|
 |**Cabeçalhos**|Accept-Language|Cabeçalho para especificar o idioma desejado para nomes traduzidos. Por exemplo, use "pt-BR" para português ou "es" para espanhol. O idioma padrão (en-US) será retornado se esse cabeçalho não estiver presente.|
 |**Body**|(vazio)||
-|**Response**|Matriz JSON|O conteúdo disponível será representado por objetos JSON com as seguintes propriedades:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>ID</b>: indica o guid do tipo de informações confidenciais.</p></li><li><p><b>name</b>: o nome amigável do tipo de informações confidenciais.</p></li></ul>|
+|**Response**|Matriz JSON|O conteúdo disponível será representado por objetos JSON com as seguintes propriedades:<ul><li>**ID**</b>: indica o guid do tipo de informações confidenciais.</li><li>**name**: o nome amigável do tipo de informações confidenciais.</p></li></ul>|
 
 #### <a name="sample-request"></a>Solicitação de amostra
 
@@ -602,7 +595,7 @@ As organizações que acessam logs de auditoria por meio da API da Atividade de 
 
 Estamos migrando do limite no nível do editor para um limite no nível do locatário. O resultado é que todas as organizações terão sua própria cota de largura de banda totalmente alocada para acessar os dados de auditoria. Todas as organizações alocam inicialmente uma linha de base de 2.000 solicitações por minuto. Esse não é um limite estático e predefinido, mas está modelado em uma combinação de fatores, incluindo o número de assentos da organização e que as organizações do Office 365 e do Microsoft 365 E5 terão aproximadamente o dobro de largura de banda quanto organizações que não são do E5. Também haverá limite máximo quanto à largura de banda para proteger a integridade do serviço.
 
-Para saber mais, confira a seção "acesso de largura de banda alta à API da Atividade de Gestão do Office 365" em [Auditoria avançada no Microsoft 365](https://docs.microsoft.com/microsoft-365/compliance/advanced-audit#high-bandwidth-access-to-the-office-365-management-activity-api).
+Para saber mais, confira a seção "acesso de largura de banda alta à API da Atividade de Gestão do Office 365" em [Auditoria avançada no Microsoft 365](/compliance/advanced-audit#high-bandwidth-access-to-the-office-365-management-activity-api).
 
 > [!NOTE] 
 > Embora cada locatário possa enviar inicialmente até 2 mil solicitações por minuto, a Microsoft não pode garantir uma taxa de resposta. A taxa de resposta depende de vários fatores, como o desempenho do sistema do cliente, a capacidade e a velocidade da rede. 
@@ -626,24 +619,25 @@ Quando o serviço encontrar um erro, relatará o código de resposta do erro ao 
 |||
 |:-----|:-----|
 |Código|Mensagem|
-|AF10001|O conjunto de permissões ({0}) enviadas na solicitação não incluía a permissão esperada **ActivityFeed.Read**.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = o conjunto de permissões no token de acesso.</p></li></ul>|
-|AF20001|Parâmetro ausente: {0}. <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = nome do parâmetro ausente.</p></li></ul>|
-|AF20002|Tipo de parâmetro inválido: {0}. Tipo esperado: {1}<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = nome do parâmetro inválido.</p></li><li><p>{1} = tipo esperado (int, datetime, guid).</p></li></ul>|
-|AF20003|A expiração de {0} fornecida está definida como data e hora anteriores.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = a expiração passada na chamada à API.</p></li></ul>|
-|AF20010|A ID de locatário passada na URL ({0}) não correspondia à ID de locatário passada no token de acesso ({1}).<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = ID de locatário passada na URL</p></li><li><p>{1} = ID de locatário passada no token de acesso</p></li></ul>|
-|AF20011|A ID de locatário especificada ({0}) não existe no sistema ou foi excluída. <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>   {0} = ID de locatário passada na URL</p></li></ul>|
-|AF20012|A ID de locatário especificada ({0}) está configurada incorretamente no sistema. <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>    {0} = ID de locatário passada na URL</p></li></ul>|
-|AF20013|A ID de locatário passada na URL ({0}) não é um GUID válido.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p> {0} = ID de locatário passada na URL</p></li></ul>|
+|AF10001|O conjunto de permissões ({0}) enviadas na solicitação não incluía a permissão esperada **ActivityFeed.Read**.<br/><br/>{0} = o conjunto de permissões no token de acesso.</p></li></ul>|
+|AF20001|Parâmetro ausente: {0}. <br/><br/>{0} = nome do parâmetro ausente.</p></li></ul>|
+|AF20002|Tipo de parâmetro inválido: {0}. Tipo esperado: {1}<br/><br/>{0} = nome do parâmetro inválido.</p>{1} = tipo esperado (int, datetime, guid).</p></li></ul>|
+|AF20003|A expiração de {0} fornecida está definida como data e hora anteriores.<br/><br/>{0} = a expiração passada na chamada à API.</p></li></ul>|
+|AF20010|A ID de locatário passada na URL ({0}) não correspondia à ID de locatário passada no token de acesso ({1}).<br/><br/>{0} = ID de locatário passada na URL{1} = ID de locatário passada no token de acesso</p></li></ul>|
+|AF20011|A ID de locatário especificada ({0}) não existe no sistema ou foi excluída. <br/><br/> {0} = ID de locatário passada na URL</p></li></ul>|
+|AF20012|A ID de locatário especificada ({0}) está configurada incorretamente no sistema. <br/><br/>  {0} = ID de locatário passada na URL</p></li></ul>|
+|AF20013|A ID de locatário passada na URL ({0}) não é um GUID válido.<br/><br/>   {0} = ID de locatário passada na URL</p></li></ul>|
 |AF20020|O tipo de conteúdo especificado não é válido.|
-|AF20021|O ponto de extremidade de webhook {{0}) não pôde ser validado. {1}<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = endereço de webhook.</p></li><li><p>{1} = "O ponto de extremidade não retornou HTTP 200." ou "O endereço deve começar com HTTPS."</p></li></ul>|
+|AF20021|O ponto de extremidade de webhook {{0}) não pôde ser validado. {1}<br/><br/>{0} = endereço de webhook.<br/><br/>{1} = "O ponto de extremidade não retornou HTTP 200." ou "O endereço deve começar com HTTPS."</p></li></ul>|
 |AF20022|Nenhuma assinatura foi encontrada para o tipo de conteúdo específico.|
-|AF20023|A assinatura foi desabilitada por {0}.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = "administrador de locatário" ou "administrador de serviço"</p></li></ul>|
+|AF20023|A assinatura foi desabilitada por {0}.<br/><br/>{0} = "administrador de locatário" ou "administrador de serviço"</p></li></ul>|
 |AF20030|A hora de início e a hora de término devem ser especificadas (ou omitidas) e devem ser separadas por um valor menor ou igual a 24 horas, com a hora de início no máximo sete dias no passado.|
-|AF20031|Entrada de NextPage inválida: {0}.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = o indicador de próxima página passado na URL</p></li></ul>|
-|AF20050|O conteúdo especificado ({0}) não existe.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = id de recurso ou URL de recurso</p></li></ul>|
-|AF20051|O conteúdo solicitado com a chave {0} já expirou. Conteúdo com mais de sete dias não pode ser recuperado.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>• {0} = id de recurso ou URL de recurso</p></li></ul>|
-|AF20052|A ID de conteúdo {0} na URL é inválida.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = id de recurso ou URL de recurso</p></li></ul>|
+|AF20031|Entrada de NextPage inválida: {0}.<br/><br/>{0} = o indicador de próxima página passado na URL</p></li></ul>|
+|AF20050|O conteúdo especificado ({0}) não existe.<br/><br/>{0} = id de recurso ou URL de recurso</p></li></ul>|
+|AF20051|O conteúdo solicitado com a chave {0} já expirou. Conteúdo com mais de 7 dias não pode ser recuperado.<<br/><br/>  {0} = ID de recurso ou URL de recurso</p></li></ul>|
+|AF20052|A ID de conteúdo {0} na URL é inválida.<br/><br/>{0} = id de recurso ou URL de recurso</p></li></ul>|
 |AF20053|Apenas um idioma pode estar presente no cabeçalho Accept-Language.|
 |AF20054|Sintaxe inválida no cabeçalho Accept-Language.|
-|AF429|Muitas solicitações. Method={0}, PublisherId={1}<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = Método HTTP</p></li><li><p>{1} = GUID de locatário usado como PublisherIdentifier</p></li></ul>|
+|AF429|Muitas solicitações. Method={0}, PublisherId={1}<br/><br/>{0} = Método HTTP<br/><br/>{1} = GUID de locatário usado como PublisherIdentifier</p></li></ul>|
 |AF50000|Erro interno. Repita a solicitação.|
+|||

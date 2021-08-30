@@ -6,13 +6,13 @@ description: Resume as perguntas mais comuns que o Suporte da Microsoft recebe s
 ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
-localization_priority: Priority
-ms.openlocfilehash: 086b40d0207fba761db66d918d74dc872ae66c9471ceced91d2b4b6dfe73ac1e
-ms.sourcegitcommit: 88ef5f75a9e2a25760a2caa2cef1f51f9afba90c
+ms.localizationpriority: high
+ms.openlocfilehash: a5bceab7d18553824b604609d71c50a05f4d65d6
+ms.sourcegitcommit: 13b50617b1a73f5890414087d8eabe6b2240cfb4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2021
-ms.locfileid: "54274347"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "58510150"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Perguntas frequentes e Soluções de problemas da API da Atividade de Gestão do Office 365
 
@@ -35,11 +35,11 @@ Para começar a usar a API da Atividade de Gestão do Office 365, confira [ Intr
 
 **O que acontece se eu desabilitar a auditoria para a minha organização do Office 365? Ainda terei os eventos pela API da Atividade de Gestão?**
 
-Não. A auditoria unificada do Office 365 deve estar habilitada na sua organização para incluir os registros por meio da API de Atividade de Gestão. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria](https://docs.microsoft.com/microsoft-365/compliance/turn-audit-log-search-on-or-off).
+Não. A auditoria unificada do Office 365 deve estar habilitada na sua organização para incluir os registros por meio da API de Atividade de Gestão. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria](/microsoft-365/compliance/turn-audit-log-search-on-or-off).
 
 **Que eventos são auditados para um serviço específico do Office 365?**
 
-A documentação do esquema de API da Atividade de Gestão do Office 365 possui uma lista abrangente de eventos. Para ver mais detalhes, confira o esquema de API da Atividade de Gestão do Office 365. Confira também a seção "atividades auditadas" em [Pesquisar o log de auditoria no Centro de Conformidade e Segurança](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#audited-activities) para obter uma lista de eventos para a maioria dos serviços do Office 365 que são auditados.
+A documentação do esquema de API da Atividade de Gestão do Office 365 possui uma lista abrangente de eventos. Para ver mais detalhes, confira o esquema de API da Atividade de Gestão do Office 365. Confira também a seção "atividades auditadas" em [Pesquisar o log de auditoria no Centro de Conformidade e Segurança](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#audited-activities) para obter uma lista de eventos para a maioria dos serviços do Office 365 que são auditados.
 
 **Há alguma diferença entre os registros buscados pela API da Atividade de Gestão e os registros retornados usando a ferramenta de pesquisa de log de auditoria no Centro de Conformidade do Microsoft 365?**
 
@@ -82,7 +82,7 @@ TargetUpdatedProperties estavam aparecendo em ExtendedProperties. No entanto, el
 
 **Por que os logs de auditoria com UserAccountNotFound "LogonError" para atividades de entrada do Azure Active Directory (Azure AD) não estão disponíveis via API da Atividade de Gestão?**
 
-A partir de novembro de 2020, os logs de auditoria para atividades de entrada do Azure AD serão inseridos no log de auditoria unificado dos Hubs de Eventos do Microsoft Azure Active Directory. Como resultado dessa alteração, não será possível preencher a propriedade "LogonError" com o valor UserAccountNotFound. A partir da primeira semana de fevereiro de 2021, a [propriedade ErrorCode no esquema de auditoria de logon do Azure AD](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-schema#azure-active-directory-secure-token-service-sts-logon-schema) agora corresponde aos [códigos de erro AADSTS](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#lookup-current-error-code-information). Além disso, o parâmetro UserId não será preenchido com o nome de usuário da tentativa de logon para erros UserAccountNotFound, pois esse nome de usuário não existe no diretório do AD Azure da organização.
+A partir de novembro de 2020, os logs de auditoria para atividades de entrada do Azure AD serão inseridos no log de auditoria unificado dos Hubs de Eventos do Microsoft Azure Active Directory. Como resultado dessa alteração, não será possível preencher a propriedade "LogonError" com o valor UserAccountNotFound. A partir da primeira semana de fevereiro de 2021, a [propriedade ErrorCode no esquema de auditoria de logon do Azure AD](/office/office-365-management-api/office-365-management-activity-api-schema#azure-active-directory-secure-token-service-sts-logon-schema) agora corresponde aos [códigos de erro AADSTS](/azure/active-directory/develop/reference-aadsts-error-codes#lookup-current-error-code-information). Além disso, o parâmetro UserId não será preenchido com o nome de usuário da tentativa de logon para erros UserAccountNotFound, pois esse nome de usuário não existe no diretório do AD Azure da organização.
 
 ## <a name="troubleshooting-the-office-365-management-activity-api"></a>Solução de problemas da API da Atividade de Gestão do Office 365
 
@@ -112,13 +112,13 @@ A categoria mais comum de perguntas que recebemos de clientes que usam produtos 
 
 ### <a name="enabling-unified-audit-logging-in-office-365"></a>Habilitar o log de auditoria unificada no Office 365
 
-Se você acabou de configurar um aplicativo que está tentando usar a API de Atividade de Gerenciamento e não estiver funcionando, certifique-se de que ativou o registro em log de auditoria unificada para a sua organização do Office 365. Para fazer isso, ative o log de auditoria do Office 365. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria do Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
+Se você acabou de configurar um aplicativo que está tentando usar a API de Atividade de Gerenciamento e não estiver funcionando, certifique-se de que ativou o registro em log de auditoria unificada para a sua organização do Office 365. Para fazer isso, ative o log de auditoria do Office 365. Para obter instruções, confira [Ativar ou desativar a pesquisa de log de auditoria do Office 365](/microsoft-365/compliance/turn-audit-log-search-on-or-off).
 
 Se a auditoria unificada não estiver habilitada, uma mensagem de erro aparecerá contendo a cadeia de caracteres a seguir: `Microsoft.Office.Compliance.Audit``.DataServiceException: Tenant <tenantID> does not exist.`
 
 ### <a name="connecting-to-the-api"></a>Como conectar-se com a API
 
-A maioria dos aplicativos conecta-se à API usando um fluxo OAuth2 simples de Credenciais de Cliente. Portanto, a primeira etapa é criar um aplicativo do Azure AD que tenha as permissões necessárias para acessar os dados da API da Atividade de Gerenciamento. Está fora do escopo deste artigo explicar as etapas para criar um registro de aplicativo do Microsoft Azure Active Directory. Para saber mais, confira [Registrar seu aplicativo com o locatário do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+A maioria dos aplicativos conecta-se à API usando um fluxo OAuth2 simples de Credenciais de Cliente. Portanto, a primeira etapa é criar um aplicativo do Azure AD que tenha as permissões necessárias para acessar os dados da API da Atividade de Gerenciamento. Está fora do escopo deste artigo explicar as etapas para criar um registro de aplicativo do Microsoft Azure Active Directory. Para saber mais, confira [Registrar seu aplicativo com o locatário do Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 #### <a name="azure-application-permissions"></a>Permissões de aplicativo do Azure
 

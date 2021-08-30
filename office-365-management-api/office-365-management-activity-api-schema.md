@@ -6,13 +6,13 @@ description: 'O esquema da API da Atividade de Gestão do Office 365 é fornecid
 ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
-localization_priority: Priority
-ms.openlocfilehash: 696b624beaff188d51313ce248ffabbbad421a1b5014e5b61da1cb86c8e18dbd
-ms.sourcegitcommit: 88ef5f75a9e2a25760a2caa2cef1f51f9afba90c
+ms.localizationpriority: high
+ms.openlocfilehash: 57c9fb5adcb92d2fd04c6377b7f9a320bbcc8a83
+ms.sourcegitcommit: 13b50617b1a73f5890414087d8eabe6b2240cfb4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2021
-ms.locfileid: "54274334"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "58510157"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema da API da Atividade de Gerenciamento do Office 365
 
@@ -908,17 +908,17 @@ O UserId e o UserKey desses eventos são sempre SecurityComplianceAlerts. Existe
 |**Parâmetros**|**Tipo**|**Obrigatório**|**Descrição**|
 |:-----|:-----|:-----|:-----|
 |AlertId|Edm.Guid|Sim|O GUID do alerta.|
-|AlertType|Self.String|Sim|Tipo do alerta. Os tipos de alertas incluem: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Sistema</p></li><li><p>Personalizado</p></li>|
+|AlertType|Self.String|Sim|Tipo do alerta. Os tipos de alertas incluem: <ul><li>Sistema</li><li>Personalizado|
 |Name|Edm.String|Sim|Nome do alerta.|
 |PolicyId|Edm.Guid|Não|O GUID da política que disparou o alerta.|
-|Status|Edm.String|Não|Status do alerta. Os status incluem: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Ativo</p></li><li><p>Investigando</p></li><li><p>Resolvido</p></li><li><p>Descartado</p></li></ul>|
-|Severity|Edm.String|Não|Gravidade do alerta. Os níveis de gravidade incluem: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Baixo</p></li><li><p>Médio</p></li><li><p>Alto</p></li></ul>|
-|Categoria|Edm.String|Não|Categoria do alerta. As categorias incluem: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>AccessGovernance</p></li><li><p>DataGovernance</p></li><li><p>DataLossPrevention</p></li><li><p>InsiderRiskManagement</p></li><li><p>MailFlow</p></li><li><p>ThreatManagement</p></li><li><p>Outros</p></li></ul>|
-|Source|Edm.String|Não|Fonte do alerta. As fontes incluem: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Conformidade e Segurança do Office 365</p></li><li><p>Segurança no Aplicativo na Nuvem</p></li></ul>|
+|Status|Edm.String|Não|Status do alerta. Os status incluem: <ul><li><p>Ativo</li><li>Investigando</li><li>Resolvido</li><li>Descartado|
+|Severity|Edm.String|Não|Gravidade do alerta. Os níveis de gravidade incluem: <ul><li>Baixo</li><li>Médio</li><li>Alto</li></ul>|
+|Categoria|Edm.String|Não|Categoria do alerta. As categorias incluem: <ul><li>AccessGovernance</li><li>DataGovernance</li><li>DataLossPrevention</li><li>InsiderRiskManagement</li><li>MailFlow</li><li>ThreatManagement</li><li>Outros|
+|Source|Edm.String|Não|Fonte do alerta. As fontes incluem: <ul><li>Conformidade e Segurança do Office 365</li><li>Segurança no Aplicativo na Nuvem|
 |Comments|Edm.String|Não|Comentários realizados pelos usuários que visualizaram o alerta. Por padrão, é "Novo alerta".|
 |Data|Edm.String|Não|O BLOB de dados de detalhes do alerta ou da entidade de alerta.|
 |AlertEntityId|Edm.String|Não|O identificador da entidade de alerta. Esse parâmetro só é aplicável em eventos AlertEntityGenerated.|
-|EntityType|Edm.String|Não|Tipo de alerta ou entidade de alerta. Os tipos de entidade incluem: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>User</p></li><li><p>Recipients</p></li><li><p>Sender</p></li><li><p>MalwareFamily</p></li></ul>Esse parâmetro só é aplicável em eventos AlertEntityGenerated.|
+|EntityType|Edm.String|Não|Tipo de alerta ou entidade de alerta. Os tipos de entidade incluem: <ul><li>User</li><li>Recipients</li><li>Sender</li><li>MalwareFamily</li></ul>Esse parâmetro só é aplicável em eventos AlertEntityGenerated.|
 |||||
 
 ## <a name="yammer-schema"></a>Esquema do Yammer
