@@ -7,12 +7,12 @@ ms.ContentId: 74137c9a-29e0-b588-6122-26f4d2c5e3fc
 ms.topic: reference (API)
 ms.date: ''
 ms.localizationpriority: high
-ms.openlocfilehash: 96a0cd71c55251160117d1ae598c8935479b6780
-ms.sourcegitcommit: 13b50617b1a73f5890414087d8eabe6b2240cfb4
+ms.openlocfilehash: ef4ea62f03eb9d536bf42234d9a9f5b28de005e8
+ms.sourcegitcommit: 6c9efd49e6406ee72edc7450afa811d6c660992c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "58510143"
+ms.lasthandoff: 10/08/2021
+ms.locfileid: "60235842"
 ---
 # <a name="get-started-with-office-365-management-apis"></a>Introdução às APIs de Gerenciamento do Office 365
 
@@ -26,7 +26,7 @@ Há quatro etapas principais:
     
 3. **Solicitar tokens de acesso do Azure AD**. Usando as credenciais do aplicativo, conforme definidas no Azure AD, seu aplicativo solicita tokens de acesso adicionais para um locatário autorizado continuamente, sem a necessidade de mais interação do administrador do locatário. Esses tokens de acesso são chamados de tokens somente aplicativo porque não incluem informações sobre o administrador do locatário.
     
-4. **Chamar as APIs de Gerenciamento do Office 365**. Os tokens de acesso somente aplicativo são passados ​​para as APIs de Gerenciamento do Office 365 para autenticar e autorizar seu aplicativo.
+4. **Chamar as APIs de Gerenciamento do Office 365**. Os tokens de acesso somente do aplicativo são passados para as APIs de Gerenciamento do Office 365 para autenticar e autorizar seu aplicativo.
     
 O diagrama a seguir mostra a sequência de solicitações de consentimento e token de acesso.
 
@@ -39,42 +39,39 @@ O diagrama a seguir mostra a sequência de solicitações de consentimento e tok
 
 As APIs de Gerenciamento do Office 365 usam o Azure AD para fornecer autenticação segura aos dados de locatário do Office 365. Para acessar as APIs de Gerenciamento do Office 365, é preciso registrar seu aplicativo no Azure AD e, como parte da configuração, especificar os níveis de permissão necessários para o aplicativo acessar as APIs.
 
-
 ### <a name="prerequisites"></a>Pré-requisitos
 
 Para registrar seu aplicativo no Azure AD, você precisa de uma assinatura do Office 365 e de uma assinatura do Azure que tenha sido associada à assinatura do Office 365. Você pode usar assinaturas de avaliação do Office 365 e do Azure para começar. Confira mais detalhes em [Bem-vindo ao Programa para Desenvolvedores do Office 365](/office/developer-program/office-365-developer-program).
 
-
-### <a name="use-the-azure-management-portal-to-register-your-application-in-azure-ad"></a>Use o Portal de Gerenciamento do Azure para registrar seu aplicativo no Azure AD
+### <a name="use-the-azure-portal-to-register-your-application-in-azure-ad"></a>Use o Portal Azure para registrar seu aplicativo no Microsoft Azure AD
 
 Depois de ter um locatário da Microsoft com as assinaturas adequadas, você poderá registrar seu aplicativo no Azure AD.
 
-1. Entre no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/), usando as credenciais do seu locatário da Microsoft que tem a assinatura do Office 365 que você quer usar. Você também pode acessar o Portal de Gerenciamento do Azure por meio de um link que aparece no painel de navegação esquerdo no [Portal de Administração do Office](https://portal.office.com/).
-    
-2. No painel de navegação esquerdo, escolha Active Directory (1). A guia Diretório (2) deve estar selecionada. Selecione o nome do diretório (3).
-    
-   ![Página de inscrição do Office 365](images/o365-sign-up-page.png)
-    
-    
-3. Na página do diretório, selecione **Aplicativos**. O Azure AD exibe uma lista dos aplicativos instalados atualmente na sua locação.
-    
-4. Escolha **Adicionar**.
-    
-   ![Página do Administrador do Office 365](images/o365-admin-page.png)
-    
-    
-5. Selecione **Adicionar um aplicativo que minha organização esteja desenvolvendo**.
-    
-6. Insira o **NOME** do seu aplicativo e especifique o **Tipo** como APLICATIVO WEB E/OU API WEB.
-    
-7. Insira as propriedades apropriadas do aplicativo:
-    
-   - **URL DE ENTRADA**. A URL em que os usuários podem entrar e usar seu aplicativo. Você pode alterar isso mais tarde, conforme necessário.
-    
-   - **URI DA ID DO APLICATIVO**. O URI usado como um identificador lógico exclusivo para seu aplicativo. O URI deve estar em um domínio personalizado verificado para que um usuário externo conceda ao seu aplicativo acesso aos dados no Windows Azure AD. Por exemplo, se o locatário da Microsoft é **contoso.onmicrosoft.com**, o URI da ID do aplicativo pode ser **https://app.contoso.onmicrosoft.com**.
-    
-8. Seu aplicativo agora está registrado no Azure AD e recebeu uma ID de cliente. No entanto, há vários aspectos importantes do aplicativo a serem configurados.
-    
+1. Entre no[portal do Azure](https://portal.azure.com), usando as credenciais do seu locatário da Microsoft que tem a assinatura do Office 365 que você deseja usar. Você também pode acessar o Portal do Azure através de um link que aparece no painel de navegação esquerdo no [Centro de administração do Microsoft 365](https://admin.microsoft.com/).
+
+2. No painel de navegação esquerdo, selecione **Azure Active Directory** (1).
+
+   ![Página principal do Portal Azure](images/AzurePortal1.png)
+
+3. Na página **Azure Active Directory**, selecione **Registros de aplicativos** (2) e, em seguida, selecione **Novo registro** (3).
+
+   ![Página de registro de aplicativos no Azure Active Directory](images/AzureAppRegistration2.png)
+
+4. Na página de **Registros de Aplicativo**, selecione **Novo registro**.
+
+   Uma nova página aparecerá para você iniciar o registro do aplicativo.
+
+5. Na página **Registrar um aplicativo**, faça o seguinte:
+
+   ![Processo de registro do aplicativo](images/AzureAppRegistration3.png)
+
+   1. Nomeie seu aplicativo.
+
+   2. Escolha quem pode usar o aplicativo e acessar a API.
+
+   3. Forneça um URL de redirecionamento para o redirecionamento do usuário após a autenticação, se necessário.
+
+6. Clique em **Registrar** para registrar o novo aplicativo.
 
 ### <a name="configure-your-application-properties-in-azure-ad"></a>Configurar as propriedades do aplicativo no Azure AD
 
@@ -82,68 +79,69 @@ Agora que seu aplicativo está registrado, há várias propriedades importantes 
 
 Confira mais informações sobre a configuração do aplicativo do Azure AD em geral em [Propriedades do Objeto do Aplicativo](/azure/active-directory/develop/active-directory-application-objects).
 
+1. **ID do cliente**. Esse valor é gerado automaticamente pelo Azure AD. Seu aplicativo usará esse valor ao solicitar o consentimento dos administradores do locatário e ao solicitar tokens somente aplicativo do Azure AD.
 
-1. **ID DO CLIENTE**. Esse valor é gerado automaticamente pelo Azure AD. Seu aplicativo usará esse valor ao solicitar o consentimento dos administradores do locatário e ao solicitar tokens somente aplicativo do Azure AD.
-    
-2. **O APLICATIVO É MULTILOCATÁRIO**. Essa propriedade deve ser definida como **SIM** para permitir que os administradores de locatários deem consentimento para que o aplicativo acesse seus dados usando as APIs de Gerenciamento do Office 365. Se essa propriedade for definida como **NÃO**, seu aplicativo só poderá acessar os dados do seu próprio locatário.
-    
-3. **URL DE RESPOSTA**. Esta é a URL para a qual um administrador de locatários será redirecionado após dar o consentimento para que o aplicativo acesse seus dados usando as APIs de Gerenciamento do Office 365. Você pode configurar várias URLs de resposta, conforme necessário. O Azure define automaticamente a primeira para corresponder à URL de logon especificada quando você criou o aplicativo, mas é possível alterar esse valor conforme necessário.
-    
+2. **O aplicativo é multilocatário**. Essa propriedade deve ser definida como **SIM** para permitir que os administradores de locatários deem consentimento para que o aplicativo acesse seus dados usando as APIs de Gerenciamento do Office 365. Se essa propriedade for definida como **NÃO**, seu aplicativo só poderá acessar os dados do seu próprio locatário.
+
+3. **URL de resposta**. Esta é a URL para a qual um administrador de locatários será redirecionado após dar o consentimento para que o aplicativo acesse seus dados usando as APIs de Gerenciamento do Office 365. Você pode configurar várias URLs de resposta, conforme necessário. O Azure define automaticamente a primeira para corresponder à URL de logon especificada quando você criou o aplicativo, mas é possível alterar esse valor conforme necessário.
+
 Escolha **Salvar** depois de fazer uma alteração nessas propriedades.
-
 
 ### <a name="generate-a-new-key-for-your-application"></a>Gerar uma nova chave para o aplicativo
 
-Chaves, também conhecidas como segredos do cliente, são usadas ao trocar um código de autorização para um token de acesso.
+As chaves, também conhecidas como *segredos do cliente*, são usadas ao trocar um código de autorização por um token de acesso.
 
+1. Na página **Azure Active Directory** no portal do Azure, selecione **Registros de aplicativos**, e então selecione seu aplicativo.
 
-1. No Portal de Gerenciamento do Azure, selecione seu aplicativo e escolha **Configurar** no menu superior. Role para baixo até **chaves**.
-    
-2. Selecione a duração da chave e escolha **Salvar**.
-    
-   ![Página de assinatura do Azure](images/azure-subscription-page.png)
-    
-    
-3. O Azure exibe o segredo do aplicativo somente depois de salvá-lo. Selecione o ícone da área de transferência para copiar o segredo do cliente para a área de transferência.
-    
-   ![Página do portal do Azure](images/azure-portal-page.png)
+    ![Selecione o aplicativo que você acabou de registrar](images/AzureAppRegistration4.png)
 
-   > [!IMPORTANT] 
-   > O Azure só exibe o segredo do cliente no momento em que você o gera. Não é possível retornar a essa página e recuperar o segredo do cliente mais tarde.
+2. Depois que a página do aplicativo for exibida, selecione **Certificados e segredos** (1) no painel esquerdo. Nesta página, você pode fazer o upload de certificados e criar novos segredos do cliente (2).
+
+    ![A página de Certificados e segredos do aplicativo](images\AzureAppRegistrationCertificatesSecrets.png)
+
+3. Na página **Certificados e segredos** (1), selecione **Novo segredo do cliente** (2), digite uma descrição e selecione a duração da sua chave (3) e, em seguida, selecione **Adicionar** (4).
+
+   ![Criar um segredo do cliente](images\AzureAppRegistration5.png)
+
+4. Depois de criar o segredo do cliente, o valor será exibido em **Segredos do cliente** (2). Clique no ícone da área de transferência (3) para copiar o valor do segredo do cliente para a área de transferência.
+
+   ![Copie o valor do segredo do cliente para a área de transferência e salve-o para uso posterior](images\AzureAppRegistration6.png)
+
+   > [!IMPORTANT]
+   > O Azure só exibe o valor do segredo do cliente no momento em que você o gera inicialmente. Você não pode voltar a esta página e recuperar o valor do segredo do cliente mais tarde. Certifique-se de copiá-lo e salvá-lo em um local seguro para que você possa utilizá-lo mais tarde.
 
 ### <a name="configure-an-x509-certificate-to-enable-service-to-service-calls"></a>Configurar um certificado X.509 para habilitar as chamadas de serviço a serviço
 
-Um aplicativo que está sendo executado em segundo plano, como um daemon ou serviço, pode usar credenciais de cliente para solicitar tokens de acesso somente aplicativo sem solicitar repetidamente o consentimento do administrador do locatário após o consentimento inicial. 
+Um aplicativo que está sendo executado em segundo plano, como um daemon ou serviço, pode usar credenciais de cliente para solicitar tokens de acesso somente aplicativo sem solicitar repetidamente o consentimento do administrador do locatário após o consentimento inicial.
 
 Confira mais informações em [Chamadas de serviço a serviço usando credenciais do cliente](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
 Você deve configurar um certificado X.509 com seu aplicativo para ser usado como credenciais de cliente ao solicitar tokens de acesso somente de aplicativo do Microsoft Azure Active Directory. Há duas etapas para o processo:
 
 - Obtenha um certificado X.509. Você pode usar um certificado autoassinado ou um certificado emitido por uma autoridade de certificação publicamente confiável.
-    
+
 - Modificar o manifesto do seu aplicativo para incluir a impressão digital e a chave pública do seu certificado.
-    
+
 As instruções a seguir mostram como usar a ferramenta _makecert_ do Visual Studio ou do Windows SDK para gerar um certificado autoassinado e exportar a chave pública para um arquivo codificado em base64.
 
-
 1. Na linha de comando, execute o seguinte:
-    
-   ```
+
+   ```powershell
     makecert -r -pe -n "CN=MyCompanyName MyAppName Cert" -b 03/15/2015 -e 03/15/2017 -ss my -len 2048
    ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > Quando você estiver gerando o certificado X.509, verifique se o tamanho da chave é pelo menos 2048. Comprimentos de chave mais curtos não são aceitos como chaves válidas.
 
-2. Abra o snap-in do MMC dos Certificados e conecte-se à sua conta de usuário. 
-    
-3. Localize o novo certificado na pasta Pessoal e exporte a chave pública para um arquivo codificado em base64 (por exemplo, nomedaminhaempresa.cer). O aplicativo usará esse certificado para se comunicar com o Azure AD, portanto, mantenha o acesso à chave privada também.
-    
-   > [!NOTE] 
+2. Abra o snap-in do MMC dos Certificados e conecte-se à sua conta de usuário.
+
+3. Localize o novo certificado na pasta Pessoal e exporte a chave pública para um arquivo codificado em base64 (por exemplo, `mycompanyname.cer`). O aplicativo usará esse certificado para se comunicar com o Azure AD, portanto, mantenha o acesso à chave privada também.
+
+   > [!NOTE]
    > Você pode usar o Windows PowerShell para extrair a chave pública codificada por impressão digital e base64. Outras plataformas fornecem ferramentas semelhantes para recuperar propriedades de certificados.
 
-4. No prompt do Windows PowerShell, digite e execute o seguinte:
-    
+4. A partir de um prompt do Windows PowerShell, digite e execute o seguinte:
+
    ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
     $cer.Import("mycer.cer")
@@ -155,17 +153,16 @@ As instruções a seguir mostram como usar a ferramenta _makecert_ do Visual Stu
    ```
 
 5. Armazene os valores para `$base64Thumbprint`, `$base64Value` e `$keyid` a serem usados ​​quando você atualizar o manifesto do aplicativo no próximo conjunto de etapas.
-    
+
    Usando os valores extraídos do certificado e da ID de chave gerada, você deve atualizar o manifesto do seu aplicativo no Azure AD.
-    
-6. No Portal de Gerenciamento do Azure, selecione seu aplicativo e escolha **Configurar** no menu superior.
-    
-7. Na barra de comandos, escolha **Gerenciar Manifesto** e depois **Baixar Manifesto**.
-    
-   ![Exibição de certificado da linha de comando](images/command-line-certificate-display.png)
-    
-    
-8. Abra o manifesto baixado para edição e substitua a propriedade vazia KeyCredentials pelo seguinte JSON:
+
+6. No Portal do Azure, acesse **Registros de aplicativos** > **Todos os aplicativos**, selecione seu aplicativo e, em seguida, selecione **Manifesto** no painel esquerdo.
+
+7. Na barra de navegação superior da página **Manifesto** (1), selecione **Baixar** (2).
+
+   ![Baixe o manifesto para que você possa editá-lo](images/AzureAppRegistration7.png)
+
+8. Abra o manifesto baixado em um editor e substitua a propriedade *keyCredentials* vazia pelo seguinte JSON:
     
    ```json
       "keyCredentials": [
@@ -179,43 +176,40 @@ As instruções a seguir mostram como usar a ferramenta _makecert_ do Visual Stu
     ],
    ```
 
-
-   > [!NOTE] 
+   > [!NOTE]
    > A propriedade [KeyCredentials](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#KeyCredentialType) é uma coleção, possibilitando o upload de vários certificados X.509 para cenários de sobreposição ou a exclusão de certificados para cenários de comprometimento.
 
 9. Salve suas alterações e faça o upload do manifesto atualizado escolhendo **Gerenciar Manifesto** na barra de comandos, escolhendo **Carregar Manifesto**, navegando até o arquivo de manifesto atualizado e selecionando-o.
-    
 
 ### <a name="specify-the-permissions-your-app-requires-to-access-the-office-365-management-apis"></a>Especificar as permissões que o aplicativo requer para acessar as APIs de Gerenciamento do Office 365
 
 Por fim, você precisa especificar exatamente quais permissões seu aplicativo requer das APIs de Gerenciamento do Office 365. Para isso, adicione acesso às APIs de Gerenciamento do Office 365 ao seu aplicativo e especifique as permissões necessárias.
 
+1. No Portal do Azure, acesse **Registros de aplicativos** > **Todos os aplicativos**, selecione seu aplicativo e, em seguida, selecione **Permissões de API** (1) no painel esquerdo. Clique em **Adicionar uma permissão** (2) para exibir a página do submenu **Solicitação de permissão de API** (3).
 
-1. No Portal de Gerenciamento do Azure, selecione seu aplicativo e escolha **Configurar** no menu superior. Role a tela até **Permissões para outros aplicativos** e escolha **Adicionar aplicativo**.
-    
-   ![Página do Azure AD](images/azure-ad-page.png)
-    
-    
-2. Selecione **APIs de Gerenciamento do Office 365** (1) para que isso apareça na coluna **Selecionada** (2) e depois a marca de seleção no canto inferior direito (3) para salvar sua alteração e retornar à página de configuração principal do seu aplicativo.
-    
-   ![Página de aplicativos do Azure AD](images/azure-ad-apps-page.png)
-    
-    
-3. Agora, as APIs de Gerenciamento do Office aparecem na lista de aplicativos para os quais seu aplicativo requer permissões. Em **Permissões de Aplicativo** e **Permissões Delegadas**, selecione as permissões que seu aplicativo requer. Confira mais detalhes sobre cada permissão na referência da API específica.  
+   ![Adicionar permissões de API](images/AzureAppRegistration8.png)
 
-   > [!NOTE] 
-   > Atualmente, há quatro permissões não usadas relacionadas a relatórios de atividades e informações sobre ameaças que serão removidas no futuro. Não selecione essas permissões porque elas são desnecessárias.
-    
-   ![Adicionar uma caixa de diálogo do aplicativo](images/add-an-application-dialog.png)
-    
-    
-4. Escolha **Salvar** para salvar a configuração.
-    
+2. Na guia **APIs da Microsoft**, selecione **APIs de Gerenciamento do Office 365** (4).
+
+   ![Selecione as APIs de Gerenciamento do Office 365 na guia de APIs da Microsoft](images/AzureAppRegistration9.png)
+
+3. Na página de submenu, selecione os seguintes tipos de permissões (3) exigidos pelo aplicativo e clique em **Adicionar permissões**
+
+   ![Selecione os tipos de permissões para seu aplicativo](images/AzureAppRegistration10.png)
+
+   1. **Permissões delegadas**. Permite que seu aplicativo cliente execute operações em nome do usuário conectado, como a leitura de email ou a modificação do perfil do usuário.
+
+   2. **Permissões de Aplicativos**. Permissões que possibilitam que o aplicativo cliente se autentique como ele mesmo sem interação ou consentimento do usuário, como um aplicativo usado por serviços em segundo plano ou aplicativos daemon.
+
+4. As APIs de Gerenciamento do Office agora aparecem na lista de aplicativos para os quais seu aplicativo exige permissões. Em **Permissões do aplicativo** e **Permissões delegadas**, se necessário, selecione as permissões exigidas pelo aplicativo. Confira mais detalhes sobre cada permissão na referência da API específica.  
+
+   ![Permissões de API para seu aplicativo](images/AzureAppRegistration11.png)
+
+5. Selecione **Conceder consentimento de administrador para “nome do locatário"** para consentir com as permissões concedidas ao seu aplicativo.
 
 ## <a name="get-office-365-tenant-admin-consent"></a>Obter o consentimento do administrador do locatário do Office 365
 
 Agora que o aplicativo está configurado com as permissões necessárias para usar as APIs de Gerenciamento do Office 365, um administrador de locatário deve conceder explicitamente ao seu aplicativo essas permissões para acessar os dados de seus locatários usando as APIs. Para dar o consentimento, o administrador do locatário deve entrar no Azure AD usando a seguinte URL especialmente criada, em que eles podem revisar as permissões solicitadas do aplicativo. Esta etapa não é necessária ao usar as APIs para acessar dados de seu próprio locatário.
-
 
 ```http
 https://login.windows.net/common/oauth2/authorize?response_type=code&resource=https%3A%2F%2Fmanage.office.com&client_id={your_client_id}&redirect_uri={your_redirect_url }
@@ -231,10 +225,9 @@ https://login.windows.net/common/oauth2/authorize?response_type=code&resource=ht
 
 Você pode testar a URL de consentimento colando-a em um navegador e entrando usando as credenciais de um administrador do Office 365 para um locatário diferente do locatário que você usou para registrar o aplicativo. Você verá a solicitação para conceder permissão ao aplicativo para usar as APIs de Gerenciamento do Office.
 
+![Página de consentimento de permissões](images/AzureAppRegistration12.png)
 
-![Página adicionada do aplicativo Azure AD](images/azure-ad-app-added-page.png)
-
-Depois de escolher **Aceitar**, você será redirecionado para a página especificada, e haverá um código na cadeia de caracteres de consulta. 
+Depois de escolher **Aceitar**, você será redirecionado para a página especificada, e haverá um código na cadeia de caracteres de consulta.
 
 Por exemplo:
 
@@ -243,7 +236,6 @@ http://www.mycompany.com/myapp/?code=AAABAAAAvPM1KaPlrEqdFSB...
 ```
 
 Seu aplicativo usa esse código de autorização para obter um token de acesso do Azure AD, do qual a ID do locatário pode ser extraída. Depois de extrair e armazenar a ID do locatário, você poderá obter os tokens de acesso subsequentes sem exigir que o administrador do locatário se conecte.
-
 
 ## <a name="request-access-tokens-from-azure-ad"></a>Solicitar tokens de acesso do Azure AD
 
@@ -287,7 +279,7 @@ resource=https%3A%2F%2Fmanage.office.com&amp;client_id=a6099727-6b7b-482c-b509-1
 
 <br/>
 
-O corpo da resposta incluirá várias propriedades, inclusive o token de acesso. 
+O corpo da resposta incluirá várias propriedades, inclusive o token de acesso.
 
 #### <a name="sample-response"></a>Resposta de amostra
 
@@ -334,7 +326,7 @@ O token de acesso retornado é um token JWT que inclui informações sobre o adm
 
 Depois que a ID do locatário é conhecida, seu aplicativo pode fazer chamadas de serviço a serviço ao Azure AD para solicitar tokens de acesso adicionais à medida que eles expiram. Esses tokens incluem informações apenas sobre o aplicativo solicitante e não sobre o administrador que originalmente deu o consentimento. Chamadas de serviço a serviço requerem que seu aplicativo use um certificado X.509 para criar uma declaração de cliente na forma de um token de portador JWT assinado em SHA256 codificado em base64.
 
-Quando desenvolve seu aplicativo no .NET, você pode usar a [Biblioteca de Autenticação do Azure AD (ADAL)](/azure/active-directory/develop/active-directory-authentication-libraries) para criar declarações de clientes. Outras plataformas de desenvolvimento devem ter bibliotecas semelhantes.
+Quando você estiver desenvolvendo su aplicativo em.NET, você poderá usar a [Biblioteca de Autenticação do Microsoft Azure AD (ADAL)](/azure/active-directory/develop/active-directory-authentication-libraries) para criar declarações de cliente. Outras plataformas de desenvolvimento devem ter bibliotecas semelhantes.
 
 Um token JWT não codificado consiste em um cabeçalho e o conteúdo com as seguintes propriedades.
 
@@ -449,11 +441,11 @@ Agora que você registrou o aplicativo no Azure AD e o configurou com as permiss
 
 - **A experiência de consentimento**. Para obter o consentimento dos clientes, você deve direcioná-los em um navegador para o site do Azure AD, usando a URL especialmente criada descrita anteriormente, e você deve ter um site para o qual o Azure AD redirecionará o administrador assim que der o consentimento. Este site deve extrair o código de autorização da URL e usá-lo para solicitar um token de acesso do qual possa obter a ID do locatário.
     
-- **Armazenamento da ID do locatário em seu sistema**. Isso será necessário ao solicitar tokens de acesso do Azure AD e ao chamar as APIs de Gerenciamento do Office.
+- **Armazenamento da ID do locatário no seu sistema**. Isso será necessário ao solicitar tokens de acesso do Microsoft Azure AD e ao chamar as APIs de Gerenciamento do Office.
     
-- **Gerenciamento dos tokens de acesso**. Você precisará de um componente que solicite e gerencie os tokens de acesso conforme necessário. Se seu aplicativo chamar as APIs periodicamente, ele poderá solicitar tokens sob demanda ou, se chamar as APIs continuamente para recuperar dados, poderá solicitar tokens em intervalos regulares (por exemplo, a cada 45 minutos).
+- **Gerenciamento de tokens de acesso**. Você precisará de um componente que solicite e gerencie os tokens de acesso conforme necessário. Se o aplicativo chamar as APIs periodicamente, ele poderá solicitar tokens sob demanda ou, se chamar as APIs continuamente para recuperar dados, poderá solicitar tokens em intervalos regulares (por exemplo, a cada 45 minutos).
     
 - **Implementar um ouvinte de webhook** conforme necessário pela API específica que você está usando.
     
-- **Recuperação e armazenamento de dados**. Você precisará de um componente que recupere dados para cada locatário, usando a pesquisa contínua ou em resposta às notificações do webhook, dependendo da API específica que estiver usando.
+- **Recuperação e armazenamento de dados**. Você precisará de um componente que recupere os dados de cada locatário, usando sondagem contínua ou em resposta a notificações do webhook, dependendo da API específica que você está usando.
     
